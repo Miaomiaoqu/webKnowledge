@@ -30,11 +30,12 @@
   function heapSort(arr) {
       buildMaxHeap(arr);
       let len = arr.length
-      for (var i = arr.length - 1; i > 0; i--) {
-          [arr[0],arr[i]] = [arr[i],arr[0]]
-          len--;
+      while(len>1){
+          len--
+          [arr[0],arr[len]] = [arr[len],arr[0]]
           maxHeapify(arr,len,0);
       }
+
   }
   var arr1 = [8,6,4,3,3,0,-2,-9]
   heapSort(arr1)
