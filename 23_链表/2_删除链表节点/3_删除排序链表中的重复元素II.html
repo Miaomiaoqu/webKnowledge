@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    给定一个排序链表，删除所有含有重复数字的节点，只保留原始链表中 没有重复出现 的数字。
+    示例 1:
+    输入: 1->2->3->3->4->4->5
+    输出: 1->2->5
+
+    示例 2:
+    输入: 1->1->1->2->3
+    输出: 2->3
+    */
+    //需要创建头结点，防止删除的节点的头结点
+    //设定两个指针pre和cur,要让 pre 在 cur 的前面，通过判断 cur.val == cur.next.val判断重复元素是否存在。
+    //如果存在重复元素的话，我们pre.next=cur.next;cur=cur.next，如果不存在重复元素，我们pre=cur;cur=cur.next，所以这里我们要通过一个变量标记是否存在重复元素。
+    //需要设置标志位表示之前是否进行过删除重复元素操作
+
+    //我们始终
+    let deleteDuplicates = function(head) {
+        let dummy = new ListNode(-1)
+        dummy.next = head
+        let pre = dummy, cur = head
+        while(cur){
+            let isDup = false
+            while(cur&&cur.next&&cur.val===cur.next.val){
+                isDup = true
+                cur.next = cur.next.next
+            }
+            if(isDup) {
+                pre.next = cur.next   //cur.next:非重复节点，pre和cur.next之间的重复元素全部删除(不包括pre、cur.next节点)
+                cur = pre.next        //删除重复元素操作之后的当前节点cur
+            } else {
+                pre =cur
+                cur = cur.next  //未进行删除重复元素操作之后的当前节点
+            }
+        }
+        return dummy.next
+    }
+</script>
+</body>
+</html>

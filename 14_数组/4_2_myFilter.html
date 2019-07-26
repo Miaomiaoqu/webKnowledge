@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+</head>
+<body>
+<script>
+    Array.prototype.myFilter = function(callback,thisArg){
+        var arr = [];
+        if(typeof callback ==="function"){
+            for(var i=0,len=this.length;i<len;i++){
+                 /*if(callback.call(thisArg,this[i],i,this)){
+                     arr.push(this[i])
+                 }*/
+                callback.call(thisArg,this[i],i,this)&&arr.push(this[i]);
+            }
+        }
+        return arr;
+    }
+    var testArr = [1,2,3,4];
+    var resArr = testArr.myFilter(function(item){
+        return item % 2 === 0
+    })
+    console.log(resArr);
+</script>
+</body>
+</html>

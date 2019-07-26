@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分割链表</title>
+</head>
+<body>
+<script>
+    /*
+    给定一个链表和一个特定值 x，对链表进行分隔，使得所有小于 x 的节点都在大于或等于 x 的节点之前。
+    你应当保留两个分区中每个节点的初始相对位置。
+    示例:
+      输入: head = 1->4->3->2->5->2, x = 3
+      输出: 1->2->2->4->3->5
+    */
+    //新建两个链表，再合并
+    let partition = function(head, x) {
+        let head1 = new ListNode(-1),head2 = new ListNode(-1);
+        let cur = head;
+        let cur1 = head1, cur2 = head2; //谨记需要将头节点赋给另一个变量，这样头节点不变，依次往下插入节点
+        while(cur){//不为null时
+            if(cur.val<x){
+                cur1.next = cur;
+                cur1 = cur1.next
+            }else{
+                cur2.next = cur;
+                cur2 = cur2.next;
+            }
+            cur = cur.next;
+        }
+        cur1.next =head2.next;
+        cur2.next = null;
+        return head1.next;
+    };
+</script>
+</body>
+</html>

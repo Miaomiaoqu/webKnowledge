@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c4576862-fa3b-4bea-afee-bcfffa6a403f" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/13_函数/0_rest.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03_动画/transition1.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03_动画/transition2.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03_动画/animation.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="380">
+              <caret line="23" column="44" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03_动画/animation5.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/localStorage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03_动画/animation4.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-448" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03_动画/animation3.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03_动画/animation2.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/03_动画/transform.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>eventp</find>
+      <find>eventpool</find>
+      <find>event</find>
+      <find>test9</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/22_树/2_深度遍历/3_后序遍历.html" />
+        <option value="$PROJECT_DIR$/22_树/2_深度遍历/2_中序遍历.html" />
+        <option value="$PROJECT_DIR$/22_树/2_深度遍历/1_前序遍历.html" />
+        <option value="$PROJECT_DIR$/22_树/3_构建二叉树/1_前序和中序构建.html" />
+        <option value="$PROJECT_DIR$/22_树/3_构建二叉树/2_后序和中序构建.html" />
+        <option value="$PROJECT_DIR$/22_树/4_对称、相同、平衡二叉树/对称二叉树.html" />
+        <option value="$PROJECT_DIR$/22_树/4_对称、相同、平衡二叉树/2_相同树.html" />
+        <option value="$PROJECT_DIR$/22_树/4_对称、相同、平衡二叉树/3_平衡二叉树.html" />
+        <option value="$PROJECT_DIR$/22_树/4_树的深度问题/1_树的最小深度.html" />
+        <option value="$PROJECT_DIR$/22_树/4_树的深度问题/1_树的最大深度.html" />
+        <option value="$PROJECT_DIR$/22_树/6_树的路径和/1_路径和.html" />
+        <option value="$PROJECT_DIR$/22_树/6_树的路径和/2_路径和2.html" />
+        <option value="$PROJECT_DIR$/22_树/7_构建二叉树种类数/1_构建二叉树种类个数.html" />
+        <option value="$PROJECT_DIR$/22_树/7_构建二叉树种类数/2_验证是否是二叉搜索树.html" />
+        <option value="$PROJECT_DIR$/22_树/7_二叉搜索树/2_验证是否是二叉搜索树.html" />
+        <option value="$PROJECT_DIR$/22_树/8_右视图/1_树的右视图.html" />
+        <option value="$PROJECT_DIR$/22_树/6_树的路径和/3_根到叶节点之和.html" />
+        <option value="$PROJECT_DIR$/23_链表/1_反转链表/1_反转链表1.html" />
+        <option value="$PROJECT_DIR$/23_链表/1_反转链表/1_从头到尾反转链表.html" />
+        <option value="$PROJECT_DIR$/23_链表/2_删除链表节点/1_删除链表的倒数第N个节点.html" />
+        <option value="$PROJECT_DIR$/23_链表/2_删除链表节点/2_删除排序链表中的重复元素.html" />
+        <option value="$PROJECT_DIR$/23_链表/2_删除链表节点/3_删除排序链表中的重复元素II.html" />
+        <option value="$PROJECT_DIR$/23_链表/3_合并链表/1_ 合并两个有序链表.html" />
+        <option value="$PROJECT_DIR$/23_链表/0_创建链表节点.html" />
+        <option value="$PROJECT_DIR$/23_链表/4_有环链表/1_判断链表是否有环.html" />
+        <option value="$PROJECT_DIR$/23_链表/4_有环链表/2_判断环的入口节点.html" />
+        <option value="$PROJECT_DIR$/23_链表/4_有环链表/3_判断两链表是否有焦点.html" />
+        <option value="$PROJECT_DIR$/23_链表/4_有环链表/3_判断两链表是否有交点.html" />
+        <option value="$PROJECT_DIR$/23_链表/5_交换链表节点/1_两两交换链表中的节点.html" />
+        <option value="$PROJECT_DIR$/23_链表/6_旋转链表/1_将节点向右移动k个位置.html" />
+        <option value="$PROJECT_DIR$/23_链表/1_反转链表/2_从指定位置反转链表.html" />
+        <option value="$PROJECT_DIR$/23_链表/3_分割与合并链表/2_依据某值分割链表.html" />
+        <option value="$PROJECT_DIR$/24_排序算法/1_非原地排序.html" />
+        <option value="$PROJECT_DIR$/24_排序算法/2_非原地排序.html" />
+        <option value="$PROJECT_DIR$/00_编程题/03_debounce防抖.html" />
+        <option value="$PROJECT_DIR$/24_排序算法/2_原地排序.html" />
+        <option value="$PROJECT_DIR$/24_排序算法/1_2_原地快速排序.html" />
+        <option value="$PROJECT_DIR$/24_排序算法/2_堆排序.html" />
+        <option value="$PROJECT_DIR$/24_排序算法/3_归并排序.html" />
+        <option value="$PROJECT_DIR$/24_排序算法/4_插入排序.html" />
+        <option value="$PROJECT_DIR$/24_排序算法/5_选择排序.html" />
+        <option value="$PROJECT_DIR$/24_排序算法/6_冒泡排序.html" />
+        <option value="$PROJECT_DIR$/24_排序算法/1_2_快速排序（原地）.html" />
+        <option value="$PROJECT_DIR$/22_树/7_二叉搜索树/3_将有序数组转换为二叉树.html" />
+        <option value="$PROJECT_DIR$/22_树/7_二叉搜索树/4_将有序链表转换成二叉搜索树.html" />
+        <option value="$PROJECT_DIR$/22_树/7_二叉搜索树/4_将有序链表转换成平衡二叉搜索树.html" />
+        <option value="$PROJECT_DIR$/23_链表/7_将二叉树展开为链表.html" />
+        <option value="$PROJECT_DIR$/23_链表/1_反转链表/3_k个一组反转链表.html" />
+        <option value="$PROJECT_DIR$/shangchuan.html" />
+        <option value="$PROJECT_DIR$/03_动画/animation5.html" />
+        <option value="$PROJECT_DIR$/localStorage.html" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-5" />
+    <option name="y" value="88" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="00_编程题" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="03_动画" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="04_flex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="05_BFC" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="06_float" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="07_margin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="08_position定位" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="12_对象" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="12_对象" type="462c0819:PsiDirectoryNode" />
+              <item name="对象创建模式" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="12_对象" type="462c0819:PsiDirectoryNode" />
+              <item name="对象继承" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="13_函数" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="14_数组" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="14_闭包" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="15_定时器" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="interview" type="b2602c69:ProjectViewProjectNode" />
+              <item name="interview" type="462c0819:PsiDirectoryNode" />
+              <item name="16_Dom" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../尚硅谷css3/代码&amp;课件" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.JavaScript" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\web资料\interview\22_树\4_树的深度问题" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\web资料\interview\23_链表\2_删除链表节点" />
+      <recent name="D:\web资料\interview\22_树\4_树的深度问题" />
+      <recent name="D:\web资料\interview\04_flex" />
+      <recent name="D:\web资料\interview\14_数组" />
+      <recent name="D:\web资料\interview\00_编程题" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c4576862-fa3b-4bea-afee-bcfffa6a403f" name="Default Changelist" comment="" />
+      <created>1560581245598</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560581245598</updated>
+      <workItem from="1560581246901" duration="9679000" />
+      <workItem from="1560740869749" duration="19034000" />
+      <workItem from="1560909626241" duration="14865000" />
+      <workItem from="1561031700274" duration="33022000" />
+      <workItem from="1561445739192" duration="6640000" />
+      <workItem from="1561462375972" duration="87857000" />
+      <workItem from="1562218290013" duration="8169000" />
+      <workItem from="1562591137176" duration="53215000" />
+      <workItem from="1562844999046" duration="64000" />
+      <workItem from="1562845080984" duration="81726000" />
+      <workItem from="1563252495579" duration="12473000" />
+      <workItem from="1563276760768" duration="4006000" />
+      <workItem from="1563325850182" duration="10640000" />
+      <workItem from="1563343522246" duration="28911000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="370301000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20937912" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32956153" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20937912" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32956153" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32956153" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/23_链表/1_反转链表/3_k个一组反转链表.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1129">
+          <caret line="68" column="3" selection-start-line="68" selection-start-column="3" selection-end-line="68" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/2_删除链表节点/1_删除链表的倒数第N个节点.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/2_删除链表节点/2_删除排序链表中的重复元素.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="31" column="7" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/2_删除链表节点/3_删除排序链表中的重复元素II.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/3_分割与合并链表/1_ 合并两个有序链表.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="9" lean-forward="true" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/3_分割与合并链表/2_依据某值分割链表.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="36" column="7" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/4_有环链表/1_判断链表是否有环.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="38" column="7" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/4_有环链表/2_判断环的入口节点.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="7" lean-forward="true" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/4_有环链表/3_判断两链表是否有交点.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="54" column="7" lean-forward="true" selection-start-line="54" selection-start-column="7" selection-end-line="54" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/5_交换链表节点/1_两两交换链表中的节点.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="42" column="9" lean-forward="true" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/6_旋转链表/1_将节点向右移动k个位置.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="45" column="7" lean-forward="true" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/23_链表/7_将二叉树展开为链表.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="26" lean-forward="true" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/24_排序算法/6_冒泡排序.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/24_排序算法/5_选择排序.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/24_排序算法/4_插入排序.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="31" column="7" lean-forward="true" selection-start-line="31" selection-start-column="7" selection-end-line="31" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/24_排序算法/3_归并排序.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="35" column="7" lean-forward="true" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/24_排序算法/2_堆排序.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="43" column="7" lean-forward="true" selection-start-line="43" selection-start-column="7" selection-end-line="43" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/24_排序算法/1_2_快速排序（原地）.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="49" column="7" lean-forward="true" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shangchuan.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-983">
+          <caret line="242" column="27" lean-forward="true" selection-start-line="242" selection-start-column="27" selection-end-line="242" selection-end-column="27" />
+          <folding>
+            <element signature="n#style#0;n#fieldset#0;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#1;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#blockquote#0;n#div#1;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#2;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ins#0;n#div#2;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#3;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#4;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#5;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#6;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#7;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#fieldset#8;n#body#0;n#html#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/24_排序算法/1_1_快速排序（非原地）.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/1_层次遍历/1_层次遍历.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-600" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/2_深度遍历/1_前序遍历.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-285" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/2_深度遍历/2_中序遍历.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-372" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/2_深度遍历/3_后序遍历.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-277" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/3_构建二叉树/1_前序和中序构建.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-581" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/3_构建二叉树/2_后序和中序构建.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="7" column="8" lean-forward="true" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/4_对称、相同二叉树/1_对称二叉树.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/4_对称、相同二叉树/2_相同树.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/5_树的深度问题/1_树的最大深度.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-429" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/5_树的深度问题/1_树的最小深度.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-627" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/5_树的深度问题/3_平衡二叉树.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="52" column="7" lean-forward="true" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/6_树的路径和/1_路径和.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/6_树的路径和/2_路径和2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-114" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/6_树的路径和/3_根到叶节点之和.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/7_二叉搜索树/1_构建搜索二叉树种类个数.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-171" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/7_二叉搜索树/2_验证是否是二叉搜索树.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="48" column="7" lean-forward="true" selection-start-line="48" selection-start-column="7" selection-end-line="48" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/7_二叉搜索树/3_将有序数组转换为平衡二叉搜索树.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="7" selection-start-line="26" selection-start-column="7" selection-end-line="26" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/7_二叉搜索树/4_将有序链表转换成平衡二叉搜索树.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22_树/8_右视图/1_树的右视图.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-228" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/00_编程题/03_debounce防抖.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="55" column="9" lean-forward="true" selection-start-line="55" selection-start-column="9" selection-end-line="55" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/00_编程题/04_throttle 节流.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="51" column="5" lean-forward="true" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/13_函数/0_rest.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="24" lean-forward="true" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03_动画/transform.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03_动画/transition1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03_动画/transition2.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03_动画/animation4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-448" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03_动画/animation2.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03_动画/animation3.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03_动画/animation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="23" column="44" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/03_动画/animation5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localStorage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

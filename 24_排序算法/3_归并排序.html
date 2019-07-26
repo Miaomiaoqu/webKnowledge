@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>归并排序</title>
+</head>
+<body>
+<script>
+    /*
+    归并排序采用的是分治的思想，
+    首先是“分”，将一个数组反复二分为两个小数组，直到每个数组只有一个元素；
+    其次是“治”，从最小数组开始，两两按大小顺序合并，直到并为原始数组大小
+    */
+    function mergeSort(arr){
+        if(arr.length === 1) return arr
+        let mid = Math.floor(arr.length/2)
+        let left = arr.slice(0,mid),right = arr.slice(mid)
+        return merge(mergeSort(left),mergeSort(right))
+    }
+    function merge(left,right){
+        let res = [];
+        while(left.length>0&&right.length>0){
+            if(left[0]<=right[0]){
+                res.push(left.shift())
+            }else{
+                res.push(right.shift())
+            }
+        }
+        return res.concat(left).concat(right);// 当左右数组长度不等.将比较完后剩下的数组项连接起来即可
+    }
+    let arr1 = [8,1,4,5,3,0,-2,-9]
+    let arr= mergeSort(arr1)  //非原地排序
+    console.log(arr)
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>冒泡排序</title>
+</head>
+<body>
+<script>
+    //时间复杂度，看代码执行多少次
+    /*基本思想：
+    1）在排序过程，相当于将数列分成无序部分和有序部分，一开始整个数列为无序部分
+    2）不断地遍历无序部分，比较相邻元素，如果前一个比后一个大，则交换位置，
+       每次遍历把无序部分最大的元素放到最后，这样就形成了前一部分为无序，后一部分为有序，
+    3）重复以上步骤，直到整个数列有序。*/
+    //添加一个标志位就可以使冒泡一趟排序后若没有发生交换（证明已有序）则退出，从而只比较了n-1次。
+    function bubbleSort(arr){
+        let len = arr.length
+        for(let i=0;i<len;i++){
+            let doSwap = false
+            for(let j=0;j<len-i-1;j++){
+                if(arr[j]>arr[j+1]){
+                    [arr[j],arr[j+1]]=[arr[j+1],arr[j]]
+                    doSwap = true;
+                }
+            }
+            if(doSwap === false) return;
+        }
+    }
+    let arr1 = [8,1,4,5,3,0,-2,-9]
+    bubbleSort(arr1)
+    console.log(arr1)
+</script>
+</body>
+</html>

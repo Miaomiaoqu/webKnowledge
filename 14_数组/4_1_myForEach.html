@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>forEach</title>
+</head>
+<body>
+<script>
+    var arr = [1,2,3,4]
+    /*arr.forEach(function(item){
+        console.log(item);
+        console.log(this);  //window
+    })*/
+
+ /*   arr.method( function (value, index, arr) {
+        // value : 必选，当前元素
+        // index : 可选，当前元素索引值
+        // arr : 可选，当前数组
+        // thisValue : 可选，替换当前的this指向
+
+    },thisValue)*/
+    Array.prototype.myForEach = function(callback,thisArg){
+            if(typeof callback === "function"){
+                for(var i=0,len = this.length;i<len;i++){//myForEach中的this指的时调用该方法的数组，thisArg指的是回调函数中的this指向
+                    callback.call(thisArg,this[i],i,this);//在call中，如果thisArg不传，this指向为window
+                }
+            }
+    }
+    arr.myForEach(function(item,idx,arr){
+        console.log(item);
+        console.log(idx)
+        console.log(arr)
+        console.log(this);  //window
+
+    })
+</script>
+</body>
+</html>

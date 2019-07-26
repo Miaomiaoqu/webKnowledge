@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*声明动画*/
+        @keyframes scroll {
+            0%{
+                /*background-color:green ;*/
+                transform: translate(0px) rotate(0deg);
+            }
+            100%{
+                background-color: deeppink;
+                transform: translate(200px) rotate(360deg);
+            }
+        }
+        #test{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: red;
+            animation: scroll 2s linear infinite alternate;
+            /*animation-fill-mode: forwards;*/
+        }
+
+      #test:hover{
+          animation-play-state: paused;
+      }
+    </style>
+</head>
+<body>
+<!--在网页加载时，调用 scroll 03_动画，执行一个周期的时长是3s，匀速执行，并且反复执行-->
+<div id="test">
+
+</div>
+</body>
+</html>

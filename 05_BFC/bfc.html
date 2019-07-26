@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .parent{
+        min-height: 50px;
+        border: 2px solid red;
+        /*下面两个父元素的宽度为body的100%*/
+        /*display: flow-root;*/
+        /*overflow: hidden;*/
+        /*下面父元素的宽度都由子元素撑开，相当于行内块*/
+        /*display: inline-block;*/
+        /*display: table-caption;*/
+        /*display: table-cell;*/
+        /*06_float: left;*/
+        /*position: absolute;*/
+        /*position: fixed;*/
+    }
+    .child{
+        height: 100px;
+        /*因为其浮动原因，必须设置宽度*/
+        width: 400px;
+        background-color: #ff6200;
+        float: left;
+    }
+</style>
+<body>
+<div class="parent">
+    <div class="child">
+
+    </div>
+</div>
+</body>
+</html>

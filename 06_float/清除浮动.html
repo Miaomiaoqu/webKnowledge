@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*若浮动元素上面是块元素，不会覆盖上面的块元素*/
+          .item1{
+              height: 100px;
+              width: 100px;
+              background: #ff6200;
+              float: left;
+          }
+        /*浮动元素从父元素内容区开始*/
+       /* .item2{
+            width: 300px;
+            height: 100px;
+            background: darkmagenta;
+            !*clear: both;*!
+            clear: right;
+        }*/
+        /*清除浮动对内联元素不起作用*/
+       /* span{
+            clear: left;
+        }*/
+    </style>
+</head>
+<body>
+<div class="item1"></div>
+<span>1234</span>
+<div class="item2"></div>
+</body>
+</html>

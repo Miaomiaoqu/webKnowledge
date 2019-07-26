@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this指向</title>
+</head>
+<body>
+<script>
+     /*
+      函数的上下文对象:this 指向的是函数执行的上下文对象,谁调用这个函数或方法,this关键字就指向谁。
+       1.以普通函数的形式调用(独立调用)时，this永远都是window     ----->默认绑定
+       2.以函数的方法的形式调用时，this是调用该方法的对象 ----->隐式绑定，注意隐式丢失
+       3.以构造函数的形式调用时，this是新创建的那个实例对象---->new绑定
+       4.使用call和apply调用时，this是指定的那个对象（指call和apply方法中传入的对象）--->显示绑定
+       */
+
+     let a = {
+         b: function() {
+             console.log(this)
+         },
+         c: () => {console.log(this)}
+     }
+
+     a.b()  //this:a
+     a.c()  //this:window
+
+     let d = a.b      //给函数起了别名
+     d()  //this:window
+
+
+     //1.独立调用的情况
+       //1.1函数独立调用时，this默认绑定到window
+             function foo(){
+                 console.log(this );
+             }
+             foo(); //window
+       //1.2被嵌套的函数独立调用时，this默认绑定到window
+          //虽然test()函数被嵌套在obj.foo()函数中，但test()函数是独立调用，而不是方法调用。所以this默认绑定到window
+             var a = 0;
+             var obj = {
+                 a : 2,
+                 foo:function(){
+                     function test(){
+                         console.log(this.a);
+                     }
+                     test();
+                 }
+             }
+             obj.foo();//0,this:window
+
+       //1.3IIFE立即执行函数实际上是函数声明后直接调用执行,this为window
+             var a = 0;
+             function foo(){
+                 (function test(){
+                     console.log(this.a);   //this指向window
+                 })()
+             }
+             var obj = {
+                 a : 2,
+                 foo:foo
+             }
+             obj.foo();//0,this:window
+
+       //1.4闭包中内部函数的this默认指向window对象
+             var a = 0;
+             function foo(){
+                 function test(){//其实没有引用外部函数变量，不算闭包，但是这里的a是window
+                     console.log(this.a);
+                 }
+                 return test;
+             }
+             var obj = {
+                 a : 2,
+                 foo:foo
+             }
+            obj.foo()();//0
+
+
+
+     //2.隐式绑定
+     //2.1隐式绑定的this丢失的两种情况
+       //1.主动赋值丢失 (本质相当于为函数起了别名)，本质是将函数的引用暴露在全局作用域下
+         var baz = {
+             a: 2,
+             foo: function() {
+                 console.log(this);
+             }
+         }
+         var bar = baz.foo;   // 主动赋值 ** 不是主动执行 ** （只是地址的一次引用）
+         bar();               //  this:window
+
+       //2.函数传参丢失，也叫回调函数丢失,即将函数作为参数传递，函数传参也是一种隐式的赋值操作
+
+         var baz = {
+             a: 2,
+             foo: function() {
+                 console.log(this);
+             }
+         }
+         var bar = baz.foo;      //这里其实不是绑定，只是一次地址的引用(函数也是一个对象 )
+         setTimeout(bar, 100);       // this:window，函数传参(回调函数) 丢失绑定
+
+
+       //以上this丢失，本质都是进行了对函数地址的引用, 将函数的上下文环境改变了
+</script>
+</body>
+</html>

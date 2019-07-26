@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插入排序</title>
+</head>
+<body>
+<script>
+   /* 基本思想：工作原理就是将未排序数据，对已排序数据序列从后向前扫描
+    1）排序过程中，相当于把数列分为有序和无序部分，一开始把第一个元素看为有序部分，剩下的为无序部分。
+    2）每次从无序部分拿出第一个元素，然后从后向前扫描有序部分，
+    3）直到找到小于或等于该元素的位置，该位置后面的元素依次往后移一位，在该位置后面插入该元素。
+    4）重复以上步骤直到全部变为有序
+    */
+   function insertSort(arr) {
+       let len = arr.length
+       for(let i=1;i<len;i++){
+           let temp = arr[i],j =i-1
+           while(j>=0&&arr[j]>temp){
+               arr[j+1]=arr[j]
+               j--
+           }
+           arr[j+1]=temp
+       }
+       //return arr  //原地排序，可以不返回
+   }
+   let arr1 = [8,1,4,5,3,0,-2,-9]
+   insertSort(arr1)
+   console.log(arr1)
+</script>
+</body>
+</html>

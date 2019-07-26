@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*谨记：
+          浮动元素会变成行内块，在不设置宽高的情况下会，会默认由内容撑开，
+          若无内容撑开，则不显示*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .clearfix{
+            zoom:1;
+        }
+        .container{
+            /*border: 2px solid red;*/
+            padding: 0 200px;
+        }
+        .left,.middle,.right{
+            height: 100px;
+            float: left;
+        }
+        .middle{
+            width: 100%;
+            background: darkcyan;
+        }
+        .left{
+            width: 200px;
+            background: #ff6200;
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+        }
+        .right{
+            width: 200px;
+            background: blue;
+            margin-left: -200px;
+            position: relative;
+            right: -200px;
+        }
+    </style>
+</head>
+<body>
+<div class="container clearfix">
+    <div class="middle">middle</div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+</div>
+</body>
+</html>

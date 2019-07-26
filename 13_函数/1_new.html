@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function New(func,...value){
+        let obj = {};
+        if(func.prototype!=null){
+            obj.__proto__=func.prototype;
+        }
+        let rets = func.apply(obj,value);    //new的过程需要调用构造函数
+        if((typeof rets == "object" || typeof rets =="function")&& rets!=="null"){
+            return rets
+        }
+        return obj
+    }
+
+    function Person(name,age){
+        this.name = name;
+        this.age = age;
+        /*return {
+            name:"hh",
+            age:25
+        }*/
+    }
+    var per1 = New(Person,"mm","25");
+    console.log(per1);
+    var per2= New(Person);
+    console.log(per2);
+</script>
+</body>
+</html>

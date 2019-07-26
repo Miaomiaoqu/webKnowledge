@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<span class="q" name="collect">子节点1</span>
+<span class="q" name="collect">子节点2</span>
+<span class="q" name="collect">子节点3</span>
+<span id="c">子节点4</span>
+
+<script>
+    var elesQuery = document.querySelectorAll(".q");
+    console.log(elesQuery);
+    var elesHtml = document.getElementsByName("collect")
+    console.log(elesHtml)
+    var ele =document.getElementById("c");
+    console.log(ele);
+    console.log(document.html);
+    console.log(ele.children);  //length为0的伪数组
+
+    /*
+
+ creates this tree
+ one
+ ├── two
+ │   ├── five
+ │   └── six
+ ├── three
+ └── four
+     └── seven
+*/
+    function Node(data){
+        this.data = data;
+        this.parent = null;
+        this.children = [ ];
+    }
+
+    function Tree(data){
+        this._root = new Node(data);
+    }
+    var tree = new Tree('one');
+
+    tree._root.children.push(new Node('two'));
+    tree._root.children[0].parent = tree;
+
+    tree._root.children.push(new Node('three'));
+    tree._root.children[1].parent = tree;
+
+    tree._root.children.push(new Node('four'));
+    tree._root.children[2].parent = tree;
+
+    tree._root.children[0].children.push(new Node('five'));
+    tree._root.children[0].children[0].parent = tree._root.children[0];
+
+    tree._root.children[0].children.push(new Node('six'));
+    tree._root.children[0].children[1].parent = tree._root.children[0];
+
+    tree._root.children[2].children.push(new Node('seven'));
+    tree._root.children[2].children[0].parent = tree._root.children[2];
+    console.log(tree._root)
+</script>
+</body>
+</html>

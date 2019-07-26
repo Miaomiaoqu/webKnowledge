@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代码执行顺序</title>
+</head>
+<body>
+<script>
+    //Promise最重要的两个方法，resolve方法可以让Promise对象的状态变为成功，reject是失败
+    //then()方法的作用是为Promise实例添加成功和失败状态的回调函数。
+    //当promise状态发生变化，会调用then中相应的回调函数
+    //then默认返回的promise状态就是resolved
+    console.log('begin');
+    setTimeout(() => {
+        console.log('setTimeout 1');
+        Promise.resolve()   //只有在执行Promise的某状态的情况下
+            .then(() => {
+                console.log('promise 1');
+                setTimeout(() => {
+                    console.log('setTimeout2');
+                });
+            })
+            .then(() => {//在b之后输出
+                console.log('promise 2');
+            });
+        new Promise(resolve => {
+            console.log('a');
+            resolve();
+        }).then(() => {
+            console.log('b');
+        });
+    }, 0);
+    console.log('end');
+
+    //begin
+    //end
+    //setTimeout 1
+    //a
+    //promise 1
+    //b
+    //promise 2
+    //setTimeout2
+</script>
+</body>
+</html>

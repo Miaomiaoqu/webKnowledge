@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="list">
+    <li>1111</li>
+    <li>222</li>
+    <li>333</li>
+</ul>
+<script>
+    var ul = document.getElementById("list");
+    ul.addEventListener("click",function(e){
+        //console.log(this);             //ul
+        //console.log(e.currentTarget)   //ul
+        //console.log(e.target)         //触发事件的li
+
+    },false)
+</script>
+</body>
+</html>

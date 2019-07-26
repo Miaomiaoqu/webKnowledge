@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将二叉树展开为链表</title>
+</head>
+<body>
+<script>
+    /*思路：
+    *  1、首先对空指针应该直接返回。
+       2、递归将左子树展开为链表
+       3、递归将右子树展开为链表
+       4、暂存右子树，将左子树链接到根节点的右节点上，切记左孩子要置空！
+       5、找到当前树的最右节点，将刚才暂存的右子树链接到右节点上
+    * */
+    var flatten = function(root) {
+        if(!root) return;
+        if(root.left) flatten(root.left);
+        if(root.right) flatten(root.right);
+        let temp = root.right;
+        root.right = root.left;
+        root.left = null;
+        while(root.right) {
+            root = root.right;
+        }
+        root.right = temp;
+    };
+</script>
+</body>
+</html>

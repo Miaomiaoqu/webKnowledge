@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr =[1,2,"oo",25,{name:"hh"},[1,2],"红楼梦"];
+    console.log(arr.indexOf(1))    //0
+    console.log(arr.indexOf("1"))  //-1
+    console.log(arr.indexOf("oo")) //2
+    console.log(arr.indexOf({name:"hh"})) //-1  不适用于对象
+    console.log(arr.indexOf([1,2])) //-1  不适用于对象
+    console.log(typeof arr[4]) //2
+    var newArr = arr.concat("单个元素");
+    //var newArr = arr.concat([1,2],[3,4]);
+    console.log(newArr)
+    console.log(newArr.entries());
+</script>
+</body>
+</html>

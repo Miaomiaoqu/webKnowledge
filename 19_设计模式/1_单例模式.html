@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单例模式</title>
+</head>
+<body>
+<script>
+   /* 什么是设计模式：
+       模式是对某情景下，针对某种问题的某种解决方案。
+       而一个设计模式是用来解决一个经常出现的设计问题的经验方法。
+       这么说来，每个模式都可能有着自己的意图，应用场景，使用方法和使用后果。*/
+  /* 单例模式：确保一个类只有一个实例，并提供一个全局访问点。
+     应用场景：用于创建独一无二的，只能有一个实例的对象，如全局的用户信息对象(一旦创建可以在多处使用,且只能有一个)
+   */
+
+   //立即调用函数
+   (function(){
+       let instance = null;
+       function Singleton(name,age){
+           if(instance){
+               return instance;
+           }
+           instance = this;
+           instance.name = name;
+           instance.age = age;
+           return instance
+       }
+       window.Singleton= Singleton
+   })(window)
+
+    var s1=new Singleton("oo",25)
+    var s2=new Singleton("hh",25)
+   console.log(s2); //Singleton {name: "oo", age: 25}
+    console.log(s1===s2)
+
+
+    //惰性函数单例
+    function Singleton2(name,age){
+        let instance = this;
+        instance.name = name;
+        instance.age = age;
+        Singleton2 = function(){//箭头函数不能用于构造函数，所以这里不能用箭头函数，还要注意箭头函数可能会改变this指向
+            return instance
+        }
+    }
+
+   var s21=new Singleton2("oo",25)
+   var s22=new Singleton2("hh",25)
+   console.log(s22); //Singleton {name: "oo", age: 25}
+   console.log(s21===s22)
+</script>
+</body>
+</html>

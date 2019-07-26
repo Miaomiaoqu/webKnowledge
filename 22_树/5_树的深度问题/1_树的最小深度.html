@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>树的最大深度</title>
+</head>
+<body>
+<script>
+ /*   给定一个二叉树，找出其最小深度。
+     最小深度是从根节点到最近叶子节点的最短路径上的节点数量。   //谨记：节点数量
+    说明: 叶子节点是指没有子节点的节点。
+    示例:
+        给定二叉树 [3,9,20,null,null,15,7],
+             3
+            / \
+           9  20
+             /  \
+            15   7
+      返回它的最小深度2.
+   */
+   /*与求最大深度的不同点：
+     最小深度一定要经过叶子节点。
+     如果左右子树至少一个为空，则至少一条子路的深度为0，不能作为最小深度的一部分（不是叶子节点）,此时不需要用Math.min,1+深度不为0的子树即可;
+     如果左右子树都存在，此时才用 Math.min
+     */
+
+   //递归
+     let minDepth1 = function(root) {
+         if(!root) return 0   //截止条件：叶子节点
+         let leftMin = minDepth(root.left)
+         let rightMin= minDepth(root.right)
+         if(leftMin  && rightMin ) return Math.min(leftMin ,rightMin )+1
+         return leftMin +rightMin +1
+     }
+
+     //return 关键字的作用：
+       /*
+       1. 返回数据给函数的调用者。
+       2. 函数一旦执行到了return关键字，那么该函数马上结束。 (能结束一个函数)
+       */
+     //break关键字与return关键字的区别：
+       /*
+       1.break关键字是结束一个循环。
+       2.return关键字是结束一个函数。
+       */
+
+    //迭代(层次遍历)
+ //对二叉树进行一次层序遍历，当遇到某个结点的左右结点均为空的时候，该节点肯定是层序遍历到的第一个叶子结点，此时返回记录的高度。
+
+ let minDepth2 = function(root) {
+     if(!root){
+         return 0;
+     }
+     let queue = [];
+     queue.push({node: root, depth: 1});
+     while(queue.length>0){
+         let n = queue.shift();
+         let {node, depth} = n;
+         if(!node.left && !node.right){ //当前节点为叶节点
+             return depth;
+         }
+         if(node.left){
+             q.push({node: node.left, depth: depth + 1});
+         }
+         if(node.right){
+             q.push({node: node.right, depth: depth + 1});
+         }
+     }
+ };
+
+
+</script>
+</body>
+</html>

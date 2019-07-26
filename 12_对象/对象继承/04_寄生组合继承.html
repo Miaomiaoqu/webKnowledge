@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Father(name){
+        this.name = name;
+        this.colors = ['red','blue']
+    }
+    Father.prototype.sayName = function () {
+        console.log(this.name);
+    }
+    function  Child(name,age) {
+        Father.call(this,name);
+        this.age = age;
+    }
+    //Child.prototype.__proto__ = Father.prototype
+    Child.prototype = Object.create(Father.prototype);
+    Child.prototype.constructor = Child;
+    var c1 = new Child("oo",25);
+    c1.colors.push("yellow");
+    console.log(c1);
+    c1.sayName();
+</script>
+</body>
+</html>

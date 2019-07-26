@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var storage=window.localStorage;
+    storage.a=1;
+    storage.setItem("c",JSON.stringify({name:'oo'}));//添加的必须是字符串，不能直接添加对象，添加对象需要进行JSON.stringify()
+    console.log(storage);
+    /*storage.removeItem("a");
+    console.log(storage.a);*/
+</script>
+</body>
+</html>

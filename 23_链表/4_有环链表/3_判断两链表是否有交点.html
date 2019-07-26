@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断焦点</title>
+</head>
+<body>
+<script>
+    //1.在访问的节点上面添加visited属性
+    let getIntersectionNode1 = function(headA, headB) {
+        let cur1 = headA ,cur2 = headB
+        while(cur1){
+            cur1.visited = true
+            cur1 = cur1.next
+    }
+        while(cur2){
+            if(cur2.visited) return cur2
+            cur2 = cur2.next
+        }
+        return null
+    }
+
+    //2.链表在数组中存储的形式
+   let getIntersectionNode2 = function(headA, headB) {
+       let tmp = [], cur = headA;
+        while(cur) {
+            tmp.push(cur)
+            cur = cur.next
+        }
+        while(headB) {
+            if(tmp.indexOf(headB) != -1) return headB
+            headB = headB.next
+        }
+        return null
+    };
+
+    //3.双指针法
+       /*
+        1.定义两个指针, 让两个指针到达末尾的节点再分别指向另一个链表的头部,再继续移动(在不等长的情况下走两轮)
+        2.最后如果相遇则为交点(在第一轮移动中恰好抹除了长度差)
+        3.两个指针等于移动了相同的距离, 有交点就返回, 无交点就是各走了两条指针的长度
+        */
+    let getIntersectionNode = function(headA, headB) {
+        let cur1 = headA,cur2 = headB
+        while(cur1 !== cur2) {
+            cur1 = cur1 ? cur1.next : headB;
+            cur2 = cur2 ? cur2.next : headA;
+        }
+        return cur1;
+    };
+    //第一轮体现在pA和pB第一次到达尾部会移向另一链表的表头
+    //第二轮体现在如果相交就返回交点, 不相交最后就是null==null
+</script>
+</body>
+</html>

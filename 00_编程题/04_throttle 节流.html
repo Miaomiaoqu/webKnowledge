@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>节流</title>
+</head>
+<body>
+<button id="throttle">点我节流！</button>
+<script>
+    /*
+    节流 throttle:在规定时间间隔内只会执行一次任务。
+    一个函数只有在大于执行周期时才执行，周期内调用不执行。好像水滴积攒到一定程度才会触发一次下落一样。
+
+    典型应用：
+      1.抢券时疯狂点击，既要限制次数，又要保证先点先发出请求
+      2.窗口调整
+      3.页面滚动
+    */
+    var myThrottle = document.getElementById("throttle");
+    myThrottle.addEventListener("click", throttle(sayThrottle));
+    function sayThrottle() {
+        console.log("节流成功！");
+    }
+    //利用时间戳实现
+        /*    function throttle(fn,time){
+                time = time || 600;
+                var prev = Date.now();
+                return function(){
+                    var context = this;
+                    var args = arguments;
+                    var now = Date.now();
+                    if(now - prev > time){
+                        fn.apply(context,args);
+                        prev = Date.now();
+                    }
+                }
+            }*/
+  //利用定时器实现,setTimeout方法
+    function throttle(fn,time){
+        time = time||2000;
+        let flag = true;
+        return function(){
+            if(!flag){
+                return;
+            }
+            flag = false;
+            setTimeout(()=>{
+               fn.apply(this,arguments);
+               flag = true;
+            },time)
+        }
+    }
+
+</script>
+</body>
+</html>

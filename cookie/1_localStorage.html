@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage</title>
+</head>
+<body>
+<script>
+    if(window.localStorage){
+        /*localStorage.setItem("userName","oo")
+        localStorage["gender"]="male";*/
+        var prodeList = localStorage.setItem("prods","{}")
+        console.log(prodeList);
+        console.log(typeof(prodeList)); //string
+        console.log(typeof(JSON.parse(prodeList))); //object
+    }
+</script>
+</body>
+</html>

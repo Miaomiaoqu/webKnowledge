@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>instanceof</title>
+</head>
+<body>
+<script>
+   /*
+     instanceof是如何判断的?
+      * 表达式: A instanceof B
+      * 判断对象A是否是构造函数B的实例对象
+      * 判断准则
+      如果B函数的显式原型对象在A对象的原型链上, 返回true, 否则返回false
+   */
+   //return:结束当前函数
+   function myIns (obj,fun){
+       var proto = obj.__proto__;
+       while(proto){
+           if(proto=== fun.prototype){
+               return true;
+           }
+           proto = proto.__proto__;
+       }
+       return false;
+   }
+    console.log(myIns([1],Array));
+    console.log(myIns([1],Object));
+    console.log(myIns([1],Function));
+</script>
+
+</body>
+</html>

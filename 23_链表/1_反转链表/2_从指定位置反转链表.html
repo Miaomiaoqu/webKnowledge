@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>从指定位置反转链表</title>
+</head>
+<body>
+<script>
+   /*
+    反转从位置 m 到 n 的链表。请使用一趟扫描完成反转。
+    说明:
+    1 ≤ m ≤ n ≤ 链表长度。   //注：头节点位置为1
+    示例:
+    输入: 1->2->3->4->5->NULL, m = 2, n = 4
+    输出: 1->4->3->2->5->NULL
+    */
+   //先设置一个头节点，来确保一些边界情况能够满足(如从第一个节点开始反转)
+   //开始反转之前定义pre cur
+   //没有新建链表
+   let reverseBetween = function(head, m, n) {
+       let dummy = new ListNode(-1)
+       dummy.next = head
+       let mPrev = dummy      //开始反转位置的前驱(前一个位置)
+       for(let i=1;i<m;i++){  //获取开始反转位置的前驱(前一个位置)
+           mPrev = mPrev.next
+       }
+       let start = pre = head  //开始反转位置
+       let cur = pre.next
+       for(let i=m;i<n;i++){
+           let temp = cur.next
+           cur.next = pre
+           pre = cur
+           cur = temp
+       }
+       mPrev.next = pre   //pre为n位置节点
+       start.next = cur   //cur为n位置的下一个位置节点
+       return dummy.next
+   }
+</script>
+</body>
+</html>

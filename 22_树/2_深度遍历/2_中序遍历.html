@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中序遍历</title>
+</head>
+<body>
+<script>
+    //非递归(迭代,栈)
+    /* 说思路:
+    1.初始栈为空，根节点进栈
+    2.进栈后，判断入栈节点是有左子节点，有则进栈，再持续判断入栈节点否有左节点(有则进站)，直到左节点为空，开始出栈操作。
+    3.若出栈节点有右节点，则右节点进栈，再持续判断入栈节点否有左节点(有则进站)，直到左节点为空，开始出栈操作。
+    4.重复步骤3直到栈为空时结束
+  */
+    var inorderTraversal1 = function(root) {
+        let res=[];
+        let arr=[];
+        arr.push(root);
+        p = root.left;
+        while (p||arr.length>0) {//两个其中一个为真，就持续操作
+            while (p) {
+                arr.push(p);
+                p = p.left;
+            }
+            p = arr.pop(); //出栈，存放出栈节点
+            res.push(p.val);
+            p = p.right;
+        }
+        return res;
+    };
+
+
+    //递归
+    var inorderTraversal2 = function(root) {
+         let res = [];
+         function inorder(node){
+             if (node !==null){
+                 inorder(node.left);
+                 res.push(node.val); //获取值是val
+                 inorder(node.right);
+             }
+         }
+         inorder(root);
+         return res;  //是return结果，而不是console.log(arr)
+    };
+</script>
+</body>
+</html>

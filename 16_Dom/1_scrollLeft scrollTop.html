@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scroll</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+            padding: 50px;
+            border: 10px solid #ff6200;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    javacsript 是通过访问 BOM 对象来访问、 控制、 修改浏览器 。BOM 的 window 包含了 document， 因此通过 window 对象的 document 属性就可以访问、 检索、 修改文档内容与结构。
+    document 对象又是 DOM 模型的根节点。 因此， BOM 包含了 DOM， 浏览器提供出来给予访问的是 BOM 对象， 从 BOM 对象再访 问到 DOM 对象， 从而 js 可以操作浏览器以及浏览器读取到的文档
+    Screen 对象包含有关客户端显示屏幕的信息。 每个 Window 对象的 screen 属性都引用一个 Screen 对象。 Screen 对象中存放着有关显示浏览器屏幕的信息。 JavaScript 程序将利用这些信息来优化它们的输出， 以达到用户的显示要求。 例如，一个程序可以根据显示器的尺寸选择使用大图像还是使用小图像，它还可以根据显示器的颜色深度选择使用 16 位色还是使用 8 位色的图形。 另外，JavaScript 程序还能根有关屏幕尺寸的信息将新的浏览器窗口定位在屏幕中间。
+</div>
+<script>
+var ele = document.getElementById("box");
+console.log(ele.scrollTop)
+console.log(ele.addEventListener)
+</script>
+</body>
+</html>

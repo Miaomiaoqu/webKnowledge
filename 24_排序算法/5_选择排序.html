@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择排序</title>
+</head>
+<body>
+<script>
+    /*基本思想：
+        1）在排序过程，将数列分成了有序部分和无序部分。
+        2）假设数据有n个，首先遍历整个数列找出最小值放到首位，也就是最小值与首位元素进行交换。
+        3）再遍历剩下的n-1个数据中的最小值放在第二位，
+        4）这样就形成了前面是有序部分，后面是无序部分，以次类推，将整个数列变为有序数列。
+      */
+     function selectionSort(arr){
+         let len = arr.length
+         for(let i=0;i<len-1;i++){//到倒数第二个即可
+             let min = i
+             for(let j=i;j<len;j++){
+                 if(arr[j]<arr[min]){
+                     min = j
+                 }
+             }
+             if(min!==i){
+                 [arr[i],arr[min]]=[arr[min],arr[i]]
+             }
+         }
+     }
+    let arr1 = [8,1,4,5,3,0,-2,-9]
+    selectionSort(arr1)
+    console.log(arr1)
+</script>
+</body>
+</html>

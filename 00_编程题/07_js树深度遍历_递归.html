@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深度遍历</title>
+</head>
+<body>
+<script>
+    /*Shift + Ctrl + Alt + J //选中同样的词
+
+    Alt + J //选中下一个同样的词*/
+    function Node(data){
+        this.data = data;
+        this.parent = null;
+        this.children = [ ];
+    }
+
+    var root = new Node('one');
+
+    root.children.push(new Node('two'));
+    root.children[0].parent = root;
+
+    root.children.push(new Node('three'));
+    root.children[1].parent = root;
+
+    root.children.push(new Node('four'));
+    root.children[2].parent = root;
+
+    root.children[0].children.push(new Node('five'));
+    root.children[0].children[0].parent = root.children[0];
+
+    root.children[0].children.push(new Node('six'));
+    root.children[0].children[1].parent = root.children[0];
+
+    root.children[2].children.push(new Node('seven'));
+    root.children[2].children[0].parent = root.children[2];
+    var res = []; //需要把rew定义到函数外面
+    function deepTraversal(node){
+        res.push(node);
+        if(node.children.length > 0){
+            var children = node.children;
+            var len =children.length;
+            for(var i=0;i<len;i++){
+                deepTraversal(children[i])
+            }
+        }
+        return res;
+    }
+    console.log(deepTraversal(root))
+</script>
+</body>
+</html>

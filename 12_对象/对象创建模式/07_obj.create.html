@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var obj ={
+        sayName:function(){
+            console.log(this.name);
+        }
+    }
+    var newObj = Object.create(obj,{
+       name:{
+           value:"oo"
+       },
+       age:{
+           value:25
+       }
+    })
+    console.log(newObj)
+    newObj.sayName();
+</script>
+</body>
+</html>

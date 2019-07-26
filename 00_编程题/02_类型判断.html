@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类型判断</title>
+</head>
+<body>
+<script>
+    /*实现一个类型判断函数
+      1、判断null
+      2、判断基本类型
+      3、使用Object.prototype.toString.call(target)来判断引用类型
+    注意：
+    一定是使用call来调用，不然是判断的Object.prototype的类型
+    之所以要先判断是否为基本类型是因为：虽然Object.prototype.toString.call()能判断出某值是：number/string/boolean，
+    但是其实在包装的时候是把他们先转成了对象然后再判断类型的。
+    但是JS中包装类型和原始类型还是有差别的，因为对一个包装类型来说，typeof的值是object*/
+    function myType(data){
+        if(data === null){
+            return "null"
+        }
+        var dataType = typeof data;
+        if(dataType !== "object" || dataType === "function"){
+            return dataType
+        }
+        if(data instanceof Array){
+            return "array"
+        }
+        return "object"
+    }
+    console.log(myType("oo"))
+    console.log(myType(123))
+    console.log(myType(true))
+    console.log(myType(undefined))
+    console.log(myType(null))
+    console.log(myType(function(){}))
+    console.log(myType([1,2,3]))
+    console.log(myType({name:"oo"}))
+
+</script>
+</body>
+</html>

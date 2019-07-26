@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。
+    示例：
+    给定一个链表: 1->2->3->4->5, 和 n = 2.
+    当删除了倒数第二个节点后，链表变为 1->2->3->5.
+    */
+    //1.首先获取链表总长度
+    //2.得出删除正着数地第几个节点
+    //3.创建头节点遍历链表，到删除节点的前一个位置改变指针方向
+    let removeNthFromEnd = function(head, n) {
+        let length = 0, node = head
+        while(node){
+            length++
+            node = node.next
+        }
+        let d = length-n+1
+        let dummy = new ListNode(-1)
+        dummy.next = head
+        let cur =dummy  //获取删除节点的前一个节点
+        for(let i=1;i<d;i++){
+            cur = cur.next
+        }
+        cur.next = cur.next.next
+        return dummy.next
+    }
+</script>
+</body>
+</html>

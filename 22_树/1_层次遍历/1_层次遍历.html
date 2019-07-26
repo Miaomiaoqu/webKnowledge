@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>层次遍历</title>
+</head>
+<body>
+<script>
+    /*
+      给定一个二叉树，返回其按层次遍历的节点值。 （即逐层地，从左到右访问所有节点）。
+        例如:
+        给定二叉树: [3,9,20,null,null,15,7],
+            3
+           / \
+          9  20
+            /  \
+           15   7
+        返回其层次遍历结果：
+        [
+          [3],
+          [9,20],
+          [15,7]
+        ]
+        */
+    //迭代
+    let levelOrder1 = function(root){
+        if(!root) return [];
+        let res = []
+        let queue = [];
+        queue.push(root);
+        while(queue.length>0){
+            let arr = [],len = queue.length;
+            for(let i=0;i<len;i++){
+                let item = queue.shift();
+                arr.push(item.val);  //不要忘了是val值
+                if(item.left)  queue.push(item.left)
+                if(item.right) queue.push(item.right)
+            }
+            res.push(arr)
+        }
+        return res
+    }
+
+    //递归
+    let levelOrder2 = function(root) {
+        if(!root) return []; //此处要返回空数组
+        let res = [];
+        let levalOrderTree = function(node,depth){
+            if(!node) return;
+            if(!res[depth]) res[depth] = [];
+            res[depth].push(node.val);
+            levalOrderTree(node.left,depth+1);
+            levalOrderTree(node.right,depth+1);
+        }
+        levalOrderTree(root,0);
+        return res;
+    };
+
+</script>
+</body>
+</html>

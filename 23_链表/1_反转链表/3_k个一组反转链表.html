@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>k个一组反转链表</title>
+</head>
+<body>
+<script>
+    /*
+    给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。
+    k 是一个正整数，它的值小于或等于链表的长度。
+    如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。
+    示例 :
+        给定这个链表：1->2->3->4->5
+        当 k = 2 时，应当返回: 2->1->4->3->5
+        当 k = 3 时，应当返回: 3->2->1->4->5
+        说明 :
+          你的算法只能使用常数的额外空间。
+          你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+    */
+
+    //每次都要修改cur,cur.next,pre的指向
+    let reverseKGroup = function(head, k) {
+        let dummy = new ListNode(-1);
+        dummy.next = head;
+        let len = 0,node = head
+        while(node) {
+            len++;
+            node= node.next;
+        }
+        let pre = dummy, cur = head
+        for(let i = 0; i < parseInt(len/k); i++) {//：在js中/不代表整除，所以得加parseInt()
+            for(let j = 0; j < k - 1; j++) {
+                let temp = cur.next;
+                cur.next = temp.next;
+                temp.next = pre.next;
+                pre.next = temp;
+            }
+            pre = cur;   //将上一组的尾节点指向下一组反转链表
+            cur = pre.next;  //使用cur遍历下一组链表
+        }
+        return dummy.next;
+    }
+    /*let reverseKGroup = function(head, k) {
+    if(head===null || head.next ===null) return head
+    let dummy = new ListNode(-1)
+    dummy.next = head
+    let len= 0,node = head
+    while(node != null) {
+        len++;
+        node = node.next;
+    }
+    let lastPrev = dummy      //开始反转位置的前驱(前一个位置)
+    let start = pre = head,cur = pre.next
+    for(let i = 0; i < parseInt(len/k); i++) {//：在js中/不代表整除，所以得加parseInt()
+        for(let j = 0; j < k - 1; j++) {
+            temp = cur.next
+            cur.next = pre
+            pre = cur
+            cur = temp
+        }
+        lastPrev.next = pre
+        start.next = cur
+        lastPrev = pre
+        start = pre = pre.next
+        cur = pre.next
+    }
+    return dummy.next;
+}*/
+</script>
+</body>
+</html>

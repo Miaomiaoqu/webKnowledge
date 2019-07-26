@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .parent{
+            /*item2有了固定高度，所以不会出现高度塌陷问题，不用开启BFC*/
+            /*overflow: hidden;*/
+            border: 2px solid darkmagenta;
+        }
+        .item1{
+            width: 100px;
+            min-height: 100px;
+            background: red;
+            float: left;
+            /*margin必须设在item1上，如果设在item2上，
+            07_margin-left要超过item1的宽度才可以*/
+            margin-right: 20px;
+        }
+        .item2{
+            /*在不浮动情况下，宽度默认占父元素的100%*/
+            min-height: 100px;
+            background: #ff6200;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <div class="item1">123</div>
+    <div class="item2">456</div>
+</div>
+
+</body>
+</html>

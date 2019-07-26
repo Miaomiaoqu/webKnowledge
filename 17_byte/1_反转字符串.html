@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>反转字符串</title>
+</head>
+<body>
+<script>
+    function  reverseStr(str) {
+        var arr = str.split('');
+        arr.reverse();
+        return arr.join('');
+    }
+    var testStr ='123,567jkl';
+    var res = reverseStr(testStr);
+    console.log(res);
+</script>
+</body>
+</html>

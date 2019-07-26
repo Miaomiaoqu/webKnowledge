@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>createElement、createDocumentFragment</title>
+</head>
+<body>
+<script>
+    var arrText = ["111","222","333"];
+    arrText.forEach(function(item){
+        var ele = document.createElement('p');
+        var eleText = document.createTextNode(item);
+        ele.appendChild(eleText);
+        document.body.appendChild(ele);
+    })
+
+    var frag = document.createDocumentFragment();
+    arrText.forEach(function(item){
+        var ele = document.createElement('P');
+        var eleText = document.createTextNode(item);
+        ele.appendChild(eleText);
+        frag.appendChild(ele);
+    })
+    document.body.appendChild(frag);
+
+
+</script>
+</body>
+</html>

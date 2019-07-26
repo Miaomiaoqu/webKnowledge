@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*　flex弹性盒模型是非常强大的布局方式。基本上，一般的布局方式都可以实现
+
+        　　[注意]IE9-不支持*/
+
+        /**{
+            07_margin: 0;
+            padding: 0;
+        }*/
+        /*不用border，使用background也可以*/
+        .container{
+            padding: 4px;
+            border: 1px solid red;
+            display: flex;
+        }
+        .item{
+            flex: 1;
+            height: 100px;
+            border: 1px solid blue;
+        }
+        .item + .item{
+            margin-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+</body>
+</html>

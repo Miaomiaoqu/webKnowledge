@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Function.prototype.myApply= function(obj,...arr){
+        obj = obj || window;
+        obj.fun = this;
+        let result = obj.fun(...arr[0]);
+        delete obj.fun;//给 foo对象本身添加了一个属性，函数执行完，用delete再删除即可
+        return result;
+    };
+
+    //测试
+    function getInfo(name,age){
+        console.log(this);
+        console.log(this.gender);
+        console.log(name);
+        console.log(age);
+        return {
+            gender:this.gender,
+            name:name,
+            age:age
+        }
+    }
+    var info={
+        gender:1
+    };
+    console.log(getInfo.myApply(info,["hh","25"]));
+    console.log(getInfo.apply(info,["hh","25"]));
+
+    getInfo.myApply(null,["hh","25"]);
+    getInfo.apply(null,["hh","25"]);
+</script>
+</body>
+</html>

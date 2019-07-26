@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var value = 2;
+    var foo = {
+        value: 1
+    };
+    function bar(name, age) {
+        //console.log(this);   //this：obj
+        this.habit = 'shopping';
+        console.log(this.value);
+        console.log(name);
+        console.log(age);
+    }
+    bar.prototype.friend = 'kevin';
+    var bindFoo = bar.bind(foo, 'daisy');  //传入了第一个参数
+    //console.log(bindFoo);  //函数bar
+    var obj = new bindFoo('18');  //调用bind时，传入的第一个参数依然占着实参位置，使用new方法再创建实例对象时，传入的参数从第二个位置开始
+                                   //由于是new操作，this指向了实例对象
+    // undefined
+    // daisy
+    // 18
+   /* console.log(obj.habit);
+    console.log(obj.friend);
+    console.log(obj instanceof bindFoo)   //true
+    console.log(obj instanceof bar)   //true*/
+    console.log(obj )   //true
+    // shopping
+    // kevin
+</script>
+</body>
+</html>

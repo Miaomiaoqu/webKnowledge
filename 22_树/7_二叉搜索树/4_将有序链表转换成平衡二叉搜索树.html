@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>将有序链表转换成平衡二叉搜索树</title>
+</head>
+<body>
+<script>
+   /* 给定一个单链表，其中的元素按升序排序，将其转换为高度平衡的二叉搜索树。
+    本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。
+    示例:
+        给定的有序链表： [-10, -3, 0, 5, 9],
+         一个可能的答案是：[0, -3, 9, -10, null, 5], 它可以表示下面这个高度平衡二叉搜索树：
+           0
+          / \
+        -3   9
+        /   /
+       -10  5
+       */
+
+   //思路一：先将有序链表转化为数组，利用将有序数组转换为二叉搜索树的思想，
+   //思路二：定义两指针
+      /*
+      定义一个快指针fast 一个慢指针slow ;
+      快指针一次移动两个结点，慢指针一次移动一个结点 ;
+      当fast到达链表的尾部结点时，慢指针也就移动到了链表的中间结点
+    （同化成一个路程问题，同一段路程，A的速度是B的两倍，他们同时出发，当A走完全程时，B也就刚好走过一半） 中间结点找到了，其他的也就类似了*/
+       var sortedListToBST = function(head) {
+           if (head == null) return null;
+           return helper(head, null);
+       };
+
+       function helper(head,tail) {
+           if (head == tail) return null;
+           let slow = head, fast = head; //初始化快慢指针
+           while (fast != tail && fast.next != tail) {
+               slow = slow.next;
+               fast = fast.next.next;
+           }
+           //慢指针指向中点节点
+           let root = new TreeNode(slow.val);
+           root.left = helper(head, slow);
+           root.right = helper(slow.next, tail);
+           return root;
+       }
+</script>
+</body>
+</html>

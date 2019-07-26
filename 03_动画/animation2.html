@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        @keyframes move{
+            0%{
+                transform: translate(0px);
+            }
+            100%{
+                transform: translate(200px);
+            }
+        }
+        #test{
+            width: 80px;
+            height: 80px;
+            background-color: red;
+            animation: move 3s linear 2 alternate;
+        }
+    </style>
+</head>
+<body>
+<!--写一个动画，一个盒子先向右移动20px,然后向左边移动20px-->
+<div id="test">
+
+</div>
+</body>
+</html>

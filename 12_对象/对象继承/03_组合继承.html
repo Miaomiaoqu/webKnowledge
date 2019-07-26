@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    原型链+借用构造函数的组合继承
+    1. 利用借用构造函数初始化相同属性
+    2. 利用原型链实现对父类型对象的方法继承
+    */
+    function SupType(name){
+        this.name = name;
+        this.colors = ["blue","red"];
+    }
+    SupType.prototype.getName = function(){
+        console.log(this.name);
+    }
+    function SubType(name,age){
+        SupType.call(this,name);
+        this.age = age;
+    }
+    SubType.prototype = new SupType();
+    SubType.prototype.constructor = SubType;
+    var st1 = new SubType("oo",25);
+    st1.colors.push("yellow");
+    console.log(st1);
+    console.log(st1.name,st1.age);
+    st1.getName();
+    var st2 = new SupType();
+    console.log(st2);  //colors没变
+</script>
+</body>
+</html>

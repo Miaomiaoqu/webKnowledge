@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  /*
+    根据一棵树的中序遍历与后序遍历构造二叉树。
+    注意:
+    你可以假设树中没有重复的元素。
+    例如，给出
+        中序遍历 inorder =   [9,3,15,20,7]   左:9   根:3          右:15,20,7
+        后序遍历 postorder = [9,15,7,20,3]   左:9   右:15,20,7    根:3
+        返回如下的二叉树：
+            3
+            / \
+           9  20
+             /  \
+            15   7
+    */
+  let buildTree = function(inorder, postorder){
+      let len = inorder.length
+      if(len===0) return null;
+      let root = postorder[len-1]
+      let node = new TreeNode(root)
+      let idx = inorder.indexOf(root)
+      let ltreeIn= inorder.slice(0,idx)   //中序和后序都是先遍历左子树，所以去相同个数
+      let rtreeIn=inorder.slice(idx+1)
+      let ltreePost = postorder.slice(0,idx)
+      let rtreePost = postorder.slice(idx,len-1) //截止到倒第二个
+      node.left = buildTree(ltreeIn,ltreePost)
+      node.right = buildTree(rtreeIn,rtreePost)
+      return node
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>promise</title>
+</head>
+<body>
+<script>
+    //then中传入promise对象的成功和失败状态的回调函数
+    //then会返回一个新的Promise实例
+    //前一个then()方法中的回调函数中也有可能返回一个Promise实例，这时候后面一个then()方法中的回调函数会等前一个Promise实例的状态发生变化才会调用。
+    //失败的状态其实可以写进then的第二个参数里，但是一般不用那么些，用catch捕获更符合promise的初衷
+
+    //1.then返回一个promise对象
+    function Print (ready) {
+        return new Promise ((resolve,reject)=>{
+            if(ready){
+                resolve("Hello World!");
+            }else{
+                reject("Good bye!");
+            }
+        });
+    }
+    function print1 () {
+        console.log("World");
+    }
+    function print2 () {
+        console.log("!");
+    }
+    //console.log(Print(true).then(message=>{alert(message);}))  //then返回一个promise对象
+    function catch_error () {
+        console.log('error');
+    }
+
+    Print(true)
+        .then(message=>{console.log(message);},err=>{console.log("出错了")})
+        .then(print1)
+        .then(print2)
+        .catch(catch_error)
+
+
+    //2.then的resolve回调中返回一个数值的情况
+    let p = new Promise((resolve, reject) => {
+        setTimeout(resolve, 1000, 'success');
+    });
+    p.then(res => {
+            console.log(res);
+            return `${res} again`;
+        }
+    ).then(
+            res => console.log(res)
+        );
+    // 连续
+    // success
+    // success again
+
+
+    //3.前一个then()方法中的回调函数中返回一个Promise实例的情况，
+    // 这时候后面一个then()方法中的回调函数会等前一个Promise实例的状态发生变化才会调用。
+    let p2 = new Promise((resolve, reject) => {
+        setTimeout(resolve, 1000, 'success');
+    });
+    p2.then(res => {
+        console.log(res);
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, 1000, 'success');
+         });
+        }
+    ).then(
+        res => console.log(res)
+    );
+    // 相隔1000ms
+    // success
+    // success
+
+
+   //捕获异常的情况
+    //不使用catch捕获异常时，执行了失败状态回调后，会接着执行
+    Print(false)
+        .then(message=>{console.log(message);},err=>{console.log("出错了")})
+        .then(print1)
+        .then(print2)
+        .catch(catch_error)
+    //使用catch捕获异常时，会直接执行catch回调（用了catch就不要在then中写失败的回调，否则catch失效）
+    Print(false)
+        .then(message=>{console.log(message);})
+        .then(print1)
+        .then(print2)
+        .catch(catch_error)
+</script>
+</body>
+</html>

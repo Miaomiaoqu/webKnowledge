@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>广度遍历</title>
+</head>
+<body>
+<script>
+    function Node(data){
+        this.data = data;
+        this.parent = null;
+        this.children = [ ];
+    }
+
+    var root = new Node('one');
+
+    root.children.push(new Node('two'));
+    root.children[0].parent = root;
+
+    root.children.push(new Node('three'));
+    root.children[1].parent = root;
+
+    root.children.push(new Node('four'));
+    root.children[2].parent = root;
+
+    root.children[0].children.push(new Node('five'));
+    root.children[0].children[0].parent = root.children[0];
+
+    root.children[0].children.push(new Node('six'));
+    root.children[0].children[1].parent = root.children[0];
+
+    root.children[2].children.push(new Node('seven'));
+    root.children[2].children[0].parent = root.children[2];
+    // 递归
+    var res = [];
+    function wide (node) {
+        if (res.indexOf(node) === -1) {
+            res.push(node); // 存入根节点
+        }
+        var children = node.children;
+        var len = children.length;
+        for (var i = 0; i < len; i++) {
+                res.push(children[i]); // 存入当前节点的所有子元素
+        }
+        for (var j = 0; j < children.length; j++) {
+            wide(children[j]); // 对每个子元素递归
+        }
+        return res;
+    }
+    console.log(wide(root))
+</script>
+</body>
+</html>

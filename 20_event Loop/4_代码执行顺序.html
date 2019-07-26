@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代码执行顺序</title>
+</head>
+<body>
+<script>
+    Promise.resolve().then(() => console.log(2));  //微 1
+    //当该函数进入执行栈，要把里面的程序都解析完，再看任务队列
+    new Promise((resolve, reject) => {
+        resolve();
+        console.log(3);
+    }).then(() => console.log(4));   //微 2
+    setTimeout(() => { //宏 1
+        Promise.resolve().then(() => console.log(5));
+        setTimeout(() => console.log(7), 0);
+    }, 0);
+    setTimeout(() => console.log(6), 0); //宏 2
+
+    //3 2 4  5 6 7
+</script>
+</body>
+</html>

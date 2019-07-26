@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监听函数</title>
+</head>
+<body>
+<script>
+    function addEvent(obj,event,callback){
+       if(obj.addEventListener){
+           obj.addEventListener(event,callback,false)
+       }else{
+           obj.attatchEvent("on"+event,function(){
+               callback.call(obj);  //会立即执行，不再是一个函数，所以需要把它放在function(){}的匿名函数中，回调的时候再执行
+           })
+       }
+    }
+</script>
+</body>
+</html>

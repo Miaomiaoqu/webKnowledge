@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>控件</ul>
+<script>
+    var dataNum = 100000;
+    var perNum= 20;
+    var tatalCount =dataNum/perNum;
+    var callCount = 0;
+    var ul = document.querySelector("ul");
+    function add(){
+        var frag = document.createDocumentFragment();
+        for(var i=0;i<perNum;i++){
+           var li = document.createElement('li');
+           li.innerHTML=Math.floor(Math.random()*dataNum);
+           frag.appendChild(li);
+        }
+        ul.appendChild(frag);
+        callCount++;
+        loop()
+    }
+     function loop(){
+        if(callCount<tatalCount){
+            window.requestAnimationFrame(add);
+        }
+     }
+     loop();
+</script>
+</body>
+</html>

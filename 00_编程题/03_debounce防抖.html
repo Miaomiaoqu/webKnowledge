@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>防抖</title>
+    <style>
+    </style>
+</head>
+<body>
+<div id="test">
+    <input type="button" value="按钮" >
+    <input type="button" value="按钮" >
+</div>
+
+<script>
+  /*
+      防抖：任务频繁触发的情况下，只有任务触发的间隔超过指定间隔的时候，任务才会执行。
+      典型应用
+        1.搜索框搜索输入,输入之后会调用接口，获取关联词。只需用户最后一次输入完，再发送请求
+        2.手机号、邮箱验证输入检测
+        3.窗口大小Resize。只需窗口调整完成后，计算窗口大小。防止重复渲染。(拖拽)
+
+        因为频繁调用接口不太好，所以我们在代码中使用防抖功能，只有在用户输入完毕的一段时间后，才会调用接口，出现关联词。
+
+  */
+  let test = document.getElementById("test");
+  function testFun(str){
+      // ... 有些需要防抖的工作，在这里执行
+      console.log("防抖成功"+str)
+  }
+  //1.不加防抖
+  //btn.addEventListener("click",testFun)
+  //2.在不需要传参数的时候
+  //test.addEventListener("click",debounce(testFun));
+  //3.需要传参数的时候(testFun中有参数的时候)
+  var db_fun = debounce(testFun);  //闭包，调用一次外部函数，创建一个闭包。调用同一次外部函数调用返回的内部函数，共享一盒闭包变量//若想传参，
+  // 则必须将外部函数在外面先调用一次，返回内部函数，这样就会共享一个变量timer
+  test.addEventListener("click",function(){db_fun('yeye')});  //否则每次都会调用一次外部函数，创建多个闭包不会共享变量
+  //参数'yeye'必须放在后面再传入，否则debounce(testFun('yeye'))会直接调用testFun()
+  //在普通函数中，会自动绑定上的各种局部变量，箭头函数都是十分单纯的沿着作用域链向上寻找……(this,arguments)
+  function debounce(fun,time) {
+       time = time || 1000; //不用再加var
+       let timer = null;
+       return function(){
+           //console.log(this);         //绑定事件的对象div
+           console.log(arguments);    //调用debounce之后传入的参数
+           //let that = this,args = arguments;
+           clearTimeout(timer);
+           timer = setTimeout(()=>{
+               fun.apply(this,arguments) //用了箭头函数不再需要that = this,args = arguments;必须用apply
+           },time)
+       }
+  }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>宏任务和微任务</title>
+</head>
+<body>
+<script>
+    /*
+    按照js由上到下的执行顺序，遇到同步任务先输出1。
+    setTimeout是宏任务，会先放到宏任务队列中。
+    而new Promise是立即执行的，所以会先输出3。
+    而Promise.then是微任务，会依次排列到微任务队列中，继续向下执行输出2。
+    现在执行栈中的任务已经清空，再将微任务队列清空，依次输出100和200。
+    之后每次取出一个宏任务，因为现在只有一个宏任务，所以最后输出setTimeout
+    */
+    console.log(1);
+
+    setTimeout(() => {
+        console.log('setTimeout');
+    }, 0);
+
+    let promise1 = new Promise(resolve => {
+        console.log(3);
+        resolve();
+    }).then(data => {//将第二个then在第一个then中的回调执行返回promise对象之后才放进微任务队列
+        console.log(100);
+    }).then(data => {
+        console.log(200);
+    });
+
+    let promise2= new Promise(resolve => {
+        resolve();
+    }).then(data => {
+        console.log(300);
+    })
+
+    console.log(2);
+    //1 3 2 100 300 200  setTimeout
+</script>
+</body>
+</html>

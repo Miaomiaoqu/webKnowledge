@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浅拷贝</title>
+</head>
+<body>
+<script>
+    function shallowCopy(obj){
+        if(typeof obj !== "object") return;
+        var newObj = obj instanceof Array? [] : {}
+        for(var key in obj){
+            if(obj.hasOwnProperty(key)){
+                newObj[key] = obj[key];
+            }
+        }
+        return newObj;
+    }
+    var oldd = {name:"oo",age:25,grade:{english:90,math:98}};
+    var newd = shallowCopy(oldd);
+    console.log(newd);
+    newd.name = "hh";//当修改的是基本数据类型的时候，原数据不会改变
+    newd.grade.english = 95; //当修改的是引用数据类型的时候，会改变原数据，不是指的重写的改变，如果是重写，会开辟新的内存空间，仍然不会改变原数据
+    console.log(newd)
+    console.log(oldd)
+
+</script>
+</body>
+</html>

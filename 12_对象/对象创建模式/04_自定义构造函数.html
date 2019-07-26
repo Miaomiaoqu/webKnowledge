@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name,age ) {
+        this.name = name;
+        this.age = age;
+        this.sayName = function(){
+            console.log(this.name);
+        }
+    }
+    function Work(name,price ) {
+        this.name = name;
+        this.age = price;
+        this.sayName = function(){
+            console.log(this.name);
+        }
+    }
+    var p = new Person("OO",25);
+    var d = new Work("IT",12000);
+    console.log(p,d);
+    console.log(p instanceof Person);
+    console.log(d instanceof Work);
+
+</script>
+</body>
+</html>

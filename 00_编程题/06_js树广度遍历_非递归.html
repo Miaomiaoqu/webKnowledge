@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>广度遍历</title>
+</head>
+<body>
+<script>
+    function Node(data){
+        this.data = data;
+        this.parent = null;
+        this.children = [ ];
+    }
+
+    var root = new Node('one');
+
+    root.children.push(new Node('two'));
+    root.children[0].parent = root;
+
+    root.children.push(new Node('three'));
+    root.children[1].parent = root;
+
+    root.children.push(new Node('four'));
+    root.children[2].parent = root;
+
+    root.children[0].children.push(new Node('five'));
+    root.children[0].children[0].parent = root.children[0];
+
+    root.children[0].children.push(new Node('six'));
+    root.children[0].children[1].parent = root.children[0];
+
+    root.children[2].children.push(new Node('seven'));
+    root.children[2].children[0].parent = root.children[2];
+    function wideTraversal(node){
+        var res = [];
+        var queue = [];
+        queue.push(node);
+        while(queue.length > 0){
+            var item = queue.shift();
+            res.push(item);
+            var children = item.children;
+            for(var i=0,len=children.length;i<len;i++){
+                queue.push(children[i])
+            }
+        }
+
+        return res;
+    }
+    console.log(wideTraversal(root))
+</script>
+</body>
+</html>

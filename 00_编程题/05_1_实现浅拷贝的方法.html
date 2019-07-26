@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /*
+    实现浅拷贝的方法
+     1.直接赋值给一个变量
+     2.Object.assign(target,source1,source2,source3)         遍历源对象的属性直接赋值
+        把任意多个源对象自身的可枚举属性拷贝给目标对象，然后返回目标对象。(继承属性和不可枚举属性是不能拷贝的)
+        进行的是浅拷贝，拷贝的是对象的属性的引用，而不是对象本身。
+     3.Array.prototype.concat() ----> arr1.concat(arr2,arr3) 遍历数组的下标直接进行赋值
+        将多个数组连接，返回连接的新数组
+        concat()给Array的实例使用的方法
+        当在arr.concat()中不传参时，即代表将arr拷贝一份给新的数组
+     4.Array.prototype.slice()  ---->arr.slice(idx1,idx2)    遍历数组的下标直接进行赋值
+       截取数组的一部分,返回截取的部分
+       slice()给Array的实例使用的方法
+       当在arr.slice()中不传参时，即代表将arr拷贝一份给新的数组(默认：idx1=0，idx2=arr.length-1)
+    */
+   //1.Object.assign(target,source1,source2,source3)
+       var obj1 = {name:'oo'};
+       var obj2 = {age:25};
+       var obj3 = {grade: {english:90,math:95}};
+       var newd = Object.assign({},obj1,obj2,obj3)
+       console.log(newd)
+       newd.grade.english = 95;
+       console.log(obj3)
+    //2.Array.prototype.concat()
+        var arr1= [1,2,3,{grade: 90}];
+        var newa1 = arr1.concat();
+        newa1[0] = 4; //不会改变原数据，因为拷贝了具体的值到自身的栈内存中
+        newa1[3].grade = 100; //改变原数据，因为拷贝了对象的地址值(引用)
+        console.log(arr1)
+   //3.Array.prototype.slice()
+       var arr2= [1,2,3,{grade: 90}];
+       var newa2 = arr2.slice();
+       newa2[0] = 4; //不会改变原数据，因为拷贝了具体的值到自身的栈内存中
+       newa2[3].grade = 100; //改变原数据，因为拷贝了对象的地址值(引用)
+       console.log(arr2)
+</script>
+</body>
+</html>

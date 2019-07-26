@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .clearfix:after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        .clearfix{
+            zoom:1;
+        }
+        .container{
+            border: 2px solid red;
+        }
+        .left,.middle,.right{
+            height: 100px;
+            float: left;
+        }
+        .middle{
+            width: 100%;
+            background: darkcyan;
+        }
+        .left{
+            width: 200px;
+            background: #ff6200;
+            margin-left: -100%;
+        }
+        .right{
+            width: 300px;
+            background: blue;
+            margin-left: -300px;
+        }
+        .m_inner{
+            /*width默认值auto,会根据margin自适应*/
+            margin-left: 200px;
+            margin-right: 300px;
+        }
+    </style>
+</head>
+<body>
+<div class="container clearfix">
+    <div class="middle">
+        <div class="m_inner">middle</div>
+    </div>
+    <div class="left">left</div>
+    <div class="right">right</div>
+</div>
+</body>
+</html>

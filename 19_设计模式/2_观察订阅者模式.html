@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EventEmitter类</title>
+</head>
+<body>
+<script>
+    //Shift + Ctrl + Alt + J //选中同样的词
+    //Alt + J //选中下一个同样的词
+    class EventEmitter {
+        constructor () { //类的构造方法，下面的都是类的一般方法
+            this._events = {};  // 事件队列，保存着每一种事件的处理程序
+        }
+        on(type, callback) { // type要绑定的事件名字，callback事件的处理函数  为指定事件注册一个监听器
+            //事件处理函数放在一个数组中     若考虑this,callback------->callback.bind(this)
+            //如果事件队列中有这个事件，将此次绑定的处理程序放入进去
+            //如果没有这个事件，新建
+            this._events[type] ? this._events[type].push(callback) : this._events[type] = [callback]
+        }
+        emit(type, ...args) {
+            this._events[type] && this._events[type].forEach(cb => cb(...args))
+        }
+        off(type) {
+            if (this._events[type]) {
+                delete this._events[type]
+            }
+        }
+        once(type, callback){//为指定事件注册一个单次监听器，即 监听器最多只会触发一次，触发后立刻解除该监听器。
+            this.on(type, (...args) => {//on中的callback
+                callback(...args);
+                this.off(type)
+            })
+        }
+    }
+</script>
+</body>
+</html>

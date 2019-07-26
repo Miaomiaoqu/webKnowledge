@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* for (var i = 1; i < 5; i++) {
+        setTimeout(function timer() {
+            console.log(i)
+        }, i * 1000)
+    }*/
+   for(var i= 1; i < 5;i++){
+       setTimeout(function (){ //函数执行时，往上级作用域找，i为5
+           console.log(i)
+       },i *1000)
+   }
+</script>
+</body>
+</html>

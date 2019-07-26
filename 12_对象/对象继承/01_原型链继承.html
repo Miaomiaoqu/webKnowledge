@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //关键:子类型的显示原型属性prototype指向父类型的一个实例对象
+    //this都指的实例对象
+    //父类型
+    function SuperType(){
+        this.supProp = "sup property";
+        this.colors = ["blue","red","green"]
+        this.name = "oo";
+    }
+    SuperType.prototype.getSupProp = function(){
+        console.log(this.supProp)
+    }
+    //子类型
+    function SubType(){
+        this.subProp = "sub property"
+    }
+    //将子类型的prototype指向父类型的实例
+    SubType.prototype = new SuperType();
+    SubType.prototype.constructor = SubType;
+    //只能使用添加的方式，往prototype中添加属性和方法，若使用赋值的方法，
+    // 会使上面的赋值失效，因为赋值会新开辟一块空间，使prototype指向新的空间
+    SubType.prototype.getSubProp = function(){
+        console.log(this.subProp)
+    }
+    var st1 = new SubType();
+   /* console.log(st.supProp);
+    st.getSupProp();*/
+   //st1.colors = ["red"];   //这种没问题，因为在本地创建了colors属性，但是对于引用类型有问题
+    st1.colors.push('yellow');
+    st1.name = "hh";
+    var st2 = new SubType();
+    console.log(st1.name);
+    console.log(st1.colors)
+    console.log(st2.name);
+    console.log(st2.colors)
+
+</script>
+</body>
+</html>

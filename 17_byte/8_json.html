@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON.stringfy()</title>
+</head>
+<body>
+<script>
+    //属性名必须加引号
+    var arr =[1,2,true,'yu',{name:"oo"},undefined];
+    console.log(JSON.stringify(arr))   //'[1,2,true,"yu",null]',undefined是特殊情况
+    console.log(JSON.stringify(true))
+    console.log(JSON.stringify({b: 2})) //忽略undefined
+
+
+   /* JSON的一个常见用途是作为与Web服务器交换数据。当向Web服务器发送数据时，数据必须是字符串格式。
+      使用JSON.stringify()可以将JavaScript对象转换为字符串类型。那么如何通过原生javascript来实现这个功能呢？
+
+    实现思路
+        通过递归调用，来实现对转换对象Object的深层value进行遍历。
+        利用array的join方法实现最终的字符串拼接。*/
+
+
+    function json2str(obj) {
+        let root = Array.isArray(obj)
+        let res = [];
+        const trans = function(s) {
+            if(typeof s == 'object' && s !== null) return json2str(s);
+            return /^(string)$/.test(typeof s) ? `"${s}"`: s;
+        }
+        for (var i in obj) root? res.push(trans(obj[i])):res.push(`"${i}":${trans(obj[i])}`)
+        return root?`[${res}]`:`{${res.join()}}`
+    }
+    const obj = { name: "John", age: 30, tel: "132xxxxxxxx", address: { city : "beijing", district: "haidian", detail: "dddddddd"} }; const myJSON = JSON.stringify(obj);
+   const arrt = [1,2,'oo']
+    const trans1 = json2str(obj);
+    const trans2 = json2str(arrt);
+    console.log(trans1)
+    console.log(trans2)
+
+    let test = [1,2,3];
+    console.log(`[${test}]`); //string [1,2,3]
+    console.log(typeof (`[${test}]`)); //string 1,2,3
+    let oj ={};
+    let op =3;
+    oj[op]="oo";
+    console.log(oj)
+</script>
+</body>
+</html>

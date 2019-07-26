@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+      function getInfo(name,age){
+           //console.log(this);
+           this.name = name;
+           this.age = age;
+           console.log(this.gender);
+           console.log(name);
+           console.log(age);
+        }
+      var info={
+            gender:1
+        };
+ /*     getInfo.bind(info,"oo","25")();
+      getInfo.bind(info,"oo")("25");   //上面两种效果一样
+      getInfo.bind(null,"oo","25")();  //被调用函数的this指向window*/
+
+
+     // Array.prototype.slice.call(arguments)能将具有length属性的对象转成数组，arguments是为数组
+    /*  function arg(name,age){
+          console.log(arguments);
+      }
+      arg("oo",25)*/
+    //第一版(未考虑由bind返回的新函数作为构造函数使用的情况)
+/*    Function.prototype.myBind = function(obj,...arr){
+        obj = obj || window;
+        let fun = this;  //需要将this先赋值，否则在内部函数获得会导致this丢失
+        var newFun = function(){
+            var _argArr = [].slice.call(arguments);
+            return fun.apply(obj,arr.concat(_argArr));
+        }
+        return newFun;
+    };*/
+    //第二版：当 bind 返回的函数作为构造函数的时候，bind 时指定的 this 值会失效，this会指向实例对象，但传入的参数依然生效
+     Function.prototype.myBind = function(obj,...arr){
+          obj = obj || window;
+          let bindFun = this;  //需要将this先赋值，否则在内部函数获得会导致this丢失
+          //var temp = function(){};
+          var newFun = function(){
+              // 当作为构造函数时，新建函数中的this指向实例对象，构造函数(constructor)为绑定函数，因为下面一句 `fbound.prototype = this.prototype;`，已经修改了 fbound.prototype 为 绑定函数的 prototype，此时结果为 true，当结果为 true 的时候，this 指向实例。
+              // 当作为普通函数时，新建函数中的this指向 window，bindFun指向绑定函数，此时结果为 false，当结果为 false 的时候，this 指向绑定的 obj。
+              var _argArr = [].slice.call(arguments);
+              return bindFun.apply(this instanceof bindFun ? this : obj,arr.concat(_argArr));
+          }
+          //将新建函数的 prototype设置为绑定函数的 prototype，实例就可以继承绑定函数的原型中的值。
+          newFun.prototype = this.prototype;
+         //Bound.prototype = this.prototype; 我们直接修改 Bound.prototype 的时候，也会直接修改绑定函数的 prototype。这个时候，我们可以通过一个空函数来进行中转
+         //temp.prototype = this.prototype;    //维护原型关系
+         //newFun.prototype = new temp();
+          return newFun;
+      };
+      //getInfo.myBind(info,"oo",25)();
+     // getInfo.myBind(info,"hh")(24);
+      var fun = getInfo.myBind(info,"hh")
+      var obj = new fun(26);
+      console.log(obj)
+</script>
+</body>
+</html>

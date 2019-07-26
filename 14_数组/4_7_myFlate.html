@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flat()</title>
+</head>
+<body>
+<script>
+    //递归：最后都要有返回值，返回给上一级
+
+   //1.reduce+concat+递归
+    //myFlate()是有返回值的，遇到子数组则递归
+    //递归可以将其想象为递归一次，遇到传入递归函数的同类参数，则就进行递归
+    function myFlate(arr){
+        return arr.reduce((pre,cur)=>pre.concat(Array.isArray(cur)?myFlate(cur):cur),[])
+    }
+    //2.递归
+    function myFlate2(arr){
+        var result = [];
+        arr.forEach(function(item){
+            if(Array.isArray(item)){
+                result = result.concat(myFlate2(item)) //result是上一次执行myFlate2()的result,与之后递归返回的结果连接
+            }else{
+                result.push(arr[i])
+            }
+        })
+        return result
+    }
+    //...
+</script>
+</body>
+</html>

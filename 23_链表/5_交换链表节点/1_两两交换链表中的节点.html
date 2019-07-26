@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>交换节点</title>
+</head>
+<body>
+<script>
+    /*
+    给定一个链表，两两交换其中相邻的节点，并返回交换后的链表。
+    你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+    示例:
+    给定 1->2->3->4, 你应该返回 2->1->4->3.
+    */
+    //每次都需要改变pre,cur,cur.next三者的指向，且重新赋值新的pre、cur
+    //先改变cur.next指向，再改变pre指向，最后改变cur指向
+    let swapPairs1 = function(head) {
+        if(head===null || head.next === null) return head
+        let dummy = new ListNode(-1)
+        dummy.next = head
+        let pre = dummy
+        cur = head
+        while(cur&&cur.next){
+            let temp = cur.next.next
+            cur.next.next = cur  //改变cur.next指向
+            pre.next = cur.next  //改变pre指向
+            pre = cur            //重新赋值pre，前一次交换时的当前节点，因为它交换到了下一个位置，所以pre为cur
+            cur.next = temp      //改变cur指向
+            cur = temp           //重新赋值cur
+        }
+        return dummy.next
+    }
+
+
+    //递归
+    let swapPairs2 = function(head) {
+        if(head == null || head.next == null) return head;
+        let newHead = head.next;  //第二个节点变为头结点
+        head.next = swapPairs(newHead.next); //一共三个节点:head,newHead, swapPairs(newHead.next)下面的任务便是交换这3个节点中的前两个节点
+        newHead.next = head;  //新的头结点指向改变后的head,上面这两行不能互换
+        return newHead;
+    };
+</script>
+</body>
+</html>

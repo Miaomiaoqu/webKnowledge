@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /*
+    根据一棵树的前序遍历与中序遍历构造二叉树。
+    注意:
+     你可以假设树中没有重复的元素。
+     例如，给出
+        前序遍历 preorder = [3,9,20,15,7]
+        中序遍历 inorder = [9,3,15,20,7]
+        返回如下的二叉树：
+             3
+            / \
+           9   20
+              /  \
+             15   7
+      */
+   /*思路：
+      1.前序遍历的第一个元素为根节点，而在中序遍历中，该根节点所在位置的左侧为左子树，右侧为右子树。
+      2.由前序遍历得出树的根节点，由中序遍历得出左右子树
+      3.再由前序遍历得出子树的根节点，由中序遍历得子树的子树
+      所以构建二叉树的问题本质上就是：
+         找到各个子树的根节点 root
+         构建该根节点的左子树
+         构建该根节点的右子树
+  */
+   /*
+   例如在例题中：
+   前序遍历 preorder = [3,9,20,15,7]  //根:3    左:9     右:20,15,7   前序左子树和中序左子树元素是一样的，知识排列顺序不同
+   中序遍历 inorder  = [9,3,15,20,7]  //左:9    根:3     右:15,20,7
+   preorder 的第一个元素 3 是整棵树的根节点。inorder中3的左侧[9]是树的左子树，右侧[15, 20, 7]构成了树的右子树。
+   */
+
+   //递归：
+      //1.找到递归关系(返回值)
+      //2.递归出口(截至条件)
+  let buildTree = function(preorder,inorder){
+      if(preorder.length==0) return null
+      let root = preorder[0]
+      let node = new TreeNode(root)
+      let idx = inorder.indexOf(root)        //在中序中根节点的坐标
+      let ltreeIn = inorder.slice(0,idx)     //左子树中序
+      let rtreeIn = inorder.slice(idx+1)     //右子树中序
+      let ltreePre = preorder.slice(1,1+idx) //左子树前序遍历截至到中序根节点的位置
+      let rtreePre = preorder.slice(1+idx)   //右子树前序遍历紧跟前序左子树后面
+      node.left = buildTree(ltreePre ,ltreeIn)
+      node.right = buildTree(rtreePre,rtreeIn)
+      return node  //树的根节点
+  }
+
+
+
+</script>
+</body>
+</html>

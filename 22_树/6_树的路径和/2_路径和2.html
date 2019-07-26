@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路径元素值</title>
+</head>
+<body>
+<script>
+  /*
+    给定一个二叉树和一个目标和，找到所有从根节点到叶子节点路径总和等于给定目标和的路径。
+    说明: 叶子节点是指没有子节点的节点。
+    示例:
+    给定如下二叉树，以及目标和 sum = 22，
+               5
+              / \
+             4   8
+            /   / \
+           11  13  4
+          /  \    / \
+         7    2  5   1
+     返回:
+        [
+            [5,4,11,2],
+            [5,8,4,5]
+        ]
+       */
+  var pathSum = function(root, sum) {
+      let res = [];
+      if(!root) return res
+      function findVal(node,restSum,valArr){
+          if(!node.left&&!node.right&&restSum===0) res.push(valArr)
+          node.left&&findVal(node.left,restSum-node.left.val,valArr.concat(node.left.val))
+          node.right&&findVal(node.right,restSum-node.right.val,valArr.concat(node.right.val))
+      }
+      findVal(root,sum-root.val,[root.val])  //去掉哪些值，就把这些值放进数组
+      return res
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function myCounter(){
+        var i = 1;
+        function inner(){
+            return i++;
+        }
+        inner.start = function(){ //函数也是对象，可以为其添加方法
+            i = 1;
+        }
+        return inner
+    }
+    //每创建一次外部函数，就新建一个计算器
+    var ct = myCounter();
+    var index;
+    console.log(index = ct());
+    console.log(index = ct());
+    console.log(index = ct());
+    ct.start();
+    console.log(index = ct());
+    console.log(index = ct());
+    console.log(index = ct());
+    var ct2 = myCounter();
+    console.log(index = ct2());
+    console.log(index = ct2());
+    console.log(index = ct2());
+</script>
+</body>
+</html>

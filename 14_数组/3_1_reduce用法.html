@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* var arr = [1,2,3,4];
+    var sum = arr.reduce(function(acc,item){return acc+item},5);
+    var mul = arr.reduce(function(acc,item){return acc*item},5);*/
+   //1.简单应用
+       let arr = [1,2,3,4];
+       let sum = arr.reduce((acc,item) => acc+item,5)
+       let mul = arr.reduce((acc,item) => acc*item,5)
+       console.log(sum);
+       console.log(mul);
+    //2.reduce的高级用法
+     //（1）计算数组中每个元素出现的次数
+        let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+        let nameNum = names.reduce((pre,cur)=>{//es6别忘了加=>
+            if(cur in pre){ //和for(var key in obj){}遍历属性不一样，这里是判断属性在不在，但也会在原型查找原型
+                pre[cur] ++
+            }else{
+                pre[cur] = 1;
+            }
+            return pre
+        },{})
+        console.log(nameNum)
+        console.log(names)  //原数组没变
+   //（2）数组去重
+        let arrDel = [1,2,2,4,4];
+        let newArr = arrDel.reduce((pre,cur)=>{//es6别忘了加=>
+           if(!pre.includes(cur)){
+               pre.push(cur)
+           }
+           return pre
+       },[])
+        console.log(newArr)
+    //（3）对象里的属性求和
+       let result = [
+       {
+           subject: 'math',
+           score: 10
+       },
+       {
+           subject: 'chinese',
+           score: 20
+       },
+       {
+           subject: 'english',
+           score: 30
+       }
+        ];
+        let sumScore = result.reduce((pre,cur)=>{
+             return pre + cur.score
+        },0)
+       //let sumScore = result.reduce((pre,cur)=>pre + cur.score,0) //箭头函数中，若只有一行代码，且需要返回，只能同时省略{}与return，缺一不可
+        console.log(sumScore)
+   //（4）将二维数组转化为一维
+       let twoArr = [[0, 1], [2, 3], [4, 5]];
+       let oneArr = twoArr.reduce((pre,cur)=>pre.concat(cur),[]);
+       console.log(oneArr);
+   //（5）将多维数组转化为一维
+       let mulArr = [[0, 1], [2, 3], [4,[5,6,7]]]
+       function trans(arr) {//concat不仅可以连接数组，也可以传入单个元素
+           return arr.reduce((pre,cur)=>pre.concat(Array.isArray(cur)?trans(cur):cur),[])
+       }
+       console.log(trans(mulArr))
+</script>
+</body>
+</html>

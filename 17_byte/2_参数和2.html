@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>参数和</title>
+</head>
+<body>
+<script>
+    /*代码，实现一个累加函数的功能比如sum(1,2,3)(2).valueOf()//8*/
+
+    (function(){
+        let val = 0;  //使用立即调用函数，使val是局部变量
+        function parSum(...args){
+            if(args.length ===0)  return val;  //不输入值的时候为空数组
+            val = args.reduce((pre,cur)=> pre+ cur,val);
+            return parSum
+        }
+        window.parSum = parSum;
+    })(window)
+    let res = parSum(1,2,3)(4,7)(); //必须使用window，因为不适用window，访问不到该函数
+    console.log(res)
+
+
+    /* (function(){
+         let val = 0;  //使用立即调用函数，使val是局部变量
+         function parSum(...args){
+             val = args.reduce((pre,cur)=> pre+ cur,val);
+             return parSum
+         }
+         parSum.valueOf=()=> val;
+         window.parSum = parSum;
+     })(window)
+     let res = parSum(1,2,3)(4).valueOf();
+     console.log(res)*/
+
+    /* 实现一个累加函数，当最后一次调用传入空时，计算所有参数和，类似下面：
+     const x = sum(1);
+     x = sum(1,2)(3,4,5)(6)()*/
+    /*  function sum(...args){
+         let count = 0;
+         if(args.length===0) return count;
+         count = args.reduce((pre,cur)=> pre+ cur,count);
+         return function add(...args){ //闭包
+             if(args.length===0) return count;
+             count = args.reduce((pre,cur)=> pre+ cur,count);
+             return add  //循环调用add
+         }
+      }
+     var res = sum(1)(4)(7)();
+     console.log(res)*/
+
+
+
+    /*写代码，实现一个累加函数的功能比如sum(1,2,3)(2).valueOf()//8*/
+    /*
+       function sum(...args){
+           let count = 0;
+           count = args.reduce((pre,cur)=> pre+ cur,count);
+           function add(...args){ //闭包
+               count = args.reduce((pre,cur)=> pre+ cur,count);
+               return add  //循环调用add
+           }
+           add.valueOf =function(){ //必须写在return前面
+               return count;
+           }
+           return add
+       }
+       var res = sum(1,2,3)(4,5,6)(7).valueOf();
+       console.log(res)
+    */
+</script>
+</body>
+</html>

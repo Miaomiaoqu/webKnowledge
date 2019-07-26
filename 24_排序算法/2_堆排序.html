@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>堆排序</title>
+</head>
+<body>
+<script>
+  /*
+    1、堆是一颗完全二叉树；
+    2、堆中的某个结点的值总是大于等于（最大堆）或小于等于（最小堆）其孩子结点的值。
+    3、堆中每个结点的子树都是堆树。
+  */
+
+  function buildMaxHeap(arr) {   //建堆
+      let len = arr.length;
+      for (let i = Math.floor(len/2)-1; i>=0; i--) {//对每一个非叶节点做堆调整,自底向上做堆调整
+          maxHeapify(arr,len,i);
+      }
+  }
+  function maxHeapify(arr, len,i) {     //堆调整
+      let left = 2 * i + 1, right = 2 * i + 2, max = i;   //i为该子树的根节点
+      if (left < len && arr[left] > arr[max]) max = left;
+      if (right < len && arr[right] > arr[max]) max = right;
+      if (max !== i) {  //即上面的if中有一个生效了
+          [arr[i],arr[max]] = [arr[max],arr[i]]
+          maxHeapify(arr,len,max);  //当被交换了的子节点作为根时，子节点可能比它大，因此要继续调整
+      }
+  }
+  function heapSort(arr) {
+      buildMaxHeap(arr);
+      let len = arr.length
+      for (var i = arr.length - 1; i > 0; i--) {
+          [arr[0],arr[i]] = [arr[i],arr[0]]
+          len--;
+          maxHeapify(arr,len,0);
+      }
+  }
+  var arr1 = [8,6,4,3,3,0,-2,-9]
+  heapSort(arr1)
+  console.log(arr1)
+</script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+<script>
+    /*闭包*/
+
+    /*function repeat(func, times, wait) {
+        let timer
+        let count = 1
+        function set(f) {
+            timer = setTimeout(() => {
+                func(f)
+                if (count >= times) {
+                    clearTimeout(timer)  //需要把队列中的异步任务清除
+                    return
+                }
+                set(f)
+                count++
+            }, wait)
+        }
+        return set
+    }
+    // 输入
+    const repeatFunc = repeat(console.log, 4, 3000);
+
+    // 输出
+    // 会alert4次 helloworld, 每次间隔3秒
+    repeatFunc('helloworld');
+    // 会alert4次 worldhello, 每次间隔3秒
+    repeatFunc('worldhello')
+   //以上count会共用，不是预想结果*/
+
+
+    //内部函数引用了外部函数，则形成闭包
+   function repeat(func, times, wait) {
+        function set(f) {
+            let timer
+            let count = 0
+            let print = () => {
+                timer = setTimeout(() => {
+                    func(f)
+                    count++
+                    if (count < times) {
+                        print(f)
+                    }
+                }, wait)
+            }
+            print()
+        }
+        return set
+    }
+
+    // 输入
+    let log = console.log
+    const repeatFunc = repeat(log, 4, 3000);
+
+    // 输出
+    // 会alert4次 helloworld, 每次间隔3秒
+    repeatFunc('hellworld');
+    repeatFunc('wordhello')
+    //原则上调用一次外部函数，仅创建一个闭包
+    //在这里repeatFunc不共用一个变量，也就是说repeatFunc内部有闭包
+</script>
+</body>
+</html>

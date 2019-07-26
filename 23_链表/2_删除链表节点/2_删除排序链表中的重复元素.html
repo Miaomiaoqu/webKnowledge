@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  /*
+    给定一个排序链表，删除所有重复的元素，使得每个元素只出现一次。 //排序链表，所以相同的元素紧挨着
+    示例 1:
+    输入: 1->1->2
+    输出: 1->2
+
+    示例 2:
+    输入: 1->1->2->3->3
+    输出: 1->2->3
+    */
+  let deleteDuplicates = function(head) {
+      if(head===null || head.next===null) return head
+      let cur= head
+      while(cur){
+          while(cur&&cur.next&&cur.val===cur.next.val){
+              cur.next = cur.next.next
+          }
+          cur = cur.next
+      }
+      return head
+  }
+</script>
+</body>
+</html>

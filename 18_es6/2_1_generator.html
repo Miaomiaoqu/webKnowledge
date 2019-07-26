@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>generator</title>
+</head>
+<body>
+<script>
+    function *myGenerator(){
+        console.log("开始执行");
+        yield "hello";
+        console.log("暂停后再执行");
+        yield "generator";
+        console.log("遍历完毕");
+        return "返回的结果"
+    }
+    let MG = myGenerator();
+    console.log(MG)
+    console.log(MG.next())
+    console.log(MG.next())
+    console.log(MG.next()) //最后默认返回函数的返回值，若没有返回值，则最后的value为undefined
+
+    /*
+    myGenerator 
+    开始执行
+    {value: "hello", done: false}
+    暂停后再执行
+    {value: "generator", done: false}
+    遍历完毕
+    {value: "返回的结果", done: true}
+    */
+</script>
+</body>
+</html>

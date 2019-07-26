@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>判断是否有环</title>
+</head>
+<body>
+<script>
+
+/*扩展：
+    （1）判断环形链表的入口思路：从第一次相遇的交点往后到环的入口距离等于头结点到到环的入口距离l
+         1.用快慢指针先判断是否有环
+         2.若有环，找到相遇节点后，让慢指针指向头结点。
+         3.然后让快慢指针同时都向后移动，相遇节点则为入口节点。
+
+
+    （2）获得环中节点的数目：
+           当判断链表是否有环时相遇，则相遇必在环内，
+           则由该相遇节点向后遍历，直到回到这个节点为止，计算环中节点数目即可。*/
+    /*给定一个链表，判断链表中是否有环。*/
+
+    /*
+      思路：双指针法，有环链表，快指针一定能追上慢指针
+        1.定义双指针指向链表的头节点
+        2.慢指针每次移动一步，而快指针每次移动两步。
+      */
+    let hasCycle = function(head) {
+        let slow=head;// 使用快慢双指针
+        let fast=head;
+        while(fast && fast.next ){//若是有环，则三者一定为真
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow === fast) return true
+        }
+        return false;
+    };
+</script>
+</body>
+</html>

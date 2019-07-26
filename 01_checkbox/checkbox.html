@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #hobby{
+            display: none;
+        }
+        #hobby + label{
+            padding-left:15px;
+            background:url(./no_active.png) left center no-repeat;
+            background-size:15px 15px;
+        }
+        #hobby:checked + label{
+            /*必须写background-image,否则其它是默认值，
+             之前设置的left center no-repeat不再起作用*/
+            /*:checked是伪类，表示的状态，只需要写在该状态下需要
+            改变的样式，不改的还为原来的样式*/
+            background-image:url(./active_heart.png);
+        }
+    </style>
+</head>
+<body>
+    <div class="check">
+        <input type="checkbox" id="hobby">
+        <label for="hobby">喜欢</label>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>some()</title>
+</head>
+<body>
+<script>
+    // var flag= arr.some(function(item,idx,arr){ //return boolean   }[, thisArg])
+    /*var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    var flag = arr.some(function(val, index, arr) {
+        return val === 5
+    })
+    console.log(flag) // true*/
+
+    Array.prototype.mySome = function(callback,thisArg) {
+        if (typeof callback === "function") {
+            //var flag = false;
+            for (var i = 0, len = this.length; i < len; i++) {
+                if (callback(this[i], i, this)) {
+                    console.log("------")
+                    return true
+                }
+            }
+            return false
+        }
+    }
+
+    var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    var flag = arr.mySome(function(val, index, arr) {
+        return val >= 5
+    })
+    console.log(flag) // true
+</script>
+</body>
+</html>

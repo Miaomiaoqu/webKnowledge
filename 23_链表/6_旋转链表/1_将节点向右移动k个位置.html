@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>旋转链表</title>
+</head>
+<body>
+<script>
+   /*
+    给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。
+    示例 1:
+    输入: 1->2->3->4->5->NULL, k = 2
+    输出: 4->5->1->2->3->NULL
+    解释:
+       向右旋转 1 步: 5->1->2->3->4->NULL
+       向右旋转 2 步: 4->5->1->2->3->NULL
+     */
+     /*
+      思路：
+        1、首先要计算链长
+        2、将链尾连上链首组成环（循环链表）
+        3、计算断链位置，移动指针
+        4、完成断链，返回新链首
+       本质上是将尾部向前数第K个元素作为头，原来的头接到原来的尾上
+       */
+   let rotateRight = function(head, k) {
+       if( k===0 ||head===null|| head.next===null) return head;
+       let p = head, len = 1;
+       while(p.next){            //使用p.next既可以获取长度，还可以将首位相连p.next= head
+           len++;
+           p=p.next;
+       }
+       k=k%len;
+       if (k===0) return head;
+       p.next= head               //首尾相连
+       let d = len -k,cur = head
+       for(let i=1;i<d;i++){
+           cur = cur.next       //断点
+       }
+       let newNode = cur.next   //断点后面即为新的头结点
+       cur.next = null          //在断点断开
+       return newNode
+   }
+</script>
+</body>
+</html>

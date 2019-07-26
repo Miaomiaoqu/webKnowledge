@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*给定一个二叉树，判断其是否是一个有效的二叉搜索树。*/
+    //中序遍历的思想(二叉搜索树的中序遍历是从小到大排列的)
+    let isValidBST1 = function(root) {
+        let arr = [];
+        function inorderTral(node){
+            if(!node) return;
+            inorderTral(node.left);
+            arr.push(node.val);
+            inorderTral(node.right);
+
+        }
+        inorderTral(root);
+        for(let i=0;i<arr.length-1;i++){
+            if(arr[i+1] <= arr[i]){
+                return false;  //不能用标志为flag，若赋值flag后，使用了ruturn后，后面也不会执行
+            }
+        }
+        return true;
+    };
+
+    //递归
+    /*递归验证 ，大致思路如下：
+    如果当前节点可用，则将当前节点值与其上、下限进行比较
+    然后对于左、右子树重复该步骤
+
+    需要注意以下几点：
+    程序初始化时，上、下限分别为对应语言中正无穷和负无穷（或正最大值和负最小值），js中使用Number.MIN_VALUE,Number.MAX_VALUE表示
+    递归过程中需不断更新上、下限，左子节点上限为当前节点值，右子节点下限为当前节点值
+*/
+    var isValidBST = function(root) {
+        function judgeValidBST(node,lower,upper){
+            if(!node) return true; //一定要返回ture,该递归，一直能遍历到null，说明前面都符合BST，所以要返回true;
+            if(node.val<=lower||node.val>=upper) return false;
+            return judgeValidBST(node.left,lower,node.val)&&judgeValidBST(node.right,node.val,upper);
+        }
+        let res =  judgeValidBST(root,Number.MIN_VALUE,Number.MAX_VALUE);
+        return res
+    };
+</script>
+</body>
+</html>

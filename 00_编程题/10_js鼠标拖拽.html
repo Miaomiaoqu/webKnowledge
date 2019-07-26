@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #boll{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="boll"></div>
+<script>
+    //需要球跟着鼠标指针走
+    var boll = document.getElementById("boll");
+    boll.onmousedown = drag;
+    function drag(e) {
+       e = e || window.event;
+       var mbl = e.clientX - boll.offsetLeft;
+       var mbt = e.clientY - boll.offsetTop;
+       var that = this;
+     //为document绑定一个onmousemove事件
+    document.onmousemove = function(e){//鼠标是在页面中移动的，鼠标移动，根据鼠标位置改变boll的位置
+           e = e || window.event;
+           var bl = e.clientX - mbl;
+           var bt = e.clientY - mbt;
+           that.style.left = bl + "px";
+           that.style.top = bt + "px";
+       }
+
+     //为document绑定一个onmouseup事件（为boll绑定也可以）
+    document.onmouseup = function(){
+           this.onmousemove = null;  //设为null，boll不再随鼠标指针移动
+           this.onmouseup = null;    //设为null，进行内存释放
+       }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //es5中没有块作用域
+    if(true){
+        var b=2;
+    }
+    console.log(b);
+
+    //es6中有块作用域(即大括号{}就是块作用域)
+    if(true){
+        let a=3;
+        console.log(a);
+    }
+    console.log(a);
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>forEach</title>
+</head>
+<body>
+<script>
+    var arr = [1,2,3,4]
+
+ /*   arr.method( function (value, index, arr) {
+        // value : 必选，当前元素
+        // index : 可选，当前元素索引值
+        // arr : 可选，当前数组
+        // thisValue : 可选，替换当前的this指向
+
+    },thisValue)*/
+    Array.prototype.myMap = function(callback,thisArg){
+            if(typeof callback === "function"){
+                var newArr = [];
+                for(var i= 0,len=this.length;i<len;i++){
+                    var res = callback.call(thisArg,this[i],i,this)
+                    newArr.push(res);
+                }
+                return newArr
+            }
+    }
+    var newA= arr.myMap(function(item,idx,arr){
+        return item * 2
+    })
+    console.log(newA)
+</script>
+</body>
+</html>

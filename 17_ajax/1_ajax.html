@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+</head>
+<body>
+<script>
+    //get请求
+    function ajax(url,callback){
+        if(window.XMLHttpRequest){
+            var xhr = new XMLHttpRequest();
+        }else{
+            var xhr = ActiveXObject('Microsoft.XMLHTTP');
+        }
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                callback(xhr.responseText);
+            }
+        }
+        xhr.open('GET',url+((/\?/).test(url)?"&":"?")+(new Date()).getTime(),true);  //url="url?k=v"  Date.now()
+        xhr.send(null);
+    }
+
+    //post请求
+    function ajax(url,callback){
+        if(window.XMLHttpRequest){
+            var xhr = new XMLHttpRequest();
+        }else{
+            var xhr = ActiveXObject('Microsoft.XMLHTTP');
+        }
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState == 4 && xhr.status == 200){
+                callback(xhr.responseText);
+            }
+        }
+        xhr.open('POST','url',true);
+        xhr.setRequestHeader("Content-Type","application/x-www-from-urlencoded")
+        xhr.send('K1=V1&k1&v2');
+    }
+</script>
+</body>
+</html>

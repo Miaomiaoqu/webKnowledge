@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.call的功能
+  /*  function getInfo(name,age){
+         console.log(this);
+         console.log(this.gender);
+         console.log(name);
+         console.log(age);
+        return {
+          gender:this.gender,
+          name:name,
+          age:age
+      }
+      }
+      var info={
+          gender:1
+      };
+      getInfo.call(info,"oo","25");   //普通的函数调用f(arg1,arg2),f中的this指向window
+
+         //延申
+         //1.1 this 参数可以传 null，当为 null 的时候，视为指向 window
+         getInfo.call(null,"oo","25");               //call实现了不传参数时,调用函数中的this指向是window
+         //1.2 调用的函数是可能返回值
+         console.log(getInfo.call(info,"oo","25"));   //call实现了若调用的函数有返回值，则返回*/
+    //2.实现call，可以参考对象的方法调用为例进行模拟，在方法中可以使用this访问对象中的属性
+    var foo ={
+        gender:1,
+        getName:function(name,age){//不能使用箭头函数，箭头函数没有this
+            console.log(this.gender);
+            console.log(name);
+            console.log(age)
+             return {
+             gender:this.gender,
+             name:name,
+             age:age
+         }
+        }
+    };
+    foo.getName("oo","25");
+    console.log( foo.getName("oo","25"))
+
+    //3.call实现的步骤：
+   /*
+    1.将函数设为对象的属性(使用this获取调用call方法的函数)
+    2.传入给定参数执行函数,执行&删除这个函数
+    3.如果不传入参数，默认指向为 window
+    */
+
+      //定义在Function的原型上，所有的Function的实例都可以使用
+    Function.prototype.myCall = function(obj,...arr){
+        obj = obj || window;
+        obj.fun = this; //将被调用的函数设置为传入对象的方法
+        let result = obj.fun(...arr);
+        delete obj.fun;//给 foo对象本身添加了一个属性，函数执行完，用delete再删除即可
+        return result;
+    };
+
+
+    //4.测试
+    function getInfo(name,age){
+        console.log(this);
+        console.log(this.gender);
+        console.log(name);
+        console.log(age);
+        return {
+            gender:this.gender,
+            name:name,
+            age:age
+        }
+    }
+    var info={
+        gender:1
+    };
+    console.log(getInfo.myCall(info,"hh","25"));
+    console.log(getInfo.call(info,"hh","25"));
+
+    getInfo.myCall(null,"hh","25");
+    getInfo.call(null,"hh","25");
+    getInfo.call(undefined,"hh","25"); //this指向window
+</script>
+</body>
+</html>

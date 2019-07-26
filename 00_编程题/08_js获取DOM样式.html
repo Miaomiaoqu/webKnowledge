@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM样式</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background-color: #ff6200;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    获取样式
+</div>
+<script>
+    function  getStyle(ele,style) {//正常浏览器的方式，具有getComputedStyle()方法
+        if(getComputedStyle){
+            return getComputedStyle(ele,null)[style];
+        }else{//IE8及一下没有getComputedStyle()方法
+            return ele.currentStyle[style];
+        }
+    }
+    var ele = document.getElementById("box");
+    console.log(getStyle(ele,"width"));
+    console.log(getStyle(ele,"height"));
+    console.log(getStyle(ele,"backgroundColor"));
+    console.log(getStyle(ele,"color"));
+   // console.log(getComputedStyle(ele,null)["width"]);
+</script>
+</body>
+</html>

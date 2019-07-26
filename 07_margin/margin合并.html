@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       /* 注：
+        1、浮动元素的外边距不会重合（想到利用浮动解决合并问题）
+        2、若每个子元素的宽度足以将下面的子元素挤到下面，可以不使用clear:both;
+        3、但是不足以挤下去，会改变布局，紧贴前一个浮动元素，则利用浮动元素clear的原理解决合并*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .item1{
+            /*width: 1000px;*/
+            width: 50px;
+            height: 100px;
+            background: #ff6200;
+            margin-bottom: 20px;
+            float: left;
+        }
+        .item2{
+            /*width: 1000px;*/
+            width: 50px;
+            height: 100px;
+            background: darkmagenta;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            float: left;
+            clear: both;
+            /*position: absolute;*/
+           /*display: inline-block;*/
+        }
+        .item3{
+            /*width: 1000px;*/
+            width: 50px;
+            height: 100px;
+            background: darkcyan;
+            margin-top: 30px;
+            float: left;
+            clear: both;
+        }
+
+    </style>
+</head>
+<body>
+<div class="item1"></div>
+<div class="item2"></div>
+<div class="item3"></div>
+</body>
+</html>
