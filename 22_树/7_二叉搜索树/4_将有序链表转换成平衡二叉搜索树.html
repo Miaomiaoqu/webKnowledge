@@ -5,6 +5,7 @@
     <title>将有序链表转换成平衡二叉搜索树</title>
 </head>
 <body>
+<a href=""></a>
 <script>
    /* 给定一个单链表，其中的元素按升序排序，将其转换为高度平衡的二叉搜索树。
     本题中，一个高度平衡二叉树是指一个二叉树每个节点 的左右两个子树的高度差的绝对值不超过 1。
@@ -29,11 +30,10 @@
            if (head == null) return null;
            return helper(head, null);
        };
-
        function helper(head,tail) {
-           if (head == tail) return null;
+           if (head === tail) return null;
            let slow = head, fast = head; //初始化快慢指针
-           while (fast != tail && fast.next != tail) {
+           while (fast !==tail && fast.next !== tail) {
                slow = slow.next;
                fast = fast.next.next;
            }

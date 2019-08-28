@@ -7,26 +7,26 @@
 <body>
 <script>
     //关键：在子类型构造函数中通过call()调用父类型构造函数
-    function SuperType(name){
+    function father(name){
         this.supProp = "sup property"
         this.name = name
     }
-    SuperType.prototype.getSupProp = function(){
+    father.prototype.getSupProp = function(){
         console.log(this.supProp)
     }
-    function  SubType(name,age) {
+    function  child(name,age) {
         this.subProp = "sub property";
-        SuperType.call(this,name); //this指的是SubType的实例对象
+        father.call(this,name); //this指的是child的实例对象
        /* 相当于
         this.supProp = "sup property"
         this.name = name
         */
        this.age = age
     }
-    SubType.prototype.getSubProp = function(){
+    child.prototype.getSubProp = function(){
         console.log(this.subProp)
     }
-    var st = new SubType("oo","25");
+    var st = new child("oo","25");
     console.log(st.supProp,st.name,st.age);
     st.getSupProp(); //报错，并未继承原型上的方法
 </script>

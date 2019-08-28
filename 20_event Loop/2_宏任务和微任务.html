@@ -14,6 +14,11 @@
     现在执行栈中的任务已经清空，再将微任务队列清空，依次输出100和200。
     之后每次取出一个宏任务，因为现在只有一个宏任务，所以最后输出setTimeout
     */
+    //宏任务：setTimeout，setInterval，setImmediate，I/O(磁盘读写或网络通信)，UI交互事件
+
+    //微任务：process.nextTick，Promise.then
+
+
     console.log(1);
 
     setTimeout(() => {

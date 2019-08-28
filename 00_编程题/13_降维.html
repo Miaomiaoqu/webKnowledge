@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flat()</title>
+</head>
+<body>
+<script>
+    //递归：最后都要有返回值，返回给上一级
+
+   //1.reduce+concat+递归
+    //myFlate()是有返回值的，遇到子数组则递归
+    //递归可以将其想象为递归一次，遇到传入递归函数的同类参数，则就进行递归
+    function myFlate(arr){
+        return arr.reduce((pre,cur)=>pre.concat(Array.isArray(cur)?myFlate(cur):cur),[])
+    }
+    //2.递归
+    function myFlate2(arr){
+        var result = [];
+        arr.forEach(function(item){
+            if(Array.isArray(item)){
+                result = result.concat(myFlate2(item)) //result是上一次执行myFlate2()的result,与之后递归返回的结果连接
+            }else{
+                result.push(arr[i])//用push也可以
+            }
+        })
+        return result
+    }
+    //...
+
+    //循环数组元素，如果还是一个数组，就递归调用该方法
+    // 方法 1
+    var arr = [1, [2, [3, 4]]];
+
+    function flatten(arr) {
+        var result = [];
+        for (var i = 0, len = arr.length; i < len; i++) {
+            if (Array.isArray(arr[i])) {
+                result = result.concat(flatten(arr[i]))
+            }
+            else {
+                result.push(arr[i])
+            }
+        }
+        return result;
+    }
+
+
+    console.log(flatten(arr))
+    /*复制代码toString()
+    如果数组的元素都是数字，可以使用该方法*/
+    // 方法2
+    var arr = [1, [2, [3, 4]]];
+
+    function flatten(arr) {
+        return arr.toString().split(',').map(function(item){
+            return item -0// +会使字符串发生类型转换
+        })
+    }
+
+    console.log(flatten(arr))
+
+    // 方法3
+    var arr = [1, [2, [3, 4]]];
+
+    function flatten(arr) {
+        return arr.reduce(function(prev, next){
+            return prev.concat(Array.isArray(next) ? flatten(next) : next)
+        }, [])
+    }
+
+    console.log(flatten(arr))
+
+    // 扁平化一维数组
+    var arr = [1, [2, [3, 4]]];
+    console.log([].concat(...arr)); // [1, 2, [3, 4]]
+
+    // 可以扁平化多维数组
+    var arr = [1, [2, [3, 4]]];
+
+    function flatten(arr) {
+
+        while (arr.some(item => Array.isArray(item))) {
+            arr = [].concat(...arr);
+        }
+
+        return arr;
+    }
+
+    console.log(flatten(arr))
+
+
+</script>
+</body>
+</html>

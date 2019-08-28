@@ -21,7 +21,7 @@
             if(Array.isArray(item)){
                 result = result.concat(myFlate2(item)) //result是上一次执行myFlate2()的result,与之后递归返回的结果连接
             }else{
-                result.push(arr[i])
+                result.concat(arr[i])//用push也可以
             }
         })
         return result

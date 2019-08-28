@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+全排列（递归交换）算法
+1、将第一个位置分别放置各个不同的元素；
+2、对剩余的位置进行全排列（递归）；
+3、递归出口为只对一个元素进行全排列。
+*/
+    //数组全排列
+    var permute = function(nums) {
+        if (nums.length == 1) return [nums];
+        var result = [];
+        for(var i=0; i<nums.length; i++) {
+            var restArr = nums.slice(0,i).concat(nums.slice(i+1));// 选取一个数字，求剩余数组的全排列
+            var nextRes = permute(restArr);
+            for(var list of nextRes) {//遍历数组
+                list.unshift(nums[i]); // 之前选取的数字插到剩余数组求得的全排列所有结果数组的首位
+                result.push(list);
+            }
+        }
+        return result;
+    };
+</script>
+</body>
+</html>

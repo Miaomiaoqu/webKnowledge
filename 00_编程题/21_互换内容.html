@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+input1: <input type="text" id="text1" value="" />
+
+<!--<input type="hidden" id="hidden1" value="">-->
+
+<br />
+
+input2: <input type="text" id="text2" value=""/>
+
+<!--<input id="hidden2" type="hidden" value="">-->
+
+<br />
+
+<button onclick="Copy()">互换内容</button>
+<script type="text/javascript">
+
+    function Copy(){
+
+        var input1=document.getElementById('text1').value;
+
+        var input2=document.getElementById('text2').value;
+
+       /* document.getElementById('hidden1').value ="";
+
+        document.getElementById('hidden2').value ="";
+
+        document.getElementById('hidden1').value =input2;
+
+        document.getElementById('hidden2').value =input1;
+
+        document.getElementById('text1').value=document.getElementById('hidden1').value;
+
+        document.getElementById('text2').value=document.getElementById('hidden2').value;*/
+        document.getElementById('text1').value=input2;
+
+        document.getElementById('text2').value=input1;
+
+    }
+
+</script>
+</body>
+</html>

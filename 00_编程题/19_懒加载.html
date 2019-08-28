@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            display: block;
+            width: 700px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<ul class="img-group">
+    <li><img src="timg.jpg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497274158197&di=8845befd9fbda1e99e565b9c2298be50&imgtype=0&src=http%3A%2F%2Fuploads.xuexila.com%2Fallimg%2F1503%2F626-15031G42255b3.jpg"></li>
+    <li><img src="timg.jpg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497274158196&di=4a38d248001c145c5b4dd31474dedf41&imgtype=0&src=http%3A%2F%2Fpic29.nipic.com%2F20130512%2F11178195_152908769116_2.jpg"></li>
+    <li><img src="timg.jpg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497274158196&di=b39e8b14d214b7aa518d7a8328939efb&imgtype=0&src=http%3A%2F%2Fimage16-c.poco.cn%2Fmypoco%2Fmyphoto%2F20141114%2F12%2F4567377520141114124637053.jpg%3F1024x684_120"></li>
+    <li><img src="timg.jpg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497274158196&di=f2e7a6ffbfa3f92025c91e6180b5e317&imgtype=0&src=http%3A%2F%2Ffile31.mafengwo.net%2FM00%2F3F%2F26%2FwKgBs1gXBQuAPWGGABOK4vbGpt412.groupinfo.w600.jpeg"></li>
+    <li><img src="timg.jpg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497274158195&di=6a073a070b9cea1214efc0994ed6dde1&imgtype=0&src=http%3A%2F%2Fimages3.ctrip.com%2Fwri%2Fimages%2F200610%2F100602312604121954734.jpg"></li>
+    <li><img src="timg.jpg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497274158195&di=a9436d83f55b301d1df9cd24f6e367e7&imgtype=0&src=http%3A%2F%2Fcyjctrip.qiniudn.com%2F69015%2F1379755311203p184vt4juft5p1t8q1andgp5ijn11.jpg"></li>
+    <li><img src="timg.jpg" data-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1497274158195&di=2b6bc6b871d4f7f267169dfcfb727f84&imgtype=0&src=http%3A%2F%2Fcyjctrip.qiniudn.com%2F106357%2F1395933091608p18k21ek6kvj1gv2ta910kn1002m.jpg"></li>
+</ul>
+<script type="text/javascript">
+/*    1>.如何加载图片?
+        img.src  = img.getAttribute('data-src');
+    2>.如何判断是否在可视区
+        图片的 offsetTop < scrollTop + clientHeigth 即可*/
+    let imgArr = document.querySelectorAll('img');
+    let len = imgArr.length;
+    window.onscroll = function () {
+        let seeHeight = document.documentElement.clientHeight;
+        //console.log("seeHeight ="+seeHeight);
+        let scrollTop =  document.body.scrollTop || document.documentElement.scrollTop;
+        console.log("scrollTop ="+scrollTop);
+        for(let i=0; i<len; i++){
+            //console.log(imgArr[i].offsetTop);
+            if(imgArr[i].offsetTop < seeHeight + scrollTop){
+                if(imgArr[i].getAttribute('src')=='timg.jpg'){
+                    imgArr[i].src = imgArr[i].getAttribute('data-src');
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

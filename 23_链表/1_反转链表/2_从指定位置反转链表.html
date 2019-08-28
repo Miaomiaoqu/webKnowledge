@@ -24,7 +24,7 @@
        for(let i=1;i<m;i++){  //获取开始反转位置的前驱(前一个位置)
            mPrev = mPrev.next
        }
-       let start = pre = head  //开始反转位置
+       let pre=mPrev.next,start = pre  //开始反转位置
        let cur = pre.next
        for(let i=m;i<n;i++){
            let temp = cur.next

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function maxInWindows(num, size)
+    {
+        if(size==0){
+            return [];
+        }
+        var count = num.length - size;
+        var result = [];
+        for(var i=0;i<=count;i++){
+            var temp = num.slice(i,i+size);
+            temp.sort((a,b)=> b-a)
+            result.push(temp[0])
+            //result.push(Math.max.apply(this,temp));
+        }
+        return result;
+    }
+    let arr =[2,3,4,2,6,2,5,1]
+    console.log(maxInWindows(arr,3))
+</script>
+</body>
+</html>

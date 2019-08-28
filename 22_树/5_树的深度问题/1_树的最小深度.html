@@ -69,6 +69,28 @@
  };
 
 
+ let minDepth3 = function(root) {
+     if(!root){
+         return 0;
+     }
+     let queue = [];
+     queue.push(root);
+     let res = [];
+     while(queue.length>0){
+         let arr = [],len = queue.length;
+         for(let i=0;i<len;i++){
+             let item = queue.shift();
+             if(!item.left && !item.right){ //当前节点为叶节点
+                 return res.length+1;
+             }
+             arr.push(item.val);  //不要忘了是val值
+             if(item.left)  queue.push(item.left)
+             if(item.right) queue.push(item.right)
+         }
+         res.push(arr)
+     }
+ };
+
 </script>
 </body>
 </html>

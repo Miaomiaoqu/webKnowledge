@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str1="1 2 3 4 5 6 7 8 9"
+    var str2="a b c"
+    var arr1=str1.split(" ");
+    var arr2=str2.split(" ");
+    var res=[];
+    for(var i=0;i<arr1.length;i++){
+        if((i+1)%4==0){
+            res.push(arr1[i])
+            res.push(arr2.shift())
+        }else{
+            res.push(arr1[i])
+        }
+
+    }
+    console.log(arr2)
+    if(arr2.length>0){
+        res=res.concat(arr2)
+    }
+    console.log(res.join(" "))
+</script>
+</body>
+</html>

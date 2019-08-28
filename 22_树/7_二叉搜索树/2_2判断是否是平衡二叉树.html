@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>平衡二叉树</title>
+</head>
+<body>
+<script>
+ /*
+    给定一个二叉树，判断它是否是高度平衡的二叉树。
+    本题中，一棵高度平衡二叉树定义为：
+    一个二叉树每个节点的左右两个子树的高度差的绝对值不超过1。    //谨记：每个节点的左右两个子树
+    示例 1:
+    给定二叉树 [3,9,20,null,null,15,7]
+             3
+            / \
+           9  20
+             /  \
+            15   7
+        返回 true 。
+    示例 2:
+    给定二叉树 [1,2,2,3,3,null,null,4,4]
+             1
+            / \
+           2   2
+          / \
+          3   3
+         / \
+        4   4
+      返回 false 。
+     */
+
+    /*
+    一颗树只有一个节点，它的深度是1；
+    根节点只有左子树而没有右子树，那么二叉树的深度应该是其左子树的深度加1；
+    根节点只有右子树而没有左子树，那么二叉树的深度应该是其右树的深度加1；
+    根节点既有左子树又有右子树，那么二叉树的深度应该是其左右子树的深度较大值加1
+    */
+    /*从根节点到叶子节点依次经过的节点（含根、叶节点）形成树的一条路径，最长路径的长度包含的节点数为为树的深度，即二叉树节点的层数。*/
+    let isBanlance = function(root){
+        if(!root) return true
+        if(Math.abs(depth(root.left)-depth(root.right))> 1) return false
+        return isBanlance(root.left)&&isBanlance(root.right)
+    }
+     function depth(node){
+         if(!node) return 0
+         let left = depth(node.left)
+         let right = depth(node.right)
+         return Math.max(left,right)+1
+     }
+</script>
+</body>
+</html>

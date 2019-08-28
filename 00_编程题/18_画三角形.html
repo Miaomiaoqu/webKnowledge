@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*均分原理*/
+        .border{
+            width: 0;
+            height: 0;
+            border: 50px solid;
+            border-color: red blue green yellow;
+        }
+        .border1{
+            width: 0;
+            height: 0;
+            border: 50px solid;
+            border-color: transparent transparent green transparent;
+        }
+        /*等腰三角形*/
+        .border2{
+            width: 0;
+            height: 0;
+            border-bottom: 100px solid blue;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+        }
+        /*直角三角形（箭头左上）*/
+       .border3{
+            width: 0;
+            height: 0;
+            border: 50px solid ;
+            border-color: gray transparent transparent gray;;
+        }
+    </style>
+</head>
+<body>
+<div class="border"></div>
+<div class="border1"></div>
+<div class="border2"></div>
+<div class="border3"></div>
+</body>
+</html>

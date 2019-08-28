@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr1=[1,2,3,7,8,9]
+    var arr2=[4,5,7,12,13]
+    function merge(left,right){
+        let res = [];
+        while(left.length>0&&right.length>0){
+            if(left[0]<=right[0]){
+                res.push(left.shift())
+            }else{
+                res.push(right.shift())
+            }
+        }
+        return res.concat(left).concat(right);// 当左右数组长度不等.将比较完后剩下的数组项连接起来即可
+    }
+    console.log(merge(arr1,arr2))
+</script>
+</body>
+</html>

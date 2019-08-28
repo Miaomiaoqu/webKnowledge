@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style></style>
+<body>
+<script>
+    var ul1 = document.getElementById("noticeItem1");//内层
+    var box = document.getElementById("noticePart");//最外层
+    box.scrollTop = 0;
+    var rollStart = function () {
+        if (box.scrollTop >= ul1.scrollHeight) {
+            box.scrollTop = 0;
+            $('#noticePart').animate({scrollTop:box.scrollTop+20},300);
+        } else {
+            //box.scrollTop+=20;
+            $('#noticePart').animate({scrollTop:box.scrollTop+20},300);
+        }
+    };
+    timer = setInterval(rollStart, 3000);
+    box.onmouseover = function () {
+        clearInterval(timer);
+    };
+    box.onmouseout = function () {
+        timer = setInterval(rollStart, 3000);
+    }
+    },
+    beforeDestroy(){
+        clearInterval(timer);//不停止会消耗内存，一直在操作DOM树
+    }
+
+</script>
+<div id="noticeItem2" class="label-btn">
+    <a class="label-link" target="_blank" @click="sendAnalytic('广告-学员标签点击')"
+       href="http://mp.weixin.qq.com/s?__biz=MzU0MTI4ODE5MQ==&mid=100001514&idx=1&sn=279bb78a2ca57a311d250c46c32ef5cf&chksm=7b2d757a4c5afc6c279205335bb09dcf947ab47cce1cd0355707f16dd6f19eefb7fb776a847b#rd">
+        新功能：学员列表支持添加学员标签，快去试试吧</a>
+    <a class="label-link" target="_blank" @click="sendAnalytic('广告-课程套餐点击')"
+       href="http://mp.weixin.qq.com/s?__biz=MzU0MTI4ODE5MQ==&mid=100001535&idx=1&sn=a9df4913fa850cab16b4fbeed2a8ceaa&chksm=7b2d756f4c5afc79fb3d375d8e34bc61eedd8208b02074095ab542f779801bb86ab9d4a5679e#rd">
+        新增课程套餐一键添加学员合约，一码搞定学员续费</a>
+    <a class="label-link" target="_blank" @click="sendAnalytic('广告-招生助手点击')"
+       href="http://mp.weixin.qq.com/s?__biz=MzU0MTI4ODE5MQ==&mid=100001592&idx=1&sn=0ad91b161ea0d2d8aa090a7c1c927c19&chksm=7b2d74a84c5afdbe4bdb9a1e50aa1627e3b77279290ed07933253ea1939cce9c068a6d7fee7a#rd">
+        招生季，教务宝招生助手喊你来招生~</a>
+</div>
+</body>
+</html>

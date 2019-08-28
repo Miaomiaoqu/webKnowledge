@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   // 对象在转换基本类型时，会调用valueOf， 需要转成字符类型时调用toString。
+    var a = {
+        valueOf() {
+            return 0;
+        },
+        toString() {
+            return '1';
+        }
+    }
+    console.log('1'.concat(a))   //"11"
+    console.log(1 + a)           // 1
+
+</script>
+</body>
+</html>

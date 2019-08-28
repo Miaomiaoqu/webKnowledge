@@ -6,10 +6,18 @@
 </head>
 <body>
 <script>
-    setTimeout(function(){
+   /* setTimeout(function(){
             console.log('5555')
             setTimeout(arguments.callee,1000)
-        },1000)
+        },1000)*/
+   var countDown = function(times){
+          if(times===0)return;
+          var args = arguments;
+          var self = this;
+           console.log(times);
+          setTimeout(function(){args.callee.call(self,times-=10)},1000);
+        }
+   countDown(50)
 </script>
 </body>
 </html>

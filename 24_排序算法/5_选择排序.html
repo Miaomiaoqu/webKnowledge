@@ -13,13 +13,12 @@
         4）这样就形成了前面是有序部分，后面是无序部分，以次类推，将整个数列变为有序数列。
       */
      function selectionSort(arr){
-         let len = arr.length
-         for(let i=0;i<len-1;i++){//到倒数第二个即可
-             let min = i
-             for(let j=i;j<len;j++){
-                 if(arr[j]<arr[min]){
-                     min = j
-                 }
+         for(let i=0;i<arr.length-1;i++){//到倒数第二个即可
+             let min = i,j=i+1
+             while(j<arr.length){
+                 if(arr[j]<arr[min]) min = j
+                 j++
+
              }
              if(min!==i){
                  [arr[i],arr[min]]=[arr[min],arr[i]]
@@ -29,6 +28,12 @@
     let arr1 = [8,1,4,5,3,0,-2,-9]
     selectionSort(arr1)
     console.log(arr1)
+
+    /*    for(let j=i+1;j<len;j++){
+        if(arr[j]<arr[min]){
+            min = j
+        }
+    }*/
 </script>
 </body>
 </html>

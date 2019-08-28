@@ -7,12 +7,12 @@
 <body>
 <script>
    /* var arr = [1,2,3,4];
-    var sum = arr.reduce(function(acc,item){return acc+item},5);
-    var mul = arr.reduce(function(acc,item){return acc*item},5);*/
+    var sum = arr.reduce(function(pre,cur){return pre+cur},5);
+    var mul = arr.reduce(function(pre,cur){return pre*cur},5);*/
    //1.简单应用
        let arr = [1,2,3,4];
-       let sum = arr.reduce((acc,item) => acc+item,5)
-       let mul = arr.reduce((acc,item) => acc*item,5)
+       let sum = arr.reduce((pre,cur) => pre+cur,5)
+       let mul = arr.reduce((pre,cur) => pre*cur,5)
        console.log(sum);
        console.log(mul);
     //2.reduce的高级用法
@@ -63,7 +63,7 @@
        console.log(oneArr);
    //（5）将多维数组转化为一维
        let mulArr = [[0, 1], [2, 3], [4,[5,6,7]]]
-       function trans(arr) {//concat不仅可以连接数组，也可以传入单个元素
+       function trans(arr) {//concat不仅可以连接数组，也可以传入单个元素,push是返回数组新的长度
            return arr.reduce((pre,cur)=>pre.concat(Array.isArray(cur)?trans(cur):cur),[])
        }
        console.log(trans(mulArr))

@@ -10,9 +10,8 @@
     Array.prototype.myReduce = function (callback,initValue) {
         if(typeof callback === "function"){
             var acc = initValue || this[0];
-            var i = null;
-            i = initValue?0 : 1;
-           for( i,len=this.length;i<len;i++){
+            var i = initValue?0 : 1,len=this.length
+           for( i ;i<len;i++){
                acc = callback(acc,this[i],i,this)
            }
         }

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var a = 3
+    function fn (a) {
+        a = a +1
+    }
+    fn(a)
+    console.log(a)  //3
+
+    function fn2 (obj) {
+        //console.log(obj.name)
+        //obj["age"]="18"   //使用[],需要加引号
+        obj.age = 18
+    }
+    var obj = {name: 'Tom'}
+    fn2(obj)
+    console.log(obj)
+</script>
+</body>
+</html>

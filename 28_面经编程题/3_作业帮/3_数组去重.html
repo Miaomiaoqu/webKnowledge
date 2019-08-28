@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /*
+    这里把符合以下条件的对象称为伪数组：
+    1，具有length属性
+    2，按索引方式存储数据
+    3，不具有数组的push,pop等方法*/
+    //1.双重循环
+    var array = [1, 1, '1', '1'];
+    function unique(array) {
+        var res = [];
+        for (var i = 0, arrayLen = array.length; i < arrayLen; i++) {
+            for (var j = 0, resLen = res.length; j < resLen; j++ ) {
+                if (array[i] === res[j]) {
+                    break;
+                }
+            }
+            if (j === resLen) {
+                res.push(array[i])
+            }
+        }
+        return res;
+    }
+    console.log(unique(array)); // [1, "1"]
+    //2.利用indexOf
+    function unique1(arr){
+        let res = [];
+        for(let i=0;i<arr.length;i++){
+            if(res.indexOf(arr[i])==-1){
+                res.push(arr[i])
+            }
+        }
+        return res
+    }
+    function unique2(arr){
+       return [...new Set(arr)]
+    }
+
+    function unique3(arr){
+        return Array.from(new Set(arr))
+    }
+    let testArr = [1,2,2,3,4]
+    console.log(unique1(testArr))
+    console.log(unique2(testArr))
+    console.log(unique3(testArr))
+</script>
+</body>
+</html>

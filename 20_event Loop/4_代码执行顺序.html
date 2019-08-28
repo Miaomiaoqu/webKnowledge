@@ -12,8 +12,8 @@
         resolve();
         console.log(3);
     }).then(() => console.log(4));   //微 2
-    setTimeout(() => { //宏 1
-        Promise.resolve().then(() => console.log(5));
+    setTimeout(() => { //把包含以下程序的函数放在宏任务中    宏 1
+        Promise.resolve().then(() => console.log(5));//先执行该微任务，碰到宏任务再到宏任务队列
         setTimeout(() => console.log(7), 0);
     }, 0);
     setTimeout(() => console.log(6), 0); //宏 2

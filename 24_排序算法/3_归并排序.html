@@ -13,8 +13,7 @@
     */
     function mergeSort(arr){
         if(arr.length === 1) return arr
-        let mid = Math.floor(arr.length/2)
-        let left = arr.slice(0,mid),right = arr.slice(mid)
+        let mid = Math.floor(arr.length/2),left = arr.slice(0,mid),right = arr.slice(mid)
         return merge(mergeSort(left),mergeSort(right))
     }
     function merge(left,right){

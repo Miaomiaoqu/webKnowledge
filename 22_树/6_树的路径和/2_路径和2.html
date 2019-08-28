@@ -27,10 +27,10 @@
   var pathSum = function(root, sum) {
       let res = [];
       if(!root) return res
-      function findVal(node,restSum,valArr){
-          if(!node.left&&!node.right&&restSum===0) res.push(valArr)
-          node.left&&findVal(node.left,restSum-node.left.val,valArr.concat(node.left.val))
-          node.right&&findVal(node.right,restSum-node.right.val,valArr.concat(node.right.val))
+      function findVal(node,rest,arr){
+          if(!node.left&&!node.right&&rest===0) res.push(arr)
+          node.left&&findVal(node.left,rest-node.left.val,arr.concat(node.left.val))
+          node.right&&findVal(node.right,rest-node.right.val,arr.concat(node.right.val))
       }
       findVal(root,sum-root.val,[root.val])  //去掉哪些值，就把这些值放进数组
       return res

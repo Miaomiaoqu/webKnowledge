@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*url编码和解码：decodeURI() 和 decodeURIComponent()*/
+    function urlParse(url) {
+        var obj = {}
+        var idx = url.indexOf("?");
+        var str = url.slice(idx+ 1);
+        console.log(str)
+        strs = str.split("&");
+        for (var i = 0; i < strs.length; i++) {
+            obj[strs[i].split("=")[0]] = strs[i].split("=")[1];
+        }
+        return obj
+    }
+    console.log(urlParse("rrt?name='qq'&age='25'"))
+</script>
+</body>
+</html>

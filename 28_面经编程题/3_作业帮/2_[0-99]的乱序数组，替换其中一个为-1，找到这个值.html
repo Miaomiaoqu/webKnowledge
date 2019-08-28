@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let sumTotal = 0;
+    let total = 0
+    let arr=[]
+    function sum(){
+        for(let i=0;i<=99;i++){
+            arr.push(i);
+            sumTotal+=i;
+        }
+    }
+    function replaced(arr){
+        arr.forEach((item)=>{
+            if(item >=0 && item <=99){
+                total += item
+            }
+        })
+        return  sumTotal-total
+    }
+    sum();
+    arr[36]=-1;
+    console.log( arr[36])
+    console.log(replaced(arr));
+    console.log(sumTotal)
+    console.log(total)
+    //这个算法的时间复杂度O(n)，空间复杂度O(1)
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<span>Hello,World！</span>
+
+ <script type="text/javascript">
+    Jq = function (tagName) {
+        var tagArr = document.getElementsByTagName(tagName);
+        var ret = {
+            tag: tagArr,
+            css: function (attribute, value) {
+                for (var i = 0; i < this.tag.length; i++) {
+                    this.tag[i].style[attribute] = value;
+                }
+                console.log(this)//方法的调用，this是方法的所在对象
+                return this;
+            }
+        }
+        return ret;
+    }
+    window.onload = function () {//Jq("span")返回ret
+        Jq("span").css("color", "red")
+            .css("border", "1px solid green")
+            .css("padding", "10px");
+    }
+</script>
+
+
+</body>
+</html>

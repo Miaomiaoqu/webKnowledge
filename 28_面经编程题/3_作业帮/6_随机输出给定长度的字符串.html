@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  /*
+    Math.ceil() 返回大于等于数字参数的最小整数(取整函数)，对数字进行上舍入
+    Math.floor() 返回小于等于数字参数的最大整数，对数字进行下舍入
+    Math.round() 返回数字最接近的整数，四舍五入
+    */
+ /*
+ 基本上toString后的参数规定可以是2-36之间的任意整数，不写的话默认是10（也就是十进制），此时返回的值就是那个随机数。
+ 若是偶数，返回的数值字符串都是短的，若是奇数，则返回的将是一个很大长度的表示值。
+ 若<10 则都是数字组成，>10 才会包含字母。
+ 所以如果想得到一长串的随机字符，则需使用一个 > 10 且是奇数的参数，另外根据长度自行使用slice(2,n)截取！
+ */
+  //Math.random(): 0-1间的一个随机数(包括0,不包括1)
+ //numObj.toString([radix]):radix,指定要用于数字到字符串的转换的基数(从2到36)。如果未指定 radix 参数，则默认值为 10。
+  //如果转换的基数大于10，则会使用字母来表示大于9的数字，比如基数为16的情况，则使用a到f的字母来表示10到15
+ function RandomString(length) {
+      var str = '';
+      for ( ; str.length < length; str += Math.random().toString(36).substr(2));
+      return str.substr(0, length);
+  }
+
+  //console.log(Math.random().toString(36))
+  //返回一个指定范围内的随机数
+
+  function createRandomNum(Min,Max)
+  {
+      let Range = Max - Min;
+      let Rand = Math.random();
+      return(Min + Math.round(Rand * Range));
+  }
+  createRandomNum(2,11); //3
+
+  //返回一个指定长度的随机字符串
+
+
+
+  let chars = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
+
+  function createRandom(n) {
+      let res = "";
+      for(let i = 0; i < n ; i ++) {
+          let id = Math.ceil(Math.random()*35); //10+24  因为Math.random()取不到1，所以需要往上+1,也许吧
+          res += chars[id];
+      }
+      return res;
+  }
+  createRandom(11) //'FWGOD5KA4Q1'
+
+  createRandom(11) //'DSSSSW5KAA1'
+</script>
+</body>
+</html>

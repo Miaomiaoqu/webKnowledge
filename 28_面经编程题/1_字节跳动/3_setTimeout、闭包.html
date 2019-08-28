@@ -37,15 +37,14 @@
 
     //内部函数引用了外部函数，则形成闭包
    function repeat(func, times, wait) {
-        function set(f) {
-            let timer
+        function set(content) {
             let count = 0
             let print = () => {
-                timer = setTimeout(() => {
-                    func(f)
+                setTimeout(() => {
+                    func(content) //执行func函数
                     count++
                     if (count < times) {
-                        print(f)
+                        print(content)  //执行print函数
                     }
                 }, wait)
             }
@@ -63,7 +62,7 @@
     repeatFunc('hellworld');
     repeatFunc('wordhello')
     //原则上调用一次外部函数，仅创建一个闭包
-    //在这里repeatFunc不共用一个变量，也就是说repeatFunc内部有闭包
+    //在这里repeatFunc不共用一个变量，repeatFunc并未引用外部函数变量，也就是说repeatFunc内部有闭包
 </script>
 </body>
 </html>

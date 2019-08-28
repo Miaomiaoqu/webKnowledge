@@ -6,10 +6,21 @@
 </head>
 <body>
 <script>
+  /*  promise是立即执行的，它创建的时候就会执行，不存在将promise推入微任务中的说法；
+
+    resolve()是用来表示promise的状态为fullfilled，相当于只是定义了一个有状态的Promise，但是并没有调用它；
+
+    promise调用then的前提是promise的状态为fullfilled；
+
+    只有promise调用then的时候，then里面的函数才会被推入微任务中；*/
+
     //then中传入promise对象的成功和失败状态的回调函数
     //then会返回一个新的Promise实例
     //前一个then()方法中的回调函数中也有可能返回一个Promise实例，这时候后面一个then()方法中的回调函数会等前一个Promise实例的状态发生变化才会调用。
     //失败的状态其实可以写进then的第二个参数里，但是一般不用那么些，用catch捕获更符合promise的初衷
+
+
+    //then的执行需要前面的promise实例变化
 
     //1.then返回一个promise对象
     function Print (ready) {
@@ -43,11 +54,12 @@
     let p = new Promise((resolve, reject) => {
         setTimeout(resolve, 1000, 'success');
     });
+    //Promise.resolve('success')
     p.then(res => {
             console.log(res);
             return `${res} again`;
         }
-    ).then(
+    ).then(//Promise.resolve('success again')
             res => console.log(res)
         );
     // 连续
@@ -63,7 +75,9 @@
     p2.then(res => {
         console.log(res);
         return new Promise((resolve, reject) => {
-            setTimeout(resolve, 1000, 'success');
+            setTimeout(()=>{console.log("resolve前")})
+            setTimeout(resolve, 1000, 'success again');
+            console.log("输出位置")
          });
         }
     ).then(
@@ -71,7 +85,9 @@
     );
     // 相隔1000ms
     // success
-    // success
+    //输出位置
+    //resolve前
+    // success again
 
 
    //捕获异常的情况
@@ -87,6 +103,36 @@
         .then(print1)
         .then(print2)
         .catch(catch_error)
+
+
+    function ajax(method,url,data="",dataType="json"){
+        // then   catch
+        return new Promise((resolve,reject)=>{
+            //1、获取 xhr
+            var xhr=new XMLHttpRequest();
+            //2、创建请求
+            xhr.open(method,url,true);
+            //3、设置请求消息头
+            if(method=="post"){
+                xhr.setRequestHeader(
+                    "Content-Type", "application/x-www-form-urlencoded");
+            }
+            //4、设置回调
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState == 4)
+                    if(xhr.status == 200){
+                        if(dataType=="json")
+                            resolve(JSON.parse(xhr.responseText));
+                        else
+                            resolve(xhr.responseText);
+                    }else
+                        reject("请求出错:"+xhr.status);
+            }
+            //5、发送
+            xhr.send(data);
+        })
+        //return?
+    }
 </script>
 </body>
 </html>

@@ -21,13 +21,13 @@
            if(instance){
                return instance;
            }
-           instance = this;
+           instance = this; //将实例对象this赋值给instance
            instance.name = name;
            instance.age = age;
            return instance
        }
        window.Singleton= Singleton
-   })(window)
+   })()
 
     var s1=new Singleton("oo",25)
     var s2=new Singleton("hh",25)
@@ -40,7 +40,7 @@
         let instance = this;
         instance.name = name;
         instance.age = age;
-        Singleton2 = function(){//箭头函数不能用于构造函数，所以这里不能用箭头函数，还要注意箭头函数可能会改变this指向
+        Singleton2 = function(){//第一次创建对象之后，就改变了Singleton2 函数，Singleton2箭头函数不能用于构造函数，所以这里不能用箭头函数，还要注意箭头函数可能会改变this指向
             return instance
         }
     }

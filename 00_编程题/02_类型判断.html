@@ -16,17 +16,19 @@
     但是其实在包装的时候是把他们先转成了对象然后再判断类型的。
     但是JS中包装类型和原始类型还是有差别的，因为对一个包装类型来说，typeof的值是object*/
     function myType(data){
-        if(data === null){
-            return "null"
-        }
+        if(data === null) return "null"            //判断null
         var dataType = typeof data;
-        if(dataType !== "object" || dataType === "function"){
-            return dataType
-        }
-        if(data instanceof Array){
-            return "array"
-        }
-        return "object"
+        if(dataType !== "object") return dataType  //判断基本数据类型和function
+        const template = {                         //判断引用类型,包括包装类型，return "object"
+            "[object Object]": "object",
+            "[object Array]" : "array",
+            "[object String]": "object - string",//一些包装类型
+            "[object Number]": "object - number",
+            "[object Boolean]": "object - boolean",
+           // "[object Symbol]": "object - Symbol"
+        };
+        const typeTo= Object.prototype.toString.call(data);
+        return template[typeTo];
     }
     console.log(myType("oo"))
     console.log(myType(123))
@@ -36,6 +38,9 @@
     console.log(myType(function(){}))
     console.log(myType([1,2,3]))
     console.log(myType({name:"oo"}))
+    console.log(myType(new String("hello")))//object - string
+   console.log(myType(Symbol()))//symbol
+   console.log(myType(Symbol))//function
 
 </script>
 </body>

@@ -6,15 +6,15 @@
 </head>
 <body>
 <script>
+    //先序遍历是“根->左->右”
     //迭代（非递归，栈,倒序入栈）
     //首先将树的根节点压入栈中，然后进行出栈操作，并将它的值插入list尾部。
     // 若出栈的节点有子节点，将子节点压入栈中，一定是先右子节点再左子节点的顺序。
     //然后再进行出栈操作。再重复上面规则
     //最后直到栈为空时，遍历就完成了。
     var preorderTraversal1 = function(root) {
-        if (!root) return [];
-        let res = [];
-        let stack = [];
+        //if (!root) return [];
+        let res = [], stack = [];
         stack.push(root)
         while (stack.length > 0) {
             let item = stack.pop();

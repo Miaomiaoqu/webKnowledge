@@ -18,6 +18,9 @@
         this.age = age;
     }
     //Child.prototype.__proto__ = Father.prototype
+   /* function F() {}
+    F.prototype = Father.prototype
+    Child.prototype = new F()*/
     Child.prototype = Object.create(Father.prototype);
     Child.prototype.constructor = Child;
     var c1 = new Child("oo",25);

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function add(num1,num2){//数字
+       let carry=0,res=[];
+       let arr1=num1.toString().split(""),arr2 = num2.toString().split("");
+       let gap = arr1.length - arr2.length;
+       for(let i=0;i<Math.abs(gap);i++){
+           if(gap<0){
+               arr1.unshift('0')
+           }else{
+               arr2.unshift('0')
+           }
+       }
+       let len = arr1.length;
+       for(let i=0;i<len;i++){
+           let num = Number(arr1.pop())+Number(arr2.pop());//将尾部数字弹出来
+           res.push((num+carry)%10)
+           carry = parseInt((num+carry)/10)
+       }
+       if(carry>0) res.push(carry)
+        return res.reverse().join("")
+    }
+    console.log(add('9007199254740993', '111238'));//必须以字符串传入
+    console.log(add('9007199254740993', '111'))
+    console.log(add('30000000000000000000000000','91111111111111111111111111'))
+    console.log(add('100000000000002222', '111111')); // 100000000000113333
+    console.log(add('3782647863278468012934670', '23784678091370408971329048718239749083')); // 23784678091374191619192327186252683753
+
+
+    function floatAdd(num1, num2){
+        let r1, r2, m;
+        r1 = (''+num1).split('.')[1].length;
+        r2 = (''+num2).split('.')[1].length;
+
+        m = Math.pow(10,Math.max(r1,r2));
+        return (num1 * m + num2 * m) / m;
+    }
+    console.log(floatAdd(0.1,0.2)); //0.3
+    console.log(floatAdd(0.15,0.2256)); //0.3756
+
+    console.log(0.1+0.2); //0.30000000000000004
+    console.log(1.1+1.2);//2.3
+    console.log(0.15+0.2256); //0.3756
+</script>
+</body>
+</html>

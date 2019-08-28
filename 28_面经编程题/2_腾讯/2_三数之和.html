@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var threeSum = function (nums) {
+        if(nums.length<3){
+            return []
+        }
+        //放数组的容器
+        var result = [];
+        var lastResult = [];
+        // 1,对数组排序从小到大
+        nums.sort(function (a, b) {
+            return a - b;
+        })
+        //计算两个数的和变种[使用双重循环，a[0]+a[1]+a[n-1]]
+        // 如果a[0]+a[1]+a[n-1]>0 k--
+        // 如果a[0]+a[1]+a[n-2]<0 j++
+        /*var flag = nums.every(function(ele){
+            return ele === 0
+        })
+        if(flag){
+            return [[0,0,0]]
+        }*/
+        for (var i = 0, n = nums.length; i < n - 2; i++) {
+            if(i > 0 && nums[i] === nums[i-1]) continue; // 去重,所给数组有相同元素的情况下
+            var j = i + 1;
+            var k = n - 1;
+            while (j < k) {
+                var temp = [];
+                var sum_two = nums[i] + nums[j];
+                if (sum_two + nums[k] > 0) {
+                    k--;
+                } else if (sum_two + nums[k] < 0) {
+                    j++
+                } else {
+                    temp = [nums[i], nums[j], nums[k]]
+                    result.push(temp);
+                    //寻找下一组
+                    j++;
+                    k--;
+                }
+
+            }
+        }
+        return result
+        /*lastResult = unique(result);
+        return lastResult;*/
+    };
+ /*   function unique(arr){
+        var result = [];
+        var cache = {}
+        for(var i = 0;i< arr.length;i++){
+            var key = '';
+            for(var j = 0;j<arr[i].length;j++){
+                key += `${arr[i][j]}`
+            }
+            console.log(key)
+            if(!cache[key]){
+                cache[key] = 1;
+                result.push(arr[i])
+            }
+        }
+        return result
+    }*/
+    console.log(threeSum( [-1, 0, 1, 2, -1, -4]))
+</script>
+</body>
+</html>

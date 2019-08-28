@@ -25,8 +25,7 @@
     //迭代
     let levelOrder1 = function(root){
         if(!root) return [];
-        let res = []
-        let queue = [];
+        let res = [], queue = [];
         queue.push(root);
         while(queue.length>0){
             let arr = [],len = queue.length;

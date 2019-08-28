@@ -22,22 +22,21 @@
         console.log("节流成功！");
     }
     //利用时间戳实现
-        /*    function throttle(fn,time){
-                time = time || 600;
+        /*    function throttle(fn,wait){
+                wait = wait || 600;
                 var prev = Date.now();
                 return function(){
-                    var context = this;
-                    var args = arguments;
+                    //var context = this,args = arguments;
                     var now = Date.now();
-                    if(now - prev > time){
-                        fn.apply(context,args);
+                    if(now - prev > wait ){
+                        fn.apply(this,arguments);
                         prev = Date.now();
                     }
                 }
             }*/
   //利用定时器实现,setTimeout方法
-    function throttle(fn,time){
-        time = time||2000;
+    function throttle(fn,wait){
+        wait = wait||2000;
         let flag = true;
         return function(){
             if(!flag){
@@ -47,7 +46,7 @@
             setTimeout(()=>{
                fn.apply(this,arguments);
                flag = true;
-            },time)
+            },wait)
         }
     }
 

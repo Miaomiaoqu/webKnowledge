@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function test() {
+        var a = [];
+        for (var i = 0; i < 5; i++) {
+            a[i] = function () {
+                console.log(i);
+            }
+        }
+        return a;
+    }
+
+    var myArr = test();
+    for(var j=0;j<5;j++)
+    {
+        myArr[j]();  //输出5个5
+    }
+
+   //改进
+    function test2() {
+        var a = [];
+        for (var i = 0; i < 5; i++) {
+            (function(i){
+                a[i] = function () {
+                    console.log(i);
+                }
+            })(i)
+        }
+        return a;
+    }
+
+    var myArr2 = test2();
+    for(var m=0;m<5;m++)
+    {
+        myArr2[m]();  //0,1,2,3,4
+    }
+</script>
+</body>
+</html>

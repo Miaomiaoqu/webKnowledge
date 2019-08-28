@@ -38,8 +38,8 @@
   test.addEventListener("click",function(){db_fun('yeye')});  //否则每次都会调用一次外部函数，创建多个闭包不会共享变量
   //参数'yeye'必须放在后面再传入，否则debounce(testFun('yeye'))会直接调用testFun()
   //在普通函数中，会自动绑定上的各种局部变量，箭头函数都是十分单纯的沿着作用域链向上寻找……(this,arguments)
-  function debounce(fun,time) {
-       time = time || 1000; //不用再加var
+  function debounce(fun,wait) {
+       wait = wait || 1000; //不用再加var
        let timer = null;
        return function(){
            //console.log(this);         //绑定事件的对象div
@@ -48,7 +48,7 @@
            clearTimeout(timer);
            timer = setTimeout(()=>{
                fun.apply(this,arguments) //用了箭头函数不再需要that = this,args = arguments;必须用apply
-           },time)
+           },wait)
        }
   }
 

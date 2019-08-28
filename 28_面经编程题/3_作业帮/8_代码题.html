@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var length = 10;
+    function fn(){
+        console.log(this.length)
+    }
+    var obj = {
+        length:5,
+        method:function(fn){
+            fn();//独立调用的第二种  2.被嵌套的函数独立调用 3.闭包中内部函数  4.IIFE立即执行函数
+            console.log(arguments)
+            console.log(arguments[0]) //fn
+            arguments[0]();
+        }
+    }
+    obj.method(fn)//10 1
+</script>
+</body>
+</html>

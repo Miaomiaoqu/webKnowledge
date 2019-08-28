@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function extendsClass(father, Child) {
+        function F() {}
+        F.prototype = father.prototype
+        Child.prototype = new F()   //以上相当于Object.create(father.prototype)
+        Child.prototype.constrctor = Child
+        return Child
+    }
+
+    function object(o){//Object.create(o)
+        function F(){}
+        F.prototype=o
+        return new F
+    }
+    function inherit(child,father){
+        var prototype=object(father.prototype)
+        prototype.constructor=child
+        child.prototype=prototype
+    }
+
+</script>
+</body>
+</html>
