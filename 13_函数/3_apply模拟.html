@@ -10,6 +10,8 @@
         obj = obj || window;
         obj.fun = this;
         let result = obj.fun(...arr[0]);
+        /*var rest=[].slice.call(arguments,1)
+        console.log(rest)*/
         delete obj.fun;//给 foo对象本身添加了一个属性，函数执行完，用delete再删除即可
         return result;
     };

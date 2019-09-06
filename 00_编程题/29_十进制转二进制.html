@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function binary(num) {
+        var arr = [], res = [],len=0;
+       while(num>0) {//除2取余
+            arr.push(num % 2);
+            num = parseInt(num / 2);
+             len++;
+        }
+        //倒序排列
+          for (var j = len - 1; j >= 0; j--) {//从后往前取余
+              res.push(arr[j]);
+         }
+         return res.join("");//连接成字符串
+        /* var count=0;
+         for(var i=0;i<res.length;i++){//找出二进制中1的个数
+             if(res[i]==1) count++
+         }
+         return count*/
+        }
+
+        console.log(binary(3))
+        console.log(binary(5))
+</script>
+</body>
+</html>

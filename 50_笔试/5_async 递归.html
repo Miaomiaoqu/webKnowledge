@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function timeout(color,ms){
+        return new Promise((resolve)=>{
+            setTimeout(()=>{
+               resolve(color)
+            },ms)
+        })
+
+    }
+    async function traffic(){
+        let color1=await timeout('绿',3000)
+        console.log(color1)
+        let color2=await timeout('黄',2000)
+        console.log(color2)
+        let color3=await timeout('红',1000)
+        console.log(color3)
+    }
+    traffic()
+</script>
+</body>
+</html>

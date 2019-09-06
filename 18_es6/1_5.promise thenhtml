@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Promise.resolve(4)
+        .then(res=>{console.log(res)})
+        .then(console.log) //undefined
+        .then(Promise.resolve(3));
+
+    Promise.resolve(1)
+        .then(2)
+        .then(Promise.resolve(3))
+        .then(console.log)//1
+        .then(console.log); //undefined
+    /*console.log(console.log)*/
+    console.log( Promise.resolve(1)
+        .then(2))
+</script>
+</body>
+</html>

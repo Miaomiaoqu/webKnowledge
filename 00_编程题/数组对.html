@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr=[-1, 2, 2,4, 5, -2]
+    var count = 0;
+    function sum(arr){
+        var len=arr.length;
+        for(var i=0;i<len-count;i++){
+            var other=-(arr[i]-0)
+            if(arr.lastIndexOf(other)>i){
+                count++
+                arr.pop()
+                console.log(arr)
+            }
+        }
+        return count
+    }
+    console.log(sum(arr))
+</script>
+</body>
+</html>

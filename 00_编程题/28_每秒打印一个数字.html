@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*    var a = 0
+    function out() {
+        setTimeout( function() {
+            console.log(a++)
+            if(a > 10) {
+                return
+            } else {
+                out()
+            }
+        },1000)
+    }
+    out()*/
+for(let i=0;i<5;i++){
+    setTimeout(()=>{
+        console.log(i)//每隔一秒输出一个数字
+    },i*1000)
+}
+</script>
+</body>
+</html>

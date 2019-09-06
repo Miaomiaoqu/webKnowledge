@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*    输入
+    输入两个版本号
+
+    输出
+    将两个版本号按从小到大顺序输出，用逗号分隔
+
+
+    样例输入
+    5.2.0
+    5.10
+    样例输出
+    5.2.0,5.10*/
+function sortVersion(s1, s2) {
+    var array1=s1.split(".")
+    var array2=s2.split(".")
+    var length =Math.max(array1.length,array2.length)
+    for(var i=0;i<length;i++){
+        var data1=parseInt(array1[i]),data2=parseInt(array2[i])
+        if(data1===data2) continue;
+        if(data1<data2){
+            return array1.join('.')+','+array2.join('.')
+        }else{
+            return array2.join('.')+','+array1.join('.')
+        }
+    }
+}
+</script>
+</body>
+</html>

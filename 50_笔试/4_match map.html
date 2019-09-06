@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr=[1,2,3,4,5,6].join().match(/\d+,\d+/g);
+    console.log(arr) // join():"1,2,3,4,5,6" ,match:["1,2", "3,4", "5,6"]
+    var newArr=arr.map((res)=>{//数组
+        return res.split(",").map((res)=>{//["1","2"]   ["3","4"]  ["5","6"]  数组
+            return res
+        })
+    })
+    console.log(newArr)//[["1","2"],["3","4"],["5","6"]]
+</script>
+</body>
+</html>

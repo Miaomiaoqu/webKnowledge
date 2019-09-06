@@ -8,11 +8,11 @@
 <script>
   /*  promise是立即执行的，它创建的时候就会执行，不存在将promise推入微任务中的说法；
 
-    resolve()是用来表示promise的状态为fullfilled，相当于只是定义了一个有状态的Promise，但是并没有调用它；
+     resolve()表明promise的状态改变，是用来表示promise的状态为fulfilled，相当于只是定义了一个有状态的Promise，但是并没有调用它；
 
-    promise调用then的前提是promise的状态为fullfilled；
+     promise调用then的前提是promise的状态为fulfilled；
 
-    只有promise调用then的时候，then里面的函数才会被推入微任务中；*/
+     只有promise调用then的时候，then里面的函数才会被推入微任务中；*/
 
     //then中传入promise对象的成功和失败状态的回调函数
     //then会返回一个新的Promise实例

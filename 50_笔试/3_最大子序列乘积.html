@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*    输入
+    输入一个整数数组，输入整数以空格分隔
+
+    输出
+    输出数组中乘积最大的连续子序列的乘积
+
+
+    样例输入
+    2 3 -2 4
+    样例输出
+    6*/
+var str=read_line();
+var array=str.split(" ");
+var maxVal=array[0],minVal=array[0],result=array[0],length=array.length;
+for(var i=1;i<length;i++){
+    if(array[i]>0){
+        maxVal=Math.max(maxVal*array[i],array[i]);
+        minVal=Math.min(minVal*array[i],array[i]);
+    }else{
+        var m=maxVal;
+        maxVal=Math.max(minVal*array[i],array[i]);
+        minVal=Math.min(m*array[i],array[i]);
+    }
+    result = Math.max(maxVal,result)
+}
+print(result)
+</script>
+</body>
+</html>

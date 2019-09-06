@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function binary(num) {
+        var arr = [], res = [],len=0;
+        while(num>0) {//除2取余
+            arr.push(num % 16);
+            num = parseInt(num / 16);
+            len++;
+        }
+        //倒序排列
+        for (var j = len - 1; j >= 0; j--) {//从后往前取余
+            res.push(arr[j]);
+        }
+        //res=res.join(" ");//连接成字符串
+ /*       res=res.replace(/\d/g, function(n){//只能匹配一个字符[],\d
+            return n<=9?n:
+                   n==10?"a":
+                   n==11?"b":
+                   n==12?"c":
+                   n==13?"d":
+                   n==14?"e":
+                        "f";
+        })*/
+     for(var i=0;i<res.length;i++){//res必须为数组的形式，如果是字符串，无法修改
+           if(res[i]==10) res[i]="a"
+           if(res[i]==11) res[i]="b"
+           if(res[i]==12) res[i]="c"
+           if(res[i]==13) res[i]="d"
+           if(res[i]==14) res[i]="e"
+           if(res[i]==15) res[i]="f"
+      }
+        return res.join("")
+    }
+    console.log(binary(155))
+</script>
+</body>
+</html>

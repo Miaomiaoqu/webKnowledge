@@ -12,9 +12,9 @@
             obj.__proto__=func.prototype;
         }
         let rets = func.apply(obj,value);    //new的过程需要调用构造函数
-        if((typeof rets == "object" || typeof rets =="function")&& rets!=="null"){
+    /*    if((typeof rets == "object" || typeof rets =="function")&& rets!=="null"){
             return rets
-        }
+        }*/
         return obj
     }
 
@@ -28,6 +28,7 @@
     }
     var per1 = New(Person,"mm","25");
     console.log(per1);
+    console.log(per1 instanceof Person);
     var per2= New(Person);
     console.log(per2);
 </script>

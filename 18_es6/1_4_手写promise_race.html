@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Promise.race()：
+      1.形参是多个promise实例，里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。
+      2.只要一个实例改变了状态，新封装的promise实例状态就会跟着改变，进行相应的回调（且将该实例的返回值交给p的回调函数)。
+      */
+    /*let p1=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve('经过2000ms弹出')
+        },2000)
+    })
+    let p2=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve('经过1000ms弹出')
+        },1000)
+    })
+    let p3=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject('经过3000ms失败')
+        },3000)
+    })
+
+    Promise.race([p1,p2,p3]).then(result=>{
+        console.log(result)  //经过1000ms弹出
+    }).catch(error=>{
+        console.log(error)
+    })*/
+
+    //js原生实现
+    function MyPromiseRace(promises){
+       return new Promise((resolve,reject)=>{
+           if(!(promises instanceof Array)){
+               throw new TypeError("promises must be an Array")
+           }
+           for(let i=0;i<promises.length;i++){
+              promises[i].then(resolve,reject)//只要有一个实例状态改变，就会调用相应的回调，从而使新封装的promise状态改变
+           }
+       })
+    }
+
+    let pp1=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve('经过300ms弹出')
+        },300)
+    })
+    let pp2=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve('经过1000ms弹出')
+        },1000)
+    })
+    let pp3=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject('经过500ms失败')
+        },500)
+    })
+
+    MyPromiseRace([pp1,pp2,pp3]).then(result=>{
+        console.log(result)  //经过1000ms弹出
+    }).catch(error=>{
+        console.log(error)
+    })
+</script>
+</body>
+</html>

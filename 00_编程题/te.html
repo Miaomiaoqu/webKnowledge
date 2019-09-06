@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str="aba"
+    var arr=str.split("");
+    var res=[];
+    for(var i=0;i<arr.length;i++){
+        for(var j=i+1;j<arr.length+1;j++){
+            var s=arr.slice(i,j).join("");
+            res.push(s);
+        }
+    }
+    console.log(res)
+    var obj={};
+    for(var i=0;i<res.length;i++){
+        var item=res[i];
+        if(obj[item]) {
+            obj[item]++
+        }else{
+            obj[item]=1
+        }
+    }
+    var str="",max=0;
+    for(var val in obj){
+        if(obj[val]>max) {
+            str=val
+            max=obj[val]
+        }
+    }
+    console.log(max)
+</script>
+</body>
+</html>

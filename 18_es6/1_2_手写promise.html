@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /*
+    1.先来搭建构建函数的大体框架
+    2.完善resolve和reject函数，添加在 MyPromise 函数体内部
+    3.实现执行 Promise 中传入的函数
+    4.实现then 函数。
+  */
+    const PENDING = 'pending'  //首先创建三个常量用于表示状态，对于经常使用的一些值应该通过常量来管理，便于开发及后期维护
+    const RESOLVED = 'resolved'
+    const REJECTED = 'rejected'
+    function MyPromise(fn){
+        console.log(this)  //promise对象
+        const that = this           //在函数体内部首先创建常量that，因为代码可能会异步执行，用于获取正确的this对象
+        that.state = PENDING        //一开始Promise的状态是 pending
+        that.value = null           //value变量用于保存resolve或者reject中传入的值
+        that.resolvedCallbacks = [] //以下两个用于保存then中的回调，因为当执行完Promise时状态可能还是等待中，
+        that.rejectedCallbacks = [] //这时候应该把then中的回调保存起来用于状态改变时使用
+        function resolve(val) {
+            console.log(this)  //window
+            if(that.state === PENDING) {
+                that.state = RESOLVED   //设置state
+                that.value = val      //设置value
+                that.resolvedCallbacks.map(cb => cb(that.val))  //前一个执行完了，返回promise，接着执行下一个。依次执行成功回调数组中的函数
+            }
+        }
+        function reject(val) {
+            if(that.state === PENDING){
+                that.state = REJECTED
+                that.value = val;
+                that.rejectedCallbacks.map(cb => cb(that.value));
+            }
+        }
+        try {//执行传入的参数并且将之前两个函数当做参数传进去，可能执行函数过程中会遇到错误，需要捕获错误并且执行 reject 函数
+            fn(resolve, reject)
+        } catch (e) {
+            reject(e)
+        }
+    }
+   MyPromise.prototype.then = function(onFulfilled, onRejected) {//代码执行到then方法的时候
+       console.log(this)
+       const that = this
+       if(that.state === PENDING) {
+           that.resolvedCallbacks.push(onFulfilled)
+           that.rejectedCallbacks.push(onRejected)
+       }else if(that.state === RESOLVED) {
+           onFulfilled(that.value)
+       }else {
+           onRejected(that.value)
+       }
+   }
+
+   new MyPromise((resolve, reject) => {//状态是不可逆的，只能pending->resolved，只能pending->rejected，
+        setTimeout(() => {
+            resolve('成功的回调数据')
+        }, 1000)
+       setTimeout(() => {
+           reject('失败了')
+       }, 2000)
+    }).then(value => {
+        console.log('Promise.then:  ', value)
+    },value=>{
+        console.log(value)
+   })
+</script>
+</body>
+</html>

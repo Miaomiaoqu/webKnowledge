@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //promise.all的使用
+    /*
+    1.使多个函数并行执行(等待多个任务完成才执行)。形参是一个数组，放入多个promise实例，
+    2.Promise.all可以将多个Promise实例包装成一个新的Promise实例。
+    3.当传入的多个实例状态均为成功状态，才执行成功的回调，有一个变为失败的状态，，执行失败的回调。
+    4.成功和失败的返回值是不同的，成功的时候返回的是一个结果数组，而失败的时候则返回最先被reject失败状态的值。
+    5.Promse.all在处理多个异步处理时非常有用，比如说一个页面上需要等两个或多个ajax的数据回来以后才正常显示，在此之前只显示loading图标。
+    */
+
+     //注：Promise.all获得的成功结果的数组里面的数据顺序和Promise.all接收到的数组顺序是一致的，即p1的结果在前，即便p1的结果获取的比p2要晚。
+    // 这带来了一个绝大的好处：在前端开发请求数据的过程中，偶尔会遇到发送多个请求并根据请求顺序获取和使用数据的场景，使用Promise.all毫无疑问可以解决这个问题。
+   let p1=new Promise((resolve,reject)=>{
+       resolve('成功了')
+   })
+    let p2=new Promise((resolve,reject)=>{
+        resolve('succes')
+    })
+    let p3=Promise.reject('失败了')
+    Promise.all([p1,p2]).then(result=>{
+        console.log(result)//['成功了'，'success']
+    }).catch(error=>{
+        console.log(error)
+    })
+    Promise.all([p1,p2,p3]).then(result=>{
+        console.log(result)
+    }).catch(error=>{
+        console.log(error)  //失败了
+    })
+
+   /*
+    try 语句使您能够测试代码块中的错误。
+    catch 语句允许您处理错误。
+    throw 语句允许您创建自定义错误。
+    finally 使您能够执行代码，在 try 和 catch 之后，无论结果如何。
+    */
+    //js原生实现
+    function MyPromiseAll(promises){
+       return new Promise((resolve,reject)=>{//返回一个promise对象，并传入成功和失败的回调
+           if(!(promises instanceof Array)){
+               throw new TypeError("promises must be an Array");
+           }
+           let len=promises.length;
+           let resolvedCount=0,resolvedArr=new Array(len);
+           for(let i=0;i<len;i++){
+               Promise.resolve(promises[i]).then(val=>{//Promise.resolve(promises[i])会执行promises[i],再将其封装成promise对象，根据promise的状态执行then后面相应的回调
+                   resolvedCount++
+                   resolvedArr[i]=val;
+                   if(resolvedCount===len){
+                       return resolve(resolvedArr)
+                   }
+               },err=>{
+                   return reject(err)
+               })
+           }
+       })
+    }
+    let pp1=new Promise((resolve,reject)=>{
+        resolve('成功了')
+    })
+    let pp2=new Promise((resolve,reject)=>{
+        resolve('succes')
+    })
+    let pp3=Promise.reject('失败了')
+    MyPromiseAll([pp1,pp2]).then(result=>{
+        console.log(result)//['成功了'，'success']
+    }).catch(error=>{
+        console.log(error)
+    })
+    MyPromiseAll([pp1,pp2,pp3]).then(result=>{
+        console.log(result)
+    }).catch(error=>{
+        console.log(error)  //失败了
+    })
+
+    /*   MyPromise.all2=function (promises){
+       return new Promise(function(resolve,reject) {
+           //promises必须是一个数组
+           if(!(promises instanceof Array)) {
+               throw new TypeError("promises must be an Array");
+           }
+           var len = promises.length,
+               resolvedCount = 0,
+               resolvedArray = new Array(len);
+           for(var i = 0;i < len ;i++) {
+               (function(i) {  //不用let，用var时，使用匿名自调用
+                   Promise.resolve(promises[i])
+                       .then(value => {
+                           resolvedCount++;
+                           resolvedArray[i] = value;
+                           if(resolvedCount == len) {
+                               return resolve(resolvedArray);
+                           }
+                       },re => {
+                           return reject(re);
+                       })
+                       .catch(re => {
+                           console.log(re);
+                       })
+               })(i)
+           }
+       })
+   }*/
+</script>
+</body>
+</html>

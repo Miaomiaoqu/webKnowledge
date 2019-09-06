@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*    输入
+    输入为两行字符串，长度均小于等于100，字符串不区分大小写
+
+    输出
+    输出为一个整数，表示最长公共连续子串的长度。
+
+样例输入
+    abcd
+    abdde
+    样例输出
+    2*/
+    var s1="abcd";
+    var s2="abdde";
+    function longestSubStrLength(s1, s2) {
+        let max = 0;
+        s1=s1.toLowerCase();
+        s2=s2.toLowerCase();
+        for(let i = 0; i < s1.length; i++){
+            for(let j = s1.length; j > i; j--){
+                let str = s1.slice(i, j);
+                if(s2.indexOf(str)!=-1){
+                    let n = str.length;
+                    if(n > max){
+                        max = n;
+                    }
+                    break;
+                }
+            }
+        }
+        return max
+    }
+</script>
+</body>
+</html>

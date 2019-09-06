@@ -13,7 +13,9 @@
     3，不具有数组的push,pop等方法*/
     //1.双重循环
     var array = [1, 1, '1', '1'];
-    function unique(array) {
+    var array = ['a', 'a', 1,1,0, true, false, undefined, undefined, NaN, NaN, {}, {'a': 1}, {}, null, null];
+
+   function unique(array) {
         var res = [];
         for (var i = 0, arrayLen = array.length; i < arrayLen; i++) {
             for (var j = 0, resLen = res.length; j < resLen; j++ ) {
@@ -29,6 +31,7 @@
     }
     console.log(unique(array)); // [1, "1"]
     //2.利用indexOf
+
     function unique1(arr){
         let res = [];
         for(let i=0;i<arr.length;i++){

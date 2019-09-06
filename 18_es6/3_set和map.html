@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*set：Set是无重复值的有序列表。Set会自动移除重复的值，因此你可以使用它来过滤数组中重复的值并返回结果。Set通过new Set()来创建，
+    1.add()：可以向Set中添加项目。
+    2.delete()：移除单个值。
+    3.has()：测试某个值是否存在于set中。
+    4.size属性：还能查看其中包含多少项。
+    5.clear()：所有值从Set中移除。*/
+    //注：无法检测处对象
+    //使用数组来初始化一个Set，并且Set构造器确保不会重复使用这些值。(除了对象)
+    var set=new Set([1,2,2,4,{},{},undefined,undefined,null,null])
+    console.log(set)//{1, 2, 4, {}, {}, undefined,null}-->相当于类数组
+    console.log([...set])//[1, 2, 4, {…}, {…}, undefined, null]-->转化为数组
+    set.add(7)
+    set.delete(2)
+    set.has(2)
+/*    Set 上的forEach()方法
+    forEach()方法还会被传递一个回调函数，该回调函数接收三个参数：
+        Set中下个位置的值
+        与第一个参数相同的值
+        目标Set本身
+    由于Set没有键，为了使forEach方法与数组和map的forEach方法一致：将Set中的每一项同时认定为键与值。*/
+    let set2 = new Set([1, 2]);
+    set2.forEach(function(value, key, ownerSet) {
+        console.log(`${key} ${value}`)   //1 1 true 2 2 true
+        console.log(ownerSet === set2);
+    })
+
+
+  /*  ES6的Map类型是键值对的有序列表，而键和值都可以是任意类型。
+    set方法:传递一个键与一个关联的值，来给Map添加项；
+    get(key):获取键名对应的值。
+    has(key)
+    delete(key)
+    clear()
+    size*/
+    let map1 = new Map();
+    map1.set("name", "cc");
+    map1.set("age", 23);
+
+    console.log(map1.get("name"));//cc
+    console.log(map1.get("age"));//23
+    //也可以使用对象作为键
+
+    let map2 = new Map();
+    let key1 = {};
+    let key2 = {};
+
+    map2.set(key1, 5);
+    map2.set(key2, 8);
+
+    console.log(map2.get(key1));//5
+    console.log(map2.get(key2));//8
+
+   /* 将数组传递给Map构造器，以便使用数据来初始化一个Map。
+    该数组中的每一项也必须是数组，内部数组的首个项会作为键，第二项则为对应值。
+    因此整个Map就被这些双项数组填充。*/
+    let map3 = new Map([
+        ["name", "cc"],
+        ["age", 26]
+    ]);
+    console.log(map3)//{"name" => "cc", "age" => 26}
+    console.log(map3.has("name"));//true
+    console.log(map3.get("name"));//cc
+    console.log(map3.has("age"));//true
+    console.log(map3.get("age"));//26
+    console.log(map3.size);//2
+</script>
+</body>
+</html>
