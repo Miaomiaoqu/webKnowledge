@@ -13,7 +13,8 @@
                  /*if(callback.call(thisArg,this[i],i,this)){
                      arr.push(this[i])
                  }*/
-                callback.call(thisArg,this[i],i,this)&&arr.push(this[i]);
+                //callback.call(thisArg,this[i],i,this)&&arr.push(this[i]);
+                callback(this[i],i,this)&&arr.push(this[i]);
             }
         }
         return arr;

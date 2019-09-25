@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var threeSum = function (nums) {
+        if(nums.length<3){
+            return 0
+        }
+        //放数组的容器
+        var result = [];
+        // 1,对数组排序从小到大
+        nums.sort(function (a, b) {
+            return a - b;
+        })
+        for (var i = 0, n = nums.length; i < n - 2; i++) {
+            if(i > 0 && nums[i] === nums[i-1]) continue; // 去重,所给数组有相同元素的情况下
+            var j = i + 1;
+            var k = n - 1;
+            while (j < k) {
+                var temp = [];
+                var sum_two = nums[i] + nums[j];
+                if (sum_two + nums[k]<2) {
+                    temp = [nums[i], nums[j], nums[k]]
+                    result.push(temp);
+                    //while (j<k && nums[j] == nums[j+1]) j++; // 去重
+                   // while (j<k && nums[k] == nums[k-1]) k--; // 去重
+                    //寻找下一组
+                    k--;
+                } else {
+                    k--;
+                }
+            }
+        }
+        return result
+    };
+
+    var nums = [-2, 0, 1, 2, 3, 6];
+    console.log(threeSum(nums))  //[-2, 0, 3]、[-2, 1, 2]
+   //正确结果[-2, 0, 1]、[-2, 0, 2]、[-2, 0, 3]、[-2, 1, 2]
+</script>
+</body>
+</html>

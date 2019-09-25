@@ -22,7 +22,8 @@
     Array.prototype.myForEach = function(callback,thisArg){
             if(typeof callback === "function"){
                 for(var i=0,len = this.length;i<len;i++){//myForEach中的this指的时调用该方法的数组，thisArg指的是回调函数中的this指向
-                    callback.call(thisArg,this[i],i,this);//在call中，如果thisArg不传，this指向为window
+                    //callback.call(thisArg,this[i],i,this);//在call中，如果thisArg不传，this指向为window
+                    callback(this[i],i,this)
                 }
             }
     }

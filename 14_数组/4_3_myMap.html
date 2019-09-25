@@ -19,7 +19,8 @@
             if(typeof callback === "function"){
                 var newArr = [];
                 for(var i= 0,len=this.length;i<len;i++){
-                    var res = callback.call(thisArg,this[i],i,this)
+                    //var res = callback.call(thisArg,this[i],i,this)
+                    var res = callback(this[i],i,this)
                     newArr.push(res);
                 }
                 return newArr

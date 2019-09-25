@@ -7,6 +7,12 @@
 <body>
 <script>
    // 对象在转换基本类型时，会调用valueOf， 需要转成字符类型时调用toString。
+ /*
+  valueOf偏向于运算，toString偏向于显示。
+  1、进行对象转换时，将优先调用toString()方法，如果没有toString()则将调用valueOf方法，如果两方法都不没有，那么就按toString()输出。
+  2、在进行强制类型转换时，强转为字符串类型时将优先调用toString方法，强转为数字时优先调用valueOf()方法。
+  3、在有运算操作符的情况下，valueOf的优先级高于toString。
+*/
     var a = {
         valueOf() {
             return 0;

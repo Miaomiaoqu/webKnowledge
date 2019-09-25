@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1.实现一个累加函数，当最后一次调用传入空时，计算所有参数和，类似下面：
+        //const x = sum(1);
+        //x = sum(1,2)(3,4,5)(6)()
+       //运用闭包
+      function add1(){
+          var args=[];
+          return function inner(...rest){
+              if(rest.length===0) return args.reduce((pre,cur)=>cur+pre)
+              args=args.concat(rest)
+              return inner
+          }
+      }
+      var sum1=add1();
+     // var res = sum(1,2)(3,4,5)(6)()
+      var res1 = sum1(1,2)(3,4)()
+      console.log(res1)
+
+
+    //实现一个累加函数的功能比如sum(1,2,3)(2).valueOf()  //8
+    function add2(){
+        var args=[];
+        function inner(...rest){
+            args=args.concat(rest)
+            return inner
+        }
+        inner.valueOf=()=>args.reduce((pre,cur)=>cur+pre)
+        return inner
+    }
+    var sum2=add2();
+    // var res = sum(1,2)(3,4,5)(6)()
+    var res2 = sum2(1,2)(3,4)(6).valueOf()
+    console.log(res2)
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sleep2(ms) {
+        return new Promise(function(resolve, reject) {
+            setTimeout(resolve, ms)
+        })
+    }
+    sleep2(1000).then(() => {
+        console.log("睡眠")
+    })
+</script>
+</body>
+</html>

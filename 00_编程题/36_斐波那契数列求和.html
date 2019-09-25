@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //斐波那契数列的定义为：
+     //F(0)=0,F(1)=1，F(2)=1，F(n)=F(n-2)+F(n-1)
+    function Fibonacci(n){
+        if(n==0) return 0
+        if(n==1) return 1
+        var pre=0,cur=1
+        for(var i=2;i<n;i++){
+            var temp=cur;
+            cur=pre+cur
+            pre=temp
+        }
+        return cur
+    }
+</script>
+</body>
+</html>

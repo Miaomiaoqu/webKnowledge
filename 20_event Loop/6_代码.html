@@ -9,7 +9,8 @@
     async function async1() {
         console.log('async1 start')
         await async2()//wait后面的表达式会先执行一遍，将await后面的代码加入到microtask中，然后就会跳出整个async函数来执行后面的代码。
-        console.log('async1 end')
+        console.log('async1 end1')
+        console.log('async1 end2')
     }
     async function async2() {
         console.log('async2')
@@ -26,6 +27,16 @@
         console.log('promise2')
     } )
     console.log('script end')
+
+   /* script start
+    async1 start
+    async2
+    promise1
+    script end
+    async1 end1
+    async1 end2
+    promise2
+    setTimeout*/
 </script>
 </body>
 </html>

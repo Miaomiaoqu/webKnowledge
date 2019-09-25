@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*  ES6的Map类型是键值对的有序列表，而键和值都可以是任意类型。
+        set方法:传递一个键与一个关联的值，来给Map添加项；
+        get(key):获取键名对应的值。
+        has(key)
+        delete(key)
+        clear()
+        size
+     */
+    let map1 = new Map();
+    map1.set("name", "cc");
+    map1.set("age", 23);
+    console.log(map1.get("name"));//cc
+    console.log(map1.get("age"));//23
+
+    //也可以使用对象作为键
+    let map2 = new Map();
+    let key1 = {};
+    let key2 = {};
+    map2.set(key1, 5);
+    map2.set(key2, 8);
+    console.log(map2.get(key1));//5
+    console.log(map2.get(key2));//8
+
+    /* 将数组传递给Map构造器，以便使用数据来初始化一个Map。
+     该数组中的每一项也必须是数组，内部数组的首个项会作为键，第二项则为对应值。
+     因此整个Map就被这些双项数组填充。*/
+    let map3 = new Map([
+        ["name", "cc"],
+        ["age", 26]
+    ]);
+    console.log(map3)//{"name" => "cc", "age" => 26}
+    console.log(map3.size);//2
+    console.log(map3.has("name"));//true
+    console.log(map3.get("name"));//cc
+    console.log(map3.has("age"));//true
+    console.log(map3.get("age"));//26
+
+    var foo=1;
+    function bar(){
+        foo=10;
+        return;
+        function foo(){}
+    }
+    bar();
+    alert(foo)
+</script>
+</body>
+</html>

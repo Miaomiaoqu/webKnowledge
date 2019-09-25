@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function wave(w){
+        //请按照要求写出你的答案
+        var res=[];
+        for(var i=0;i<w.length;i++){
+            var str=w.slice(0,i)+w[i].toUpperCase()+w.slice(i+1)
+            res.push(str)
+        }
+        return res;
+    }
+    var s="hello";
+    console.log(wave(s))
+ /*   while(line = readline()){
+        var w = lines;
+        print(JSON.stringify(wave(w)));
+    }*/
+</script>
+</body>
+</html>

@@ -32,8 +32,7 @@
     root.children[2].children.push(new Node('seven'));
     root.children[2].children[0].parent = root.children[2];
     function wideTraversal(node){
-        var res = [];
-        var queue = [];
+        var res = [], queue = [];
         queue.push(node);
         while(queue.length > 0){
             var item = queue.shift();

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function addStr(str1,str2){
+        var curry=0,str="";
+        var len1=str1.length,len2=str2.length;
+        for(var i=0;i<Math.abs(len1-len2);i++){
+            if(len1>len2){
+                str2=0+str2
+            }else {
+                str1=0+str1
+            }
+        }
+        var res=[];
+        for(var j=str1.length-1;j>=0;j--){
+            var m=parseInt(str1[j])+parseInt(str2[j])+curry
+            res.push(m%10);
+            curry=parseInt(m/10)
+        }
+        if(curry>0) res.push(curry)
+        return res.reverse().join("")
+    }
+    console.log(addStr("1","99999"))
+    console.log(addStr('9007199254740993', '111238'));//必须以字符串传入
+    console.log(addStr('9007199254740993', '111'))
+</script>
+</body>
+</html>

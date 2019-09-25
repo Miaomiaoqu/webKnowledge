@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var count=1
+    function transObj (orignalObj){
+        // 请在这里写出你的答案,你也可以增加函数的接收的参数，但是不要修改while里的代码
+        var res={};
+        for(var item in orignalObj){
+            console.log(item)
+            if(item=="name"){
+                var str='';
+                for(var i=0;i<count;i++){
+                     str="-"+str;
+                }
+                res[item]=str+orignalObj[item]
+                console.log(res[item])
+                count++;
+            }else if(Object.prototype.toString.call(orignalObj[item])==="[object Object]"){
+                console.log(orignalObj[item])
+                res[item]=transObj(orignalObj[item])
+            }else{
+                res[item]=orignalObj[item]
+            }
+        }
+        return res;
+    }
+    var obj={"name":"a","c":{"name":"c","b":{"name":"b"}}}
+    console.log(transObj(obj))
+</script>
+</body>
+</html>

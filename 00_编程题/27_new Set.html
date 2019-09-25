@@ -6,9 +6,9 @@
 </head>
 <body>
 <script>
-    var arr=new Set(['a', 'a', 1,1,0, true, false, undefined, undefined, NaN, NaN, {}, {'a': 1}, {'a': 1},{}, null, null])
-    console.log(arr)
-    console.log(new Set([1,1,0,2,3]))
+    var arr=new Set(['a', 'a', 1,1,0, true, false, undefined, undefined, NaN, NaN, {}, {'a': 1}, {'a': 1},{},[1,2],[1,2], null, null])
+    console.log(arr)//对引用数组来说不起作用
+   // console.log(new Set([1,1,0,2,3]))
 </script>
 </body>
 </html>

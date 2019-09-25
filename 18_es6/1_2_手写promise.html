@@ -27,7 +27,7 @@
             if(that.state === PENDING) {
                 that.state = RESOLVED   //设置state
                 that.value = val      //设置value
-                that.resolvedCallbacks.map(cb => cb(that.val))  //前一个执行完了，返回promise，接着执行下一个。依次执行成功回调数组中的函数
+                that.resolvedCallbacks.map(cb => cb(that.value))  //前一个执行完了，返回promise，接着执行下一个。依次执行成功回调数组中的函数
             }
         }
         function reject(val) {

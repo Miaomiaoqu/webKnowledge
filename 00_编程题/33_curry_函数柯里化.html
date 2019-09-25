@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*判断参数是否已经达到预期的值（函数柯里化之前的参数个数），如果没有继续返回函数，达到了就执行函数然后返回值*/
+    function curry(fn,...arr){
+        var arg=arr,len=fn.length;
+        //console.log(arr)   //若一开始不传值，arr默认为[]
+        return (...rest)=>{
+            //console.log(this)  //window
+            var newArg=arg.concat(rest)
+            if(newArg.length< len)  return curry.call(this,fn,...newArg)
+            else return fn.apply(this,newArg)
+        }
+    }
+    function multiFn(a, b, c) {
+        return a * b * c;
+    }
+
+    var multi = curry(multiFn);//先柯里化函数
+    console.log(multi(2)(3)(4));  //24
+   // console.log(multi(2,3,4));   //24
+    //console.log(multi(2)(3,4));  //24
+   // console.log(multi(2,3)(4));  //24
+</script>
+</body>
+</html>

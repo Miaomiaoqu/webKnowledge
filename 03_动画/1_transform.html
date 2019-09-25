@@ -12,6 +12,15 @@
         #test:hover{
             transform: translate(200px,200px) rotate(135deg) skew(45deg) scale(1.1);
         }
+       /* ul>li>p[name*="last"]{
+            color: red;
+        }*/
+       /* ul>li>p[name$="last"]{
+            color: red;
+        }*/
+        ul>li>p:last-child{
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -21,5 +30,9 @@
 
 </div>
 
+<ul>
+    <li><p name="first_p">wo</p></li>
+    <li><p name="last_p">wo</p></li>
+</ul>
 </body>
 </html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //箭头函数没有自己的this,它会捕获其定义的位置上下文的this值作为自己的this
+    function foo1(){
+        console.log(this)    //{id:42},call传入的对象
+        setTimeout(()=>{
+            console.log(this)   //{id:42},call传入的对象
+            console.log('id:',this.id)
+        },100)
+    }
+    var id=21;
+    foo1.call({id:42})  //42
+
+
+    function Foo2(m){
+        this.age=m
+        setTimeout(()=>{
+            console.log(this) //{age:"24"}
+        },100)
+    }
+   var p=new Foo2("24");
+
+
+    //非箭头函数中的this是调用的时候决定的
+    function foo3(){
+        setTimeout(function(){
+            console.log(this)  //window
+            console.log('id:',this.id)
+        },100)
+    }
+    var id=21;
+    foo3.call({id:42})  //21
+</script>
+</body>
+</html>

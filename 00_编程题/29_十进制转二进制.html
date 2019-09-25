@@ -6,12 +6,25 @@
 </head>
 <body>
 <script>
+    /*
+    js只保留整数，向上取整，四舍五入，向下取整等函数
+    1.丢弃小数部分,保留整数部分
+      parseInt(5/2)
+    2.向上取整,有小数就整数部分加1
+      Math.ceil(5/2)
+    3.四舍五入.
+      Math.round(5/2)
+    4.向下取整
+      Math.floor(5/2)
+      Math对象的方法
+    */
+
     function binary(num) {
         var arr = [], res = [],len=0;
        while(num>0) {//除2取余
             arr.push(num % 2);
-            num = parseInt(num / 2);
-             len++;
+            num = parseInt(num / 2);//不会四舍五入
+            len++;
         }
         //倒序排列
           for (var j = len - 1; j >= 0; j--) {//从后往前取余

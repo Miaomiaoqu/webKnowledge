@@ -11,25 +11,25 @@
     1. 利用借用构造函数初始化相同属性
     2. 利用原型链实现对父类型对象的方法继承
     */
-    function SupType(name){
+    function Father(name){
         this.name = name;
         this.colors = ["blue","red"];
     }
-    SupType.prototype.getName = function(){
+    Father.prototype.getName = function(){
         console.log(this.name);
     }
-    function SubType(name,age){
-        SupType.call(this,name);
+    function Child(name,age){
+        Father.call(this,name);
         this.age = age;
     }
-    SubType.prototype = new SupType();
-    SubType.prototype.constructor = SubType;
-    var st1 = new SubType("oo",25);
+    Child.prototype = new Father();
+    Child.prototype.constructor = Child;
+    var st1 = new Child("oo",25);
     st1.colors.push("yellow");
     console.log(st1);
     console.log(st1.name,st1.age);
     st1.getName();
-    var st2 = new SupType();
+    var st2 = new Father();
     console.log(st2);  //colors没变
 </script>
 </body>

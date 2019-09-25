@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+/*    第3个人，取的号是3；
+
+第4个人，取的号是5；
+
+第10个人，取的号是11；
+
+第50000个人，取的号是86626;*/
+    function code(n){
+        var obj={},j=1;
+        for(var i=1;i<=n;i++){
+            var str=j+"";
+            if(str.indexOf(4)!==-1){
+                obj[i]=++j;
+                j++
+            }else{
+                obj[i]=j;
+                j++
+            }
+           // console.log(obj)
+        }
+        return obj[n]
+    }
+    console.log(code(3));
+    console.log(code(4));
+    console.log(code(10));
+    console.log(code(14));
+    console.log(code(15));
+    console.log(code(50000));
+</script>
+</body>
+</html>

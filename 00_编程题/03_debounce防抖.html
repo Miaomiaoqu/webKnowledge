@@ -39,20 +39,18 @@
   //参数'yeye'必须放在后面再传入，否则debounce(testFun('yeye'))会直接调用testFun()
   //在普通函数中，会自动绑定上的各种局部变量，箭头函数都是十分单纯的沿着作用域链向上寻找……(this,arguments)
   function debounce(fun,wait) {
-       wait = wait || 1000; //不用再加var
+       wait = wait || 3000; //不用再加var
        let timer = null;
        return function(){
            //console.log(this);         //绑定事件的对象div
            console.log(arguments);    //调用debounce之后传入的参数
            //let that = this,args = arguments;
-           clearTimeout(timer);
+           clearTimeout(timer);    //把之前的延时器清掉
            timer = setTimeout(()=>{
                fun.apply(this,arguments) //用了箭头函数不再需要that = this,args = arguments;必须用apply
            },wait)
        }
   }
-
-
 </script>
 </body>
 </html>

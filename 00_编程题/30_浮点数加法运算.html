@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //toFixed():Number,四舍五入为指定小数位数的数字,返回的时字符串(除了负数不存在括号的情况下)
+    var numObj = 12345.6789;
+    numObj.toFixed();         // 返回 "12346"：进行四舍五入，不包括小数部分
+    numObj.toFixed(1);        // 返回 "12345.7"：进行四舍五入
+    numObj.toFixed(6);        // 返回 "12345.678900"：用0填充
+    (1.23e+20).toFixed(2);    // 返回 "123000000000000000000.00"
+    (1.23e-10).toFixed(2);    // 返回 "0.00"
+    2.34.toFixed(1);          // 返回 "2.3"
+    -2.34.toFixed(1);         // 返回 -2.3 （由于操作符优先级，负数不会返回字符串）
+    (-2.34).toFixed(1);       // 返回 "-2.3" （若用括号提高优先级，则返回字符串）
+    //加法
+    function accAdd(arg1,arg2){
+        var r1,r2,m;
+        try{
+            r1=arg1.toString().split(".")[1].length  //变量不需要加括号
+        }catch(e){
+            r1=0
+            //console.log(r1)  //当参数为整数的时候执行这一步
+        }
+        try{
+            r2=arg2.toString().split(".")[1].length
+        }catch(e){
+            r2=0
+        }
+        m=Math.pow(10,Math.max(r1,r2))
+        return (arg1*m+arg2*m)/m  //先转成整数进行相加，再将整数转成小数
+    }
+    //给Number类型增加一个add方法，调用起来更加方便。
+    Number.prototype.add = function (arg){
+        //console.log(this); //Number {2},包装类对象
+        return accAdd(arg,this);
+    }
+    //用小括号将要转换的目标括起来
+    var res1=(0.1).add(0.4);
+    var res1=(3).add(4);
+    console.log(res1)
+
+    //减法
+    function accSub(arg1,arg2){
+        var r1,r2,m,n;
+        try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0}
+        try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0}
+        m=Math.pow(10,Math.max(r1,r2));
+        //动态控制精度长度
+       //n=(r1>=r2)?r1:r2;
+        //return ((arg1*m-arg2*m)/m).toFixed(n);
+        return ((arg1*m-arg2*m)/m)
+    }
+    Number.prototype.sub = function (arg){
+        //console.log(this); //Number {2},包装类对象
+        return accSub(this,arg);
+    }
+    //用小括号将要转换的目标括起来
+    var res2=(5.13).sub(2.445);
+    //var res2=(3).sub(4);
+    console.log(res2)
+
+  /*  console.log(typeof 2)
+    console.log((17).toString());  //17加上括号，输出 '17'*/
+</script>
+</body>
+</html>

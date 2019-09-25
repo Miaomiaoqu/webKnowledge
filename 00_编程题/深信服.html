@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //var str=readline()
+ /*   function find(str){
+        var len=str.length;
+        if(len>3&&len<=6){
+            var newStr=(parseInt(str)/1000).toFixed(2)+""
+            return newStr.replace(/(0+)/g,"")+" Kbps"
+        }else if(len>6&&len<=9){
+            var newStr=(parseInt(str)/1000/1000).toFixed(2)+""
+            return newStr.replace(/(0+)/g,"")+" Mbps"
+        }else if(len>9&&len<=12){
+            var newStr=(parseInt(str)/1000/1000/1000).toFixed(2)+""
+            return newStr.replace(/(0+)/g,"")+" Gbps"
+        }else if(len>12&&len<=15){
+            var newStr=(parseInt(str)/1000/1000/1000).toFixed(2)+""
+            return newStr.replace(/(0+)/g,"")+" Tbps"
+        }else{
+            return str+" bps"
+        }
+    }
+console.log(find("1234567"))*/
+    var second="q";
+    var str="http://www.google.com/?q=sangfor"
+    var reg=new RegExp(second+'=','g');
+    var bool=reg.test(str)
+     console.log(bool)
+</script>
+</body>
+</html>

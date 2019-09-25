@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function solution(n, m) {
+        var list=[];
+        for(var i=1;i<=n;i++){
+            list.push(i)
+        }
+        //console.log(list)
+        var res=[],num=0;
+        while(list.length>0){
+            var len=list.length;
+            var outNum=0
+            for(var j=0;j<len;j++){
+                num++
+                if(num===m){
+                    num=0
+                    res.push(list[j-outNum]);
+                    list.splice(j-outNum,1)
+                    outNum++
+                }
+            }
+        }
+        return res.join(" ")
+    }
+    var n=6
+    var m=3
+    console.log(solution(n, m));
+</script>
+</body>
+</html>

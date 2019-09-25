@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function printMatrix(matrix)
+    {
+        // write code here
+        //不一定就是m*m矩阵，可能是m*n
+        //首先在while里将矩阵输出到只剩下一行或者一列或者一个元素。
+        //[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+        var row=matrix.length;
+        var col=matrix[0].length;
+        var res=[];
+        if(row==0||col==0){
+            return res;
+        }
+        var left=0,
+            top=0,
+            right=col-1,
+            bottom=row-1;
+        while(left<=right&&top<=bottom){//left=right:仅一列，top=bottom:仅一行，left=right&&top=bottom：进一个元素
+            for(var i=left;i<=right;i++)//从左往右
+                res.push(matrix[top][i]);
+            for(var i=top+1;i<=bottom;i++)//从上到下
+                res.push(matrix[i][right]);
+            if(top!=bottom)
+                for(var i=right-1;i>=left;i--)//从右到左
+                    res.push(matrix[bottom][i])
+            if(left!=right)
+                for(var i=bottom-1;i>top;i--)//从下到上
+                    res.push(matrix[i][left]);
+            left++,top++,right--,bottom--;
+        }
+        return res.join(",");
+    }
+    var arr="[[1, 2, 3, 4],[5, 6, 7, 8],[9, 10, 11, 12],[13, 14, 15, 16]]"
+    console.log(printMatrix(JSON.parse(arr)))
+
+</script>
+</body>
+</html>

@@ -27,14 +27,12 @@
        e = e || window.event;
        var mbl = e.clientX - boll.offsetLeft;
        var mbt = e.clientY - boll.offsetTop;
-       var that = this;
+       var that = this;//绑定的DOM元素
      //为document绑定一个onmousemove事件
     document.onmousemove = function(e){//鼠标是在页面中移动的，鼠标移动，根据鼠标位置改变boll的位置
            e = e || window.event;
-           var bl = e.clientX - mbl;
-           var bt = e.clientY - mbt;
-           that.style.left = bl + "px";
-           that.style.top = bt + "px";
+           that.style.left = e.clientX - mbl + "px";
+           that.style.top = e.clientY - mbt+ "px";
        }
      //为document绑定一个onmouseup事件（为boll绑定也可以）
     document.onmouseup = function(){

@@ -35,7 +35,6 @@
              }
              foo(); //window
        //1.2被嵌套的函数独立调用时，this默认绑定到window
-          //虽然test()函数被嵌套在obj.foo()函数中，但test()函数是独立调用，而不是方法调用。所以this默认绑定到window
              var m = 0;
              var obj = {
                  m : 2,
@@ -43,7 +42,7 @@
                      function test(){
                          console.log(this.m);
                      }
-                     test();
+                     test(); //虽然test()函数被嵌套在obj.foo()函数中，但test()函数是独立调用，而不是方法调用。所以this默认绑定到window
                  }
              }
              obj.foo();//0,this:window

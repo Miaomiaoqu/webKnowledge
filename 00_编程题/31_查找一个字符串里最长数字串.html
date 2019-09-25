@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   // 查找一个字符串里最长数字串
+    function find(str){
+        var max=0,obj={},list=[],res=[];
+        for(var i=0;i<str.length;i++){
+            for(var j=i+1;j<=str.length;j++){
+                var childStr=str.slice(i,j);
+                flag=true;
+               for(var m=0;m<childStr.length;m++){
+                   if(childStr[m]<"0"||childStr[m]>"9"){//若含有不是数字的，则不放入对象中
+                       flag=false
+                   }
+               }
+               if(flag){
+                   obj[childStr]=childStr.length; //{数字串：串长}
+                   list.push(childStr.length)     //将所有数字串的长度放在一个数组中
+               }
+            }
+        }
+        //console.log(obj)
+        //console.log(list)
+         list.sort((a,b)=>b-a)
+         var maxLen=list[0]
+         for(var item in obj){
+             if(obj[item]===maxLen){
+                 res.push(item)
+             }
+         }
+         return res
+    }
+   var str="1a12ab123abc1234abcd12345abcde123456abcdef789012";
+    console.log(find(str))
+
+
+   //利用正则匹配找出数字
+   function find2(str){
+       var numList=str.match(/\d+/ig)
+       console.log(numList)
+       numList.sort((a,b)=>b.length-a.length)  //按照字符串的长度对数组排序
+       console.log(numList)
+       var res=[];
+       res.push(numList[0])
+       for(var i=1;i<numList.length;i++){
+           if(numList[i].length==numList[0].length){
+               res.push(numList[i])
+           }
+       }
+       return res
+   }
+   var str2="145a1267ab14573abc123124abcd12345abcde123456abcdef789012";
+   console.log(find2(str2))
+</script>
+</body>
+</html>
